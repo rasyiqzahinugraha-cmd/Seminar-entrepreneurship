@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seminar Entrepreneurship — Mulai Bisnis Anda</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #122240;
+    --blue: #1a56db;
+    --blue-light: #3b82f6;
+    --blue-pale: #eff6ff;
+    --blue-muted: #dbeafe;
+    --accent: #f59e0b;
+    --accent-light: #fef3c7;
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-400: #94a3b8;
+    --gray-600: #475569;
+    --gray-800: #1e293b;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 4px 24px rgba(10,22,40,0.08);
+    --shadow-lg: 0 12px 48px rgba(10,22,40,0.14);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, h4, .display {
+    font-family: 'Sora', sans-serif;
+    line-height: 1.2;
+  }
+
+  /* ─── NAV ─────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--navy);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .nav-logo span {
+    display: inline-block;
+    width: 34px; height: 34px;
+    background: var(--blue);
+    border-radius: 8px;
+    color: white;
+    font-size: 0.75rem;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--blue); }
+
+  .nav-cta {
+    background: var(--blue);
+    color: white !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+
+  .nav-cta:hover { background: #1446c0 !important; color: white !important; }
+
+  /* ─── HERO ────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 60%, #1a3a6e 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 7rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(245,158,11,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,158,11,0.15);
+    border: 1px solid rgba(245,158,11,0.4);
+    color: #fcd34d;
+    padding: 0.4rem 1.1rem;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #fcd34d;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    color: white;
+    max-width: 820px;
+    margin-bottom: 1.25rem;
+    position: relative;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: #60a5fa;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+    position: relative;
+  }
+
+  .hero-buttons {
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  .btn-primary {
+    background: var(--blue-light);
+    color: white;
+    padding: 0.9rem 2.2rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Sora', sans-serif;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 20px rgba(59,130,246,0.4);
+  }
+
+  .btn-primary:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(59,130,246,0.5); }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    padding: 0.9rem 2.2rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: background 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+
+  .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+
+  .hero-stats {
+    display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center;
+    position: relative;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    display: block;
+    font-family: 'Sora', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-num span { color: #60a5fa; }
+
+  .stat-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+
+  /* ─── SECTION BASE ───────────────────────────────── */
+  section {
+    padding: 5rem 2rem;
+  }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: var(--blue-pale);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 560px;
+    line-height: 1.8;
+  }
+
+  .section-head {
+    margin-bottom: 3.5rem;
+  }
+
+  /* ─── PROBLEM ─────────────────────────────────────── */
+  .problem-section { background: var(--gray-50); }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .problem-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .problem-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+
+  .problem-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: #fee2e2;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.3rem;
+  }
+
+  .problem-card h4 { font-family: 'Sora', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.35rem; }
+  .problem-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+  .problem-cta-box {
+    margin-top: 2.5rem;
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 3rem;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+  }
+
+  .problem-cta-box h3 {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 700;
+    max-width: 480px;
+  }
+
+  .problem-cta-box h3 em {
+    font-style: normal;
+    color: #60a5fa;
+  }
+
+  /* ─── BENEFITS ────────────────────────────────────── */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .benefit-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.75rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .benefit-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--blue-light);
+  }
+
+  .benefit-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+
+  .benefit-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--blue-muted);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-card h4 {
+    font-family: 'Sora', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .benefit-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+
+  /* ─── MENTORS ─────────────────────────────────────── */
+  .mentors-section { background: var(--navy); }
+
+  .mentors-section .section-label { color: #93c5fd; background: rgba(147,197,253,0.12); }
+  .mentors-section .section-title { color: white; }
+  .mentors-section .section-subtitle { color: rgba(255,255,255,0.55); }
+
+  .mentors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .mentor-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .mentor-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+
+  .mentor-avatar {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue-light), #6366f1);
+    margin: 0 auto 1rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: white;
+  }
+
+  .mentor-card h4 {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.3rem;
+  }
+
+  .mentor-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+
+  /* ─── AGENDA ──────────────────────────────────────── */
+  .agenda-section { background: var(--gray-50); }
+
+  .agenda-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) { .agenda-wrap { grid-template-columns: 1fr; } }
+
+  .agenda-list { list-style: none; }
+
+  .agenda-item {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .agenda-item:last-child { border-bottom: none; }
+
+  .agenda-time {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--blue);
+    background: var(--blue-pale);
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .agenda-item h5 {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+
+  .agenda-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+  .highlight-box {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    color: white;
+  }
+
+  .highlight-box h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 1.25rem;
+    color: white;
+  }
+
+  .highlight-item {
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+  }
+
+  .check {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(96,165,250,0.2);
+    border: 1px solid rgba(96,165,250,0.4);
+    color: #60a5fa;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-weight: 700;
+  }
+
+  /* ─── PRICING ─────────────────────────────────────── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .price-card {
+    background: white;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    text-align: center;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+
+  .price-card.featured {
+    border-color: var(--blue-light);
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.08);
+  }
+
+  .price-badge {
+    position: absolute;
+    top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--blue-light);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    border-radius: 100px;
+    font-family: 'Sora', sans-serif;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .price-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    font-family: 'Sora', sans-serif;
+  }
+
+  .price-amount {
+    font-family: 'Sora', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .price-amount sup {
+    font-size: 1.2rem;
+    vertical-align: super;
+    font-weight: 600;
+    color: var(--gray-600);
+  }
+
+  .price-note { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.75rem; }
+
+  .price-features { list-style: none; text-align: left; margin-bottom: 2rem; }
+
+  .price-features li {
+    display: flex; gap: 0.6rem; align-items: center;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .price-features li:last-child { border-bottom: none; }
+
+  .price-features li::before {
+    content: '✓';
+    color: var(--blue-light);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .btn-blue {
+    display: block;
+    background: var(--blue-light);
+    color: white;
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-family: 'Sora', sans-serif;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+    text-align: center;
+  }
+
+  .btn-blue:hover { background: #2563eb; transform: translateY(-1px); }
+
+  .btn-outline {
+    display: block;
+    background: transparent;
+    color: var(--blue-light);
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-family: 'Sora', sans-serif;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--blue-light);
+    transition: background 0.2s;
+    text-align: center;
+  }
+
+  .btn-outline:hover { background: var(--blue-pale); }
+
+  /* ─── SCHEDULE ────────────────────────────────────── */
+  .schedule-section { background: var(--gray-50); }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .schedule-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .schedule-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+
+  .schedule-header {
+    background: var(--navy);
+    padding: 1.25rem 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .schedule-city {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: white;
+  }
+
+  .schedule-date-badge {
+    background: rgba(96,165,250,0.2);
+    color: #93c5fd;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    font-family: 'Sora', sans-serif;
+  }
+
+  .schedule-body { padding: 1.5rem; }
+
+  .schedule-info {
+    display: flex; gap: 0.6rem; align-items: flex-start;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
+
+  .schedule-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+
+  .schedule-body a {
+    display: block;
+    margin-top: 1.25rem;
+    background: var(--blue-light);
+    color: white;
+    text-align: center;
+    padding: 0.7rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: 'Sora', sans-serif;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .schedule-body a:hover { background: #2563eb; }
+
+  /* ─── TESTIMONIALS ────────────────────────────────── */
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .testi-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: box-shadow 0.2s;
+  }
+
+  .testi-card:hover { box-shadow: var(--shadow); }
+
+  .testi-stars {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .testi-text {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  .testi-author {
+    display: flex; gap: 0.75rem; align-items: center;
+  }
+
+  .testi-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--blue-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  .testi-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .testi-role { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* ─── CTA SECTION ─────────────────────────────────── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--blue-light) 0%, #4f46e5 100%);
+    text-align: center;
+    padding: 6rem 2rem;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-white {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: white;
+    color: var(--blue-light);
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius);
+    font-size: 1.05rem;
+    font-weight: 800;
+    font-family: 'Sora', sans-serif;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+  /* ─── FOOTER ──────────────────────────────────────── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.875rem;
+  }
+
+  footer strong { color: rgba(255,255,255,0.8); }
+
+  /* ─── UTILITIES ───────────────────────────────────── */
+  .text-center { text-align: center; }
+
+  @media (max-width: 640px) {
+    nav .nav-links { display: none; }
+    .problem-cta-box { text-align: center; }
+    .agenda-wrap { grid-template-columns: 1fr; }
+  }
+
+  /* scroll animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span>SE</span>
+    Seminar Entrepreneurship
+  </a>
+  <ul class="nav-links">
+    <li><a href="#masalah">Masalah Anda</a></li>
+    <li><a href="#manfaat">Manfaat</a></li>
+    <li><a href="#mentor">Mentor</a></li>
+    <li><a href="#investasi">Investasi</a></li>
+    <li><a href="#jadwal" class="nav-cta">Daftar Sekarang</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-badge">Batch Baru Segera Dibuka</div>
+  <h1>Ubah Mindset Anda.<br>Mulai Bisnis Anda. <em>Sekarang.</em></h1>
+  <p class="hero-sub">
+    Seminar intensif yang membekali Anda dengan entrepreneurial mindset &amp; skillset nyata — dari nol hingga siap menjalankan bisnis pertama Anda.
+  </p>
+  <div class="hero-buttons">
+    <a href="#jadwal" class="btn-primary">
+      Daftar Sekarang &rarr;
+    </a>
+    <a href="#manfaat" class="btn-secondary">
+      Lihat Program
+    </a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">500<span>+</span></span>
+      <span class="stat-label">Alumni</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">15<span>+</span></span>
+      <span class="stat-label">Mentor Aktif</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">10<span>+</span></span>
+      <span class="stat-label">Kota</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem-section" id="masalah">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="section-label">Masalah Anda</span>
+      <h2 class="section-title">Banyak yang Ingin Berbisnis,<br>Tapi Tidak Tahu Mulai dari Mana</h2>
+      <p class="section-subtitle">Apakah Anda pernah merasakan salah satu dari ini?</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card fade-up">
+        <div class="problem-icon">😰</div>
+        <div>
+          <h4>Takut Gagal</h4>
+          <p>Punya ide bisnis, tapi takut mengambil langkah pertama karena tidak yakin akan berhasil.</p>
+        </div>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">🤯</div>
+        <div>
+          <h4>Bingung Mulai dari Mana</h4>
+          <p>Tidak tahu harus memulai dari mana, modal, produk, atau mencari pelanggan lebih dulu.</p>
+        </div>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">🔄</div>
+        <div>
+          <h4>Trial &amp; Error Sendiri</h4>
+          <p>Sudah mencoba beberapa kali tapi terus gagal karena tidak punya panduan dan mentor yang tepat.</p>
+        </div>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">😟</div>
+        <div>
+          <h4>Tidak Punya Lingkaran yang Tepat</h4>
+          <p>Orang-orang sekitar tidak mendukung atau tidak paham dunia entrepreneurship.</p>
+        </div>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">📉</div>
+        <div>
+          <h4>Mindset Masih Karyawan</h4>
+          <p>Secara tidak sadar masih berpikir seperti karyawan padahal ingin jadi pengusaha sukses.</p>
+        </div>
+      </div>
+      <div class="problem-card fade-up">
+        <div class="problem-icon">⏳</div>
+        <div>
+          <h4>Nunggu "Waktu yang Tepat"</h4>
+          <p>Selalu menunda karena menunggu kondisi sempurna yang tidak pernah benar-benar datang.</p>
+        </div>
+      </div>
+    </div>
+    <div class="problem-cta-box fade-up">
+      <h3>Masalahnya bukan Anda tidak mampu — masalahnya Anda belum punya <em>sistem & ekosistem</em> yang tepat.</h3>
+      <a href="#manfaat" class="btn-primary">Lihat Solusinya &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="manfaat">
+  <div class="container">
+    <div class="section-head text-center fade-up">
+      <span class="section-label">Yang Akan Anda Dapatkan</span>
+      <h2 class="section-title">Bukan Sekadar Seminar Biasa</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">Kami membekali Anda dengan apa yang benar-benar dibutuhkan untuk memulai dan menjalankan bisnis.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card fade-up">
+        <div class="benefit-num">01</div>
+        <h4>Entrepreneurial Mindset</h4>
+        <p>Transformasi cara pikir dari mindset karyawan ke mindset pengusaha yang siap menghadapi ketidakpastian.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-num">02</div>
+        <h4>Business Skillset Praktis</h4>
+        <p>Skill nyata: validasi ide, mencari modal awal, membangun produk MVP, dan mendapatkan pelanggan pertama.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-num">03</div>
+        <h4>Mentoring Langsung</h4>
+        <p>Sesi tanya-jawab dan diskusi langsung dengan mentor yang sudah terbukti membangun bisnis sukses.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-num">04</div>
+        <h4>Networking Pengusaha</h4>
+        <p>Bertemu dan terhubung dengan sesama calon pengusaha dan alumni yang bisa menjadi partner bisnis Anda.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-num">05</div>
+        <h4>Action Plan Personal</h4>
+        <p>Pulang dengan roadmap bisnis yang sudah disesuaikan dengan kondisi, kemampuan, dan tujuan Anda.</p>
+      </div>
+      <div class="benefit-card fade-up">
+        <div class="benefit-num">06</div>
+        <h4>Akses Komunitas</h4>
+        <p>Bergabung ke ekosistem pengusaha yang aktif untuk support jangka panjang setelah seminar selesai.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="agenda-section" id="agenda">
+  <div class="container">
+    <div class="agenda-wrap">
+      <div>
+        <div class="section-head fade-up">
+          <span class="section-label">Agenda</span>
+          <h2 class="section-title">Apa yang Akan Terjadi di Seminar?</h2>
+          <p class="section-subtitle">Satu hari penuh transformasi yang terstruktur dan terbukti efektif.</p>
+        </div>
+        <ul class="agenda-list fade-up">
+          <li class="agenda-item">
+            <span class="agenda-time">08.00 – 08.30</span>
+            <div>
+              <h5>Registrasi &amp; Networking</h5>
+              <p>Check-in peserta dan sesi perkenalan awal antar peserta</p>
+            </div>
+          </li>
+          <li class="agenda-item">
+            <span class="agenda-time">08.30 – 10.00</span>
+            <div>
+              <h5>Sesi 1: Entrepreneurial Mindset</h5>
+              <p>Membangun fondasi mental dan cara pikir pengusaha sukses</p>
+            </div>
+          </li>
+          <li class="agenda-item">
+            <span class="agenda-time">10.00 – 12.00</span>
+            <div>
+              <h5>Sesi 2: Business Skillset Dasar</h5>
+              <p>Ide bisnis, validasi pasar, dan strategi memulai dengan modal minim</p>
+            </div>
+          </li>
+          <li class="agenda-item">
+            <span class="agenda-time">12.00 – 13.00</span>
+            <div>
+              <h5>Ishoma &amp; Networking Lunch</h5>
+              <p>Istirahat, makan siang, dan sesi networking informal</p>
+            </div>
+          </li>
+          <li class="agenda-item">
+            <span class="agenda-time">13.00 – 15.30</span>
+            <div>
+              <h5>Sesi 3: Studi Kasus &amp; Mentoring</h5>
+              <p>Belajar dari kasus bisnis nyata dan sesi tanya-jawab dengan mentor</p>
+            </div>
+          </li>
+          <li class="agenda-item">
+            <span class="agenda-time">15.30 – 16.30</span>
+            <div>
+              <h5>Sesi 4: Action Planning</h5>
+              <p>Menyusun rencana bisnis personal &amp; komitmen langkah pertama</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="fade-up">
+        <div class="highlight-box">
+          <h3>Yang Akan Anda Bawa Pulang</h3>
+          <div class="highlight-item">
+            <span class="check">✓</span>
+            <span>Mindset entrepreneur yang kuat dan siap untuk action</span>
+          </div>
+          <div class="highlight-item">
+            <span class="check">✓</span>
+            <span>Framework memulai bisnis dari nol yang terbukti</span>
+          </div>
+          <div class="highlight-item">
+            <span class="check">✓</span>
+            <span>Action plan bisnis personal yang siap dieksekusi</span>
+          </div>
+          <div class="highlight-item">
+            <span class="check">✓</span>
+            <span>Koneksi dengan peserta lain yang bisa jadi partner</span>
+          </div>
+          <div class="highlight-item">
+            <span class="check">✓</span>
+            <span>Akses ke grup komunitas alumni eksklusif</span>
+          </div>
+          <div class="highlight-item">
+            <span class="check">✓</span>
+            <span>Modul &amp; materi seminar digital untuk direview ulang</span>
+          </div>
+          <div class="highlight-item">
+            <span class="check">✓</span>
+            <span>Kesempatan konsultasi 1-on-1 dengan mentor (untuk pendaftar awal)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENTORS -->
+<section class="mentors-section" id="mentor">
+  <div class="container">
+    <div class="section-head text-center fade-up">
+      <span class="section-label">Mentor &amp; Pemateri</span>
+      <h2 class="section-title">Belajar dari Praktisi, Bukan Teori</h2>
+      <p class="section-subtitle" style="margin: 0 auto; color: rgba(255,255,255,0.55);">Para mentor kami adalah pengusaha aktif yang sudah terbukti membangun bisnis nyata.</p>
+    </div>
+    <div class="mentors-grid fade-up">
+      <div class="mentor-card">
+        <div class="mentor-avatar">AN</div>
+        <h4>Ahmad Nurfauzi</h4>
+        <p>Serial Entrepreneur &amp; Business Coach</p>
+      </div>
+      <div class="mentor-card">
+        <div class="mentor-avatar" style="background: linear-gradient(135deg, #10b981, #0d9488);">SR</div>
+        <h4>Sari Ramadhani</h4>
+        <p>Founder StartupID, Digital Business</p>
+      </div>
+      <div class="mentor-card">
+        <div class="mentor-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">BH</div>
+        <h4>Budi Hartono</h4>
+        <p>CEO Retail Chain, 200+ Outlet</p>
+      </div>
+      <div class="mentor-card">
+        <div class="mentor-avatar" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">DW</div>
+        <h4>Dewi Wulandari</h4>
+        <p>Entrepreneur &amp; Financial Strategist</p>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 2rem; color: rgba(255,255,255,0.4); font-size: 0.85rem;">+ Mentor tamu spesial di setiap kota</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimoni">
+  <div class="container">
+    <div class="section-head text-center fade-up">
+      <span class="section-label">Testimoni</span>
+      <h2 class="section-title">Kata Mereka yang Sudah Ikut</h2>
+    </div>
+    <div class="testi-grid fade-up">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Setelah ikut seminar ini, dalam 2 bulan saya berhasil launching bisnis kuliner pertama saya. Mindset-nya benar-benar berubah total!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RA</div>
+          <div>
+            <div class="testi-name">Rizky Andika</div>
+            <div class="testi-role">Owner Warung Kopi Andika, Lampung</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Saya sudah 3 tahun ingin bisnis tapi selalu nunda. Seminar ini yang akhirnya bikin saya action. Materi praktis dan mentornya sangat helpful."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: #fef3c7; color: #92400e;">NF</div>
+          <div>
+            <div class="testi-name">Nur Fatimah</div>
+            <div class="testi-role">Founder Butik NF, Bandarlampung</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Yang paling berkesan adalah action plan-nya. Bukan sekadar teori, tapi langsung bikin rencana konkret yang bisa saya jalankan keesokan harinya."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: #f0fdf4; color: #166534;">YP</div>
+          <div>
+            <div class="testi-name">Yudi Pratama</div>
+            <div class="testi-role">Co-Founder CV Maju Bersama</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="investasi">
+  <div class="container">
+    <div class="section-head text-center fade-up">
+      <span class="section-label">Investasi</span>
+      <h2 class="section-title">Harga yang Sangat Terjangkau</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">Investasi terbaik adalah pada diri sendiri. Daftar sebelum kehabisan kursi!</p>
+    </div>
+    <div class="pricing-grid fade-up">
+      <div class="price-card">
+        <div class="price-label">Tiket Reguler</div>
+        <div class="price-amount"><sup>Rp</sup>150.000</div>
+        <p class="price-note">per orang</p>
+        <ul class="price-features">
+          <li>Akses seminar full-day</li>
+          <li>Materi &amp; modul digital</li>
+          <li>Networking session</li>
+          <li>Makan siang &amp; snack</li>
+          <li>Akses grup alumni</li>
+        </ul>
+        <a href="https://wa.me/6285190681125" class="btn-outline">Daftar Sekarang</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">⭐ Paling Hemat</div>
+        <div class="price-label">Tiket Berdua</div>
+        <div class="price-amount"><sup>Rp</sup>200.000</div>
+        <p class="price-note">untuk 2 orang (hemat Rp100.000)</p>
+        <ul class="price-features">
+          <li>Semua benefit tiket reguler</li>
+          <li>Hemat Rp50.000/orang</li>
+          <li>Cocok ajak partner bisnis</li>
+          <li>Konsultasi 1-on-1 (early)</li>
+          <li>Priority seat</li>
+        </ul>
+        <a href="https://wa.me/6285190681125" class="btn-blue">Daftar Berdua</a>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
+      🔥 Konsultasi 1-on-1 GRATIS untuk 20 pendaftar pertama di setiap kota
+    </p>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section" id="jadwal">
+  <div class="container">
+    <div class="section-head text-center fade-up">
+      <span class="section-label">Jadwal Terdekat</span>
+      <h2 class="section-title">Pilih Kota Anda</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">Seminar diadakan di berbagai kota. Kursi terbatas — segera amankan tempat Anda!</p>
+    </div>
+    <div class="schedule-grid fade-up">
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <span class="schedule-city">Bandar Lampung</span>
+          <span class="schedule-date-badge">25 Apr 2026</span>
+        </div>
+        <div class="schedule-body">
+          <div class="schedule-info">
+            <span class="schedule-icon">🕐</span>
+            <span>Sesi 1: 08.30 | Sesi 2: 13.00 | Sesi 3: 18.00</span>
+          </div>
+          <div class="schedule-info">
+            <span class="schedule-icon">📍</span>
+            <span>Hotel Swiss-Belinn, Lampung</span>
+          </div>
+          <a href="https://wa.me/6285190681125?text=Halo, saya mau daftar Seminar Entrepreneurship - Lampung">Daftar Lampung &rarr;</a>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <span class="schedule-city">Jakarta</span>
+          <span class="schedule-date-badge">02 Mei 2026</span>
+        </div>
+        <div class="schedule-body">
+          <div class="schedule-info">
+            <span class="schedule-icon">🕐</span>
+            <span>Sesi 1: 08.30 | Sesi 2: 13.00 | Sesi 3: 18.00</span>
+          </div>
+          <div class="schedule-info">
+            <span class="schedule-icon">📍</span>
+            <span>Hotel Swiss-Belinn Simatupang, Jakarta Selatan</span>
+          </div>
+          <a href="https://wa.me/6285190681125?text=Halo, saya mau daftar Seminar Entrepreneurship - Jakarta">Daftar Jakarta &rarr;</a>
+        </div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <span class="schedule-city">Bandung</span>
+          <span class="schedule-date-badge">12 Mei 2026</span>
+        </div>
+        <div class="schedule-body">
+          <div class="schedule-info">
+            <span class="schedule-icon">🕐</span>
+            <span>Sesi 1: 08.30 | Sesi 2: 13.00 | Sesi 3: 18.00</span>
+          </div>
+          <div class="schedule-info">
+            <span class="schedule-icon">📍</span>
+            <span>Hotel Novotel, Bandung</span>
+          </div>
+          <a href="https://wa.me/6285190681125?text=Halo, saya mau daftar Seminar Entrepreneurship - Bandung">Daftar Bandung &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="fade-up">Siap Mulai Perjalanan<br>Bisnis Anda?</h2>
+    <p class="fade-up">Jangan tunggu kondisi sempurna. Mulailah sekarang dengan langkah pertama yang tepat.</p>
+    <a href="https://wa.me/6285190681125" class="btn-white fade-up">
+      Hubungi Kami via WhatsApp &rarr;
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Seminar Entrepreneurship</strong> &nbsp;|&nbsp; Helping Personal Gets Entrepreneur Mindset &amp; Skillset</p>
+  <p style="margin-top: 0.5rem;">© 2026 Seminar Entrepreneurship. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
