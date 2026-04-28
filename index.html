@@ -3,1068 +3,380 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bisa Academy — Mulai Bisnis Anda</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<title>Entrepreneurship Masterclass — BISA Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --navy: #0a1628;
-    --navy-mid: #122240;
-    --blue: #1a56db;
-    --blue-light: #3b82f6;
-    --blue-pale: #eff6ff;
-    --blue-muted: #dbeafe;
-    --accent: #f59e0b;
-    --accent-light: #fef3c7;
-    --white: #ffffff;
-    --gray-50: #f8fafc;
-    --gray-100: #f1f5f9;
-    --gray-200: #e2e8f0;
-    --gray-400: #94a3b8;
-    --gray-600: #475569;
-    --gray-800: #1e293b;
-    --text: #0f172a;
-    --text-muted: #64748b;
-    --radius: 12px;
-    --radius-lg: 20px;
-    --shadow: 0 4px 24px rgba(10,22,40,0.08);
-    --shadow-lg: 0 12px 48px rgba(10,22,40,0.14);
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    background: var(--white);
-    line-height: 1.7;
-    font-size: 16px;
-  }
-
-  h1, h2, h3, h4, .display {
-    font-family: 'Sora', sans-serif;
-    line-height: 1.2;
-  }
-
-  /* ─── NAV ─────────────────────────────────────────── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--gray-200);
-    padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 68px;
-  }
-
-  .nav-logo {
-    font-family: 'Sora', sans-serif;
-    font-weight: 800;
-    font-size: 1.1rem;
-    color: var(--navy);
-    text-decoration: none;
-    display: flex; align-items: center; gap: 10px;
-  }
-
-  .nav-logo span {
-    display: inline-block;
-    width: 34px; height: 34px;
-    background: var(--blue);
-    border-radius: 8px;
-    color: white;
-    font-size: 0.75rem;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-  }
-
-  .nav-links {
-    display: flex; gap: 2rem; list-style: none;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--gray-600);
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--blue); }
-
-  .nav-cta {
-    background: var(--blue);
-    color: white !important;
-    padding: 0.55rem 1.4rem;
-    border-radius: 8px;
-    font-weight: 600 !important;
-    font-size: 0.875rem !important;
-    transition: background 0.2s, transform 0.15s !important;
-  }
-
-  .nav-cta:hover { background: #1446c0 !important; color: white !important; }
-
-  /* ─── HERO ────────────────────────────────────────── */
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 60%, #1a3a6e 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center;
-    padding: 7rem 2rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background-image: radial-gradient(circle at 20% 50%, rgba(59,130,246,0.15) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(245,158,11,0.08) 0%, transparent 40%);
-    pointer-events: none;
-  }
-
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(245,158,11,0.15);
-    border: 1px solid rgba(245,158,11,0.4);
-    color: #fcd34d;
-    padding: 0.4rem 1.1rem;
-    border-radius: 100px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    position: relative;
-  }
-
-  .hero-badge::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #fcd34d;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-
-  .hero h1 {
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 800;
-    color: white;
-    max-width: 820px;
-    margin-bottom: 1.25rem;
-    position: relative;
-    letter-spacing: -0.02em;
-  }
-
-  .hero h1 em {
-    font-style: normal;
-    color: #60a5fa;
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.7);
-    max-width: 580px;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-    line-height: 1.8;
-    position: relative;
-  }
-
-  .hero-buttons {
-    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-    margin-bottom: 4rem;
-    position: relative;
-  }
-
-  .btn-primary {
-    background: var(--blue-light);
-    color: white;
-    padding: 0.9rem 2.2rem;
-    border-radius: var(--radius);
-    font-size: 1rem;
-    font-weight: 700;
-    font-family: 'Sora', sans-serif;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    display: inline-flex; align-items: center; gap: 8px;
-    box-shadow: 0 4px 20px rgba(59,130,246,0.4);
-  }
-
-  .btn-primary:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(59,130,246,0.5); }
-
-  .btn-secondary {
-    background: rgba(255,255,255,0.1);
-    color: white;
-    padding: 0.9rem 2.2rem;
-    border-radius: var(--radius);
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.25);
-    transition: background 0.2s;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-
-  .btn-secondary:hover { background: rgba(255,255,255,0.18); }
-
-  .hero-stats {
-    display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center;
-    position: relative;
-    padding-top: 3rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    width: 100%;
-    max-width: 600px;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-num {
-    display: block;
-    font-family: 'Sora', sans-serif;
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: white;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-
-  .stat-num span { color: #60a5fa; }
-
-  .stat-label {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-weight: 500;
-  }
-
-  /* ─── SECTION BASE ───────────────────────────────── */
-  section {
-    padding: 5rem 2rem;
-  }
-
-  .container {
-    max-width: 1080px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    display: inline-block;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--blue);
-    background: var(--blue-pale);
-    padding: 0.35rem 1rem;
-    border-radius: 100px;
-    margin-bottom: 1rem;
-  }
-
-  .section-title {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-  }
-
-  .section-subtitle {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    max-width: 560px;
-    line-height: 1.8;
-  }
-
-  .section-head {
-    margin-bottom: 3.5rem;
-  }
-
-  /* ─── PROBLEM ─────────────────────────────────────── */
-  .problem-section { background: var(--gray-50); }
-
-  .problem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .problem-card {
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    padding: 1.75rem;
-    display: flex; gap: 1rem; align-items: flex-start;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-
-  .problem-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-
-  .problem-icon {
-    width: 44px; height: 44px; border-radius: 10px;
-    background: #fee2e2;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    font-size: 1.3rem;
-  }
-
-  .problem-card h4 { font-family: 'Sora', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.35rem; }
-  .problem-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
-
-  .problem-cta-box {
-    margin-top: 2.5rem;
-    background: var(--navy);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem 3rem;
-    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
-  }
-
-  .problem-cta-box h3 {
-    font-size: 1.5rem;
-    color: white;
-    font-weight: 700;
-    max-width: 480px;
-  }
-
-  .problem-cta-box h3 em {
-    font-style: normal;
-    color: #60a5fa;
-  }
-
-  /* ─── BENEFITS ────────────────────────────────────── */
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .benefit-card {
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    padding: 2rem 1.75rem;
-    transition: box-shadow 0.2s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .benefit-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--blue-light);
-  }
-
-  .benefit-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-
-  .benefit-num {
-    font-family: 'Sora', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--blue-muted);
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-
-  .benefit-card h4 {
-    font-family: 'Sora', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.5rem;
-  }
-
-  .benefit-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
-
-  /* ─── MENTORS ─────────────────────────────────────── */
-  .mentors-section { background: var(--navy); }
-
-  .mentors-section .section-label { color: #93c5fd; background: rgba(147,197,253,0.12); }
-  .mentors-section .section-title { color: white; }
-  .mentors-section .section-subtitle { color: rgba(255,255,255,0.55); }
-
-  .mentors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .mentor-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--radius-lg);
-    padding: 1.75rem 1.5rem;
-    text-align: center;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .mentor-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
-
-  .mentor-avatar {
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--blue-light), #6366f1);
-    margin: 0 auto 1rem;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Sora', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: white;
-  }
-
-  .mentor-card h4 {
-    font-family: 'Sora', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.3rem;
-  }
-
-  .mentor-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
-
-  /* ─── AGENDA ──────────────────────────────────────── */
-  .agenda-section { background: var(--gray-50); }
-
-  .agenda-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  @media (max-width: 768px) { .agenda-wrap { grid-template-columns: 1fr; } }
-
-  .agenda-list { list-style: none; }
-
-  .agenda-item {
-    display: flex; gap: 1.25rem; align-items: flex-start;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--gray-200);
-  }
-
-  .agenda-item:last-child { border-bottom: none; }
-
-  .agenda-time {
-    font-family: 'Sora', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--blue);
-    background: var(--blue-pale);
-    padding: 0.3rem 0.7rem;
-    border-radius: 6px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .agenda-item h5 {
-    font-family: 'Sora', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 0.2rem;
-  }
-
-  .agenda-item p { font-size: 0.85rem; color: var(--text-muted); }
-
-  .highlight-box {
-    background: var(--navy);
-    border-radius: var(--radius-lg);
-    padding: 2.25rem;
-    color: white;
-  }
-
-  .highlight-box h3 {
-    font-size: 1.35rem;
-    font-weight: 800;
-    margin-bottom: 1.25rem;
-    color: white;
-  }
-
-  .highlight-item {
-    display: flex; gap: 0.75rem; align-items: flex-start;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.6;
-  }
-
-  .check {
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    background: rgba(96,165,250,0.2);
-    border: 1px solid rgba(96,165,250,0.4);
-    color: #60a5fa;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 0.7rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-    font-weight: 700;
-  }
-
-  /* ─── PRICING ─────────────────────────────────────── */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 780px;
-    margin: 0 auto;
-  }
-
-  .price-card {
-    background: white;
-    border: 1.5px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    padding: 2.25rem;
-    text-align: center;
-    position: relative;
-    transition: box-shadow 0.2s;
-  }
-
-  .price-card.featured {
-    border-color: var(--blue-light);
-    box-shadow: 0 0 0 4px rgba(59,130,246,0.08);
-  }
-
-  .price-badge {
-    position: absolute;
-    top: -14px; left: 50%; transform: translateX(-50%);
-    background: var(--blue-light);
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.3rem 1rem;
-    border-radius: 100px;
-    font-family: 'Sora', sans-serif;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
-
-  .price-label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.75rem;
-    font-family: 'Sora', sans-serif;
-  }
-
-  .price-amount {
-    font-family: 'Sora', sans-serif;
-    font-size: 2.8rem;
-    font-weight: 800;
-    color: var(--navy);
-    line-height: 1;
-    margin-bottom: 0.4rem;
-  }
-
-  .price-amount sup {
-    font-size: 1.2rem;
-    vertical-align: super;
-    font-weight: 600;
-    color: var(--gray-600);
-  }
-
-  .price-note { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.75rem; }
-
-  .price-features { list-style: none; text-align: left; margin-bottom: 2rem; }
-
-  .price-features li {
-    display: flex; gap: 0.6rem; align-items: center;
-    padding: 0.5rem 0;
-    font-size: 0.9rem;
-    color: var(--gray-600);
-    border-bottom: 1px solid var(--gray-100);
-  }
-
-  .price-features li:last-child { border-bottom: none; }
-
-  .price-features li::before {
-    content: '✓';
-    color: var(--blue-light);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .btn-blue {
-    display: block;
-    background: var(--blue-light);
-    color: white;
-    padding: 0.85rem 1.5rem;
-    border-radius: var(--radius);
-    font-weight: 700;
-    font-family: 'Sora', sans-serif;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: background 0.2s, transform 0.15s;
-    text-align: center;
-  }
-
-  .btn-blue:hover { background: #2563eb; transform: translateY(-1px); }
-
-  .btn-outline {
-    display: block;
-    background: transparent;
-    color: var(--blue-light);
-    padding: 0.85rem 1.5rem;
-    border-radius: var(--radius);
-    font-weight: 700;
-    font-family: 'Sora', sans-serif;
-    text-decoration: none;
-    font-size: 0.95rem;
-    border: 1.5px solid var(--blue-light);
-    transition: background 0.2s;
-    text-align: center;
-  }
-
-  .btn-outline:hover { background: var(--blue-pale); }
-
-  /* ─── SCHEDULE ────────────────────────────────────── */
-  .schedule-section { background: var(--gray-50); }
-
-  .schedule-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .schedule-card {
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-
-  .schedule-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-
-  .schedule-header {
-    background: var(--navy);
-    padding: 1.25rem 1.5rem;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-
-  .schedule-city {
-    font-family: 'Sora', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 800;
-    color: white;
-  }
-
-  .schedule-date-badge {
-    background: rgba(96,165,250,0.2);
-    color: #93c5fd;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.3rem 0.75rem;
-    border-radius: 100px;
-    font-family: 'Sora', sans-serif;
-  }
-
-  .schedule-body { padding: 1.5rem; }
-
-  .schedule-info {
-    display: flex; gap: 0.6rem; align-items: flex-start;
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    margin-bottom: 0.6rem;
-    line-height: 1.5;
-  }
-
-  .schedule-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
-
-  .schedule-body a {
-    display: block;
-    margin-top: 1.25rem;
-    background: var(--blue-light);
-    color: white;
-    text-align: center;
-    padding: 0.7rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    font-family: 'Sora', sans-serif;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .schedule-body a:hover { background: #2563eb; }
-
-  /* ─── TESTIMONIALS ────────────────────────────────── */
-  .testi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .testi-card {
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    transition: box-shadow 0.2s;
-  }
-
-  .testi-card:hover { box-shadow: var(--shadow); }
-
-  .testi-stars {
-    color: var(--accent);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
-  }
-
-  .testi-text {
-    font-size: 0.95rem;
-    color: var(--gray-600);
-    line-height: 1.75;
-    margin-bottom: 1.25rem;
-    font-style: italic;
-  }
-
-  .testi-author {
-    display: flex; gap: 0.75rem; align-items: center;
-  }
-
-  .testi-avatar {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: var(--blue-pale);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Sora', sans-serif;
-    font-weight: 800;
-    font-size: 0.85rem;
-    color: var(--blue);
-    flex-shrink: 0;
-  }
-
-  .testi-name {
-    font-family: 'Sora', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--navy);
-  }
-
-  .testi-role { font-size: 0.8rem; color: var(--text-muted); }
-
-  /* ─── CTA SECTION ─────────────────────────────────── */
-  .cta-section {
-    background: linear-gradient(135deg, var(--blue-light) 0%, #4f46e5 100%);
-    text-align: center;
-    padding: 6rem 2rem;
-  }
-
-  .cta-section h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    color: white;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-  }
-
-  .cta-section p {
-    font-size: 1.1rem;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 2.5rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .btn-white {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: white;
-    color: var(--blue-light);
-    padding: 1rem 2.5rem;
-    border-radius: var(--radius);
-    font-size: 1.05rem;
-    font-weight: 800;
-    font-family: 'Sora', sans-serif;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  }
-
-  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-
-  /* ─── FOOTER ──────────────────────────────────────── */
-  footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.5);
-    text-align: center;
-    padding: 2.5rem 2rem;
-    font-size: 0.875rem;
-  }
-
-  footer strong { color: rgba(255,255,255,0.8); }
-
-  /* ─── UTILITIES ───────────────────────────────────── */
-  .text-center { text-align: center; }
-
-  @media (max-width: 640px) {
-    nav .nav-links { display: none; }
-    .problem-cta-box { text-align: center; }
-    .agenda-wrap { grid-template-columns: 1fr; }
-  }
-
-  /* scroll animation */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+:root {
+  --bg: #04070f;
+  --bg2: #080d1a;
+  --surface: #0d1526;
+  --surface2: #111d33;
+  --border: rgba(255,255,255,0.06);
+  --border-h: rgba(255,255,255,0.12);
+  --accent: #2563eb;
+  --accent-b: #3b82f6;
+  --accent-soft: rgba(37,99,235,0.1);
+  --accent-glow: rgba(37,99,235,0.3);
+  --gold: #f59e0b;
+  --gold-soft: rgba(245,158,11,0.1);
+  --green: #10b981;
+  --green-soft: rgba(16,185,129,0.1);
+  --text: #eef2ff;
+  --muted: #6b7fa3;
+  --dim: #3a4a66;
+  --r: 14px;
+  --r-sm: 8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(37,99,235,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.03) 1px,transparent 1px);background-size:60px 60px}
+
+.orb{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0}
+.o1{width:700px;height:700px;background:rgba(37,99,235,0.07);top:-200px;right:-150px}
+.o2{width:500px;height:500px;background:rgba(16,185,129,0.04);bottom:0;left:-100px}
+.o3{width:350px;height:350px;background:rgba(245,158,11,0.04);top:50%;right:15%}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(4,7,15,0.75);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.logo-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:14px;color:#fff}
+.logo-text{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;letter-spacing:-.3px}
+.logo-text em{font-style:normal;color:var(--accent-b)}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-btn{background:var(--accent);color:#fff !important;padding:8px 18px;border-radius:8px;font-weight:600 !important;transition:opacity .2s !important}
+.nav-btn:hover{opacity:.85}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(8,13,26,.98);border-bottom:1px solid var(--border);padding:1.5rem 2rem;flex-direction:column;gap:1rem;z-index:999}
+.mob-menu.open{display:flex}
+.mob-menu a{text-decoration:none;color:var(--muted);font-size:15px;padding:.4rem 0}
+.mob-menu .nav-btn{color:#fff !important;text-align:center}
+
+/* HERO */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;padding:120px 2.5rem 80px}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 400px;gap:5rem;align-items:center}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--accent-b);letter-spacing:.5px;margin-bottom:1.5rem}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.hero-title{font-family:'Sora',sans-serif;font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:800;line-height:1.13;letter-spacing:-1.2px;margin-bottom:1.4rem}
+.hero-title .grad{display:block;background:linear-gradient(135deg,var(--accent-b),#60a5fa,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.hero-desc{font-size:1.05rem;color:var(--muted);max-width:500px;line-height:1.75;margin-bottom:2rem}
+
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;padding:13px 26px;border-radius:10px;font-weight:600;font-size:14px;transition:.2s;box-shadow:0 0 40px var(--accent-glow)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 0 60px var(--accent-glow)}
+.btn-s{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);text-decoration:none;padding:13px 26px;border-radius:10px;font-weight:500;font-size:14px;border:1px solid var(--border-h);transition:.2s}
+.btn-s:hover{background:rgba(255,255,255,0.04)}
+
+.hero-trust{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.avatars{display:flex}
+.avatars span{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg);background:linear-gradient(135deg,var(--accent),var(--green));display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-left:-8px}
+.avatars span:first-child{margin-left:0}
+
+/* Hero Card */
+.hero-visual{position:relative}
+.float-pill{position:absolute;top:-16px;right:-16px;background:var(--surface2);border:1px solid var(--border-h);border-radius:100px;padding:8px 16px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px;z-index:2}
+.float-pill .spark{color:var(--gold)}
+.hero-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.hero-card-img{width:100%;height:210px;object-fit:cover;display:block;filter:brightness(.72)}
+.hero-card-body{padding:1.4rem}
+.hc-badge{display:inline-block;background:var(--gold-soft);border:1px solid rgba(245,158,11,.2);color:var(--gold);font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.5px;margin-bottom:10px}
+.hc-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;margin-bottom:6px}
+.hc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--border)}
+.hc-stat-n{font-family:'Sora',sans-serif;font-weight:800;font-size:1.3rem;color:var(--text)}
+.hc-stat-n em{font-style:normal;color:var(--accent-b)}
+.hc-stat-l{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* SECTION */
+section{position:relative;z-index:1}
+.wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem}
+.sec{padding:96px 0}
+
+.s-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-b);margin-bottom:12px}
+.s-label::before{content:'';width:16px;height:2px;background:var(--accent-b);border-radius:2px}
+.s-title{font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;letter-spacing:-.7px;line-height:1.2;margin-bottom:.9rem}
+.s-desc{color:var(--muted);font-size:1rem;max-width:520px;line-height:1.75}
+
+/* PROOF */
+.proof-bg{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;padding:2.5rem 0}
+.proof-stat{text-align:center;padding:1.5rem}
+.proof-n{font-family:'Sora',sans-serif;font-size:2.2rem;font-weight:800;letter-spacing:-1px}
+.proof-n em{font-style:normal;color:var(--accent-b)}
+.proof-l{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* JOURNEY */
+.journey-header{text-align:center;margin-bottom:4rem}
+.journey-header .s-label{justify-content:center}
+.journey-header .s-desc{margin:0 auto}
+
+.batch{margin-bottom:5rem}
+.batch-label{display:flex;align-items:center;gap:16px;margin-bottom:2rem}
+.batch-num{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:18px;color:#fff;flex-shrink:0}
+.bn-blue{background:var(--accent)}
+.bn-gold{background:var(--gold)}
+.bn-green{background:var(--green)}
+.batch-meta h3{font-family:'Sora',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:-.3px}
+.batch-meta p{font-size:13px;color:var(--muted);margin-top:3px}
+
+.cards-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.p-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.3s}
+.p-card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.p-card.featured{border-color:rgba(37,99,235,.3);background:linear-gradient(160deg,rgba(37,99,235,.08),var(--surface))}
+.p-card.featured::after{content:'Paling Diminati';position:absolute;top:16px;right:16px;background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.5px}
+
+.card-tier{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.card-name{font-family:'Sora',sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:.5rem;letter-spacing:-.2px}
+.card-goal{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:1.2rem}
+.card-price{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;color:var(--text);letter-spacing:-.5px;margin-bottom:.3rem}
+.card-price span{font-size:14px;font-weight:500;color:var(--muted)}
+.card-price-note{font-size:12px;color:var(--muted);margin-bottom:1.4rem}
+.card-details{display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;padding:1rem;background:rgba(255,255,255,0.03);border-radius:var(--r-sm)}
+.cd-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.card-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:1.8rem;flex:1}
+.card-features li{font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.5}
+.card-features li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;font-size:12px}
+.card-cta{display:block;text-align:center;text-decoration:none;padding:11px;border-radius:8px;font-weight:600;font-size:14px;transition:.2s}
+.cta-prim{background:var(--accent);color:#fff;box-shadow:0 0 30px rgba(37,99,235,.3)}
+.cta-prim:hover{opacity:.88}
+.cta-out{background:transparent;color:var(--text);border:1px solid var(--border-h)}
+.cta-out:hover{background:rgba(255,255,255,.04)}
+
+/* Wide card rows */
+.cards-row-2{display:grid;grid-template-columns:1.1fr 1fr;gap:1.2rem;align-items:stretch}
+.card-img-side{border-radius:var(--r);overflow:hidden}
+.card-img-side img{width:100%;height:100%;object-fit:cover;filter:brightness(.68);display:block}
+
+/* 6 components */
+.six-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1.4rem 0}
+.six-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.9rem 1rem;display:flex;align-items:flex-start;gap:10px}
+.six-num{font-family:'Sora',sans-serif;font-weight:800;font-size:1.2rem;color:rgba(16,185,129,.2);line-height:1;flex-shrink:0;min-width:26px}
+.six-label{font-size:13px;font-weight:600;color:var(--text)}
+.six-desc{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
+
+.batch-sep{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin-bottom:5rem}
+
+/* FOR WHO */
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.who-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:.3s}
+.who-card:hover{border-color:var(--border-h)}
+.who-icon{font-size:2rem;margin-bottom:1rem}
+.who-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.5rem}
+.who-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.who-tag{display:inline-block;margin-top:1rem;background:var(--accent-soft);border:1px solid rgba(37,99,235,.2);color:var(--accent-b);font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;letter-spacing:.5px}
+
+/* PHOTO SLIDER */
+.slider-wrap{position:relative;overflow:hidden;border-radius:var(--r);cursor:grab;user-select:none}
+.slider-wrap:active{cursor:grabbing}
+.slider-track{display:flex;gap:12px;transition:transform .4s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+.slider-track.no-transition{transition:none}
+.slide{flex:0 0 340px;height:240px;border-radius:var(--r);overflow:hidden;pointer-events:none}
+.slide img{width:100%;height:100%;object-fit:cover;filter:brightness(.72) saturate(.88);display:block;transition:filter .3s}
+.slider-wrap:hover .slide img{filter:brightness(.85) saturate(1)}
+.slider-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.2rem}
+.slider-dots{display:flex;gap:6px}
+.slider-dot{width:6px;height:6px;border-radius:50%;background:var(--dim);transition:.3s;cursor:pointer}
+.slider-dot.active{background:var(--accent-b);width:20px;border-radius:3px}
+.slider-arrows{display:flex;gap:8px}
+.sl-arr{width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:.2s;color:var(--muted)}
+.sl-arr:hover{border-color:var(--border-h);color:var(--text)}
+
+/* TESTI */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.t-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:.3s}
+.t-card:hover{border-color:var(--border-h)}
+.t-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:1rem}
+.t-quote{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:1.2rem;font-style:italic}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.t-name{font-weight:600;font-size:14px}
+.t-role{font-size:12px;color:var(--dim)}
+
+/* CTA BOX */
+.cta-wrap{padding:96px 2.5rem;text-align:center;position:relative;z-index:1}
+.cta-box{max-width:700px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:4rem 3rem;position:relative;overflow:hidden}
+.cta-gl{position:absolute;top:-80px;right:-80px;width:280px;height:280px;background:radial-gradient(circle,rgba(37,99,235,.12),transparent 70%);pointer-events:none}
+.cta-gr{position:absolute;bottom:-60px;left:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(16,185,129,.07),transparent 70%);pointer-events:none}
+.cta-acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:4rem 2.5rem 2rem;position:relative;z-index:1}
+.footer-wrap{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+.footer-brand p{font-size:13px;color:var(--muted);line-height:1.7;margin-top:1rem;max-width:260px}
+.f-socials{display:flex;gap:8px;margin-top:1.2rem}
+.f-soc{width:32px;height:32px;border-radius:7px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;transition:.2s}
+.f-soc:hover{border-color:var(--border-h)}
+.footer-col h4{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:var(--text);letter-spacing:.5px;margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col li a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-col li a:hover{color:var(--text)}
+.f-ci{display:flex;gap:8px;font-size:13px;color:var(--muted);margin-bottom:9px;line-height:1.5}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.8rem;flex-wrap:wrap;gap:.8rem}
+.footer-bottom p{font-size:12px;color:var(--dim)}
+.fb-links{display:flex;gap:1.5rem}
+.fb-links a{font-size:12px;color:var(--dim);text-decoration:none;transition:color .2s}
+.fb-links a:hover{color:var(--muted)}
+
+/* JOURNEY GRAPHIC */
+.journey-graphic{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:center;margin:3rem 0 5rem;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2rem;overflow:hidden;position:relative}
+.journey-graphic::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,99,235,.04),transparent 50%,rgba(16,185,129,.04));pointer-events:none}
+
+.jg-batch{padding:1.5rem;border-radius:14px;position:relative;z-index:1}
+.jg-blue{background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12)}
+.jg-gold{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.12)}
+.jg-green{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.12)}
+
+.jg-batch-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:1.2rem}
+.jg-num{font-family:'Sora',sans-serif;font-weight:800;font-size:2rem;line-height:1;color:var(--accent-b);letter-spacing:-1px}
+.jg-batch-name{font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:3px}
+.jg-batch-sub{font-size:12px;color:var(--muted)}
+
+.jg-tiers{display:flex;flex-direction:column;gap:0}
+.jg-tier{display:flex;align-items:center;gap:10px;padding:8px 0}
+.jg-tier-dot{width:10px;height:10px;border-radius:50%;background:var(--accent-b);flex-shrink:0}
+.jg-d1{background:rgba(37,99,235,.5)}
+.jg-d2{background:rgba(37,99,235,.75)}
+.jg-d3{background:var(--accent-b)}
+.jg-tier-body{display:flex;flex-direction:column;gap:1px}
+.jg-tier-name{font-size:13px;font-weight:600;color:var(--text)}
+.jg-tier-price{font-size:11px;color:var(--muted)}
+.jg-connector{width:1px;height:14px;background:var(--border);margin-left:4px}
+
+.jg-goal{margin-top:1.2rem;font-size:12px;font-weight:600;color:var(--accent-b);padding:6px 12px;border:1px solid rgba(37,99,235,.2);border-radius:100px;display:inline-block}
+
+.jg-arrow{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--dim);font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:0 .5rem}
+.jg-arrow svg{color:var(--dim)}
+
+@media(max-width:900px){
+  .journey-graphic{grid-template-columns:1fr;gap:1rem}
+  .jg-arrow{flex-direction:row;transform:rotate(90deg);margin:-.5rem auto}
+}
+
+/* HARMONIC SYSTEM TIERS */
+.hs-intro{margin-bottom:2.5rem}
+.hs-intro-desc{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:1.5rem;max-width:700px}
+.hs-tier-badge{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.hs-price-table{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);border-radius:10px;padding:.8rem 1rem;margin:.8rem 0 1.2rem;display:flex;flex-direction:column;gap:8px}
+.hs-pt-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.hs-quote{font-size:11px;color:var(--dim);font-style:italic;margin-top:.8rem}
+.hs-addon{display:flex;flex-direction:column;gap:0;margin:.8rem 0}
+.hs-addon-item{padding:.8rem 0}
+.hs-addon-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
+.hs-addon-name{font-size:13px;font-weight:700;color:var(--text)}
+.hs-addon-price{font-size:12px;font-weight:700;color:var(--green);white-space:nowrap}
+.hs-addon-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.hs-addon-list li{font-size:12px;color:var(--muted);padding-left:14px;position:relative}
+.hs-addon-list li::before{content:'·';position:absolute;left:0;color:var(--green)}
+.hs-addon-divider{height:1px;background:var(--border)}
+
+.fu{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.fu.vis{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-visual{display:none}
+  .cards-row{grid-template-columns:1fr}
+  .cards-row-2{grid-template-columns:1fr}
+  .card-img-side{display:none}
+  .six-grid{grid-template-columns:1fr 1fr}
+  .who-grid{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .photo-strip{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .proof-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:600px){
+  .six-grid{grid-template-columns:1fr}
+  .who-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .cta-box{padding:2.5rem 1.5rem}
+}
 </style>
 </head>
 <body>
 
+<div class="grid-bg"></div>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
+
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <span>SE</span>
-    Seminar Entrepreneurship
+  <a href="#" class="logo">
+    <div class="logo-mark">B</div>
+    <span class="logo-text">BISA <em>Academy</em></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#masalah">Masalah Anda</a></li>
-    <li><a href="#manfaat">Manfaat</a></li>
-    <li><a href="#mentor">Mentor</a></li>
-    <li><a href="#investasi">Investasi</a></li>
-    <li><a href="#jadwal" class="nav-cta">Daftar Sekarang</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#for-who">Untuk Siapa</a></li>
+    <li><a href="#testimoni">Testimoni</a></li>
+    <li><a href="#kontak" class="nav-btn">Daftar Sekarang</a></li>
   </ul>
+  <div class="hamburger" onclick="document.getElementById('mn').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
+<div class="mob-menu" id="mn">
+  <a href="#program" onclick="document.getElementById('mn').classList.remove('open')">Program</a>
+  <a href="#for-who" onclick="document.getElementById('mn').classList.remove('open')">Untuk Siapa</a>
+  <a href="#testimoni" onclick="document.getElementById('mn').classList.remove('open')">Testimoni</a>
+  <a href="#kontak" class="nav-btn" onclick="document.getElementById('mn').classList.remove('open')">Daftar Sekarang</a>
+</div>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-badge">Entrepreneurship Mastery Class</div>
-  <h1>Ubah Mindset Lama.<br>Tambah Skillset Baru. <em>Mulai Bisnis Sekarang.</em></h1>
-  <p class="hero-sub">
-    Seminar intensif yang membekali Anda dengan mindset dan &amp; skillset ala entrepreneurs - dari nol hingga siap menjalankan bisnis pertama.
-  </p>
-  <div class="hero-buttons">
-    <a href="#jadwal" class="btn-primary">
-      Daftar Sekarang &rarr;
-    </a>
-    <a href="#manfaat" class="btn-secondary">
-      Lihat Program
-    </a>
-  </div>
-  <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-num">Ratusan<span>+</span></span>
-      <span class="stat-label">Mentee</span>
+<section class="hero">
+  <div class="hero-inner wrap" style="padding-top:0;padding-bottom:0">
+    <div>
+      <div class="hero-eyebrow fu">
+        <span class="dot"></span>
+        Entrepreneurship Masterclass · BISA Academy
+      </div>
+      <h1 class="hero-title fu">
+        Dari Nol Ide<br>
+        <span class="grad">Sampai Bisnis<br>Berjalan Sendiri.</span>
+      </h1>
+      <p class="hero-desc fu">
+        Program bertahap yang membawa Anda dari mindset awal, ke formula bisnis terbukti, hingga sistem yang membuat bisnis autopilot — tanpa tebak-tebakan.
+      </p>
+      <div class="hero-ctas fu">
+        <a href="#program" class="btn-p">Lihat Program →</a>
+        <a href="https://wa.me/6282279793385" class="btn-s" target="_blank">💬 Tanya via WhatsApp</a>
+      </div>
+      <div class="hero-trust fu">
+        <div class="avatars">
+          <span>RH</span><span>SA</span><span>BW</span><span>+</span>
+        </div>
+        <span>Jaringan komunitas entrepreneurs</span>
+      </div>
     </div>
-    <div class="stat">
-      <span class="stat-num">puluhan<span>+</span></span>
-      <span class="stat-label">Mentor Aktif</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num"><span>+</span></span>
-      <span class="stat-label"></span>
-    </div>
-  </div>
-</section>
 
-<!-- PROBLEM -->
-<section class="problem-section" id="masalah">
-  <div class="container">
-    <div class="section-head fade-up">
-      <span class="section-label">Masalah Anda</span>
-      <h2 class="section-title">Banyak yang Ingin Berbisnis,<br>Tapi Tidak Tahu Mulai dari Mana</h2>
-      <p class="section-subtitle">Relate ga dengan ini?</p>
-    </div>
-    <div class="problem-grid">
-      <div class="problem-card fade-up">
-        <div class="problem-icon">😰</div>
-        <div>
-          <h4>Takut Gagal</h4>
-          <p>Punya ide bisnis, tapi takut mengambil langkah pertama karena tidak yakin akan berhasil.</p>
-        </div>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="problem-icon">🤯</div>
-        <div>
-          <h4>Bingung Mulai dari Mana</h4>
-          <p>Tidak tahu harus memulai dari mana, modal, produk, atau mencari pelanggan lebih dulu.</p>
-        </div>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="problem-icon">🔄</div>
-        <div>
-          <h4>Trial &amp; Error Sendiri</h4>
-          <p>Sudah mencoba beberapa kali tapi terus gagal karena tidak punya panduan dan langkah tepat.</p>
-        </div>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="problem-icon">😟</div>
-        <div>
-          <h4>Tidak Punya Circle yang Tepat</h4>
-          <p>Orang-orang sekitar tidak mendukung atau tidak paham dunia entrepreneurship.</p>
-        </div>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="problem-icon">📉</div>
-        <div>
-          <h4>Gap Knowledge</h4>
-          <p>Mindset pengusaha, skill karyawan.</p>
-        </div>
-      </div>
-      <div class="problem-card fade-up">
-        <div class="problem-icon">⏳</div>
-        <div>
-          <h4>Nunggu "Waktu yang Tepat"</h4>
-          <p>Selalu menunda karena menunggu kondisi sempurna yang tidak pernah benar-benar datang.</p>
-        </div>
-      </div>
-    </div>
-    <div class="problem-cta-box fade-up">
-      <h3>Masalahnya bukan Anda tidak mampu — masalahnya Anda belum punya <em>Mindset & Skillset</em> yang tepat.</h3>
-      <a href="#manfaat" class="btn-primary">Lihat Solusinya &rarr;</a>
-    </div>
-  </div>
-</section>
+    <div class="hero-visual fu">
+      <div class="float-pill"><span class="spark">✦</span> 3 Batch Program</div>
+      <div class="hero-card">
 
-<!-- BENEFITS -->
-<section id="manfaat">
-  <div class="container">
-    <div class="section-head text-center fade-up">
-      <span class="section-label">Yang Akan Anda Dapatkan</span>
-      <h2 class="section-title">Bukan Sekadar Seminar Biasa, Tapi Circle Para calon Pengusaha</h2>
-      <p class="section-subtitle" style="margin: 0 auto;">Kami membekali Anda dengan apa yang benar-benar dibutuhkan untuk memulai dan menjalankan bisnis.</p>
-    </div>
-    <div class="benefits-grid">
-      <div class="benefit-card fade-up">
-        <div class="benefit-num">01</div>
-        <h4>Entrepreneurial Mindset</h4>
-        <p>Transformasi cara pikir dari mindset karyawan ke mindset pengusaha yang siap menghadapi ketidakpastian.</p>
-      </div>
-      <div class="benefit-card fade-up">
-        <div class="benefit-num">02</div>
-        <h4>Business Skillset Praktis</h4>
-        <p>Skill nyata: validasi ide, mencari modal awal, membangun produk MVP, dan mendapatkan pelanggan pertama.</p>
-      </div>
-      <div class="benefit-card fade-up">
-        <div class="benefit-num">03</div>
-        <h4>Mentoring Langsung</h4>
-        <p>Sesi tanya-jawab dan diskusi langsung dengan mentor yang sudah terbukti membangun bisnis sukses.</p>
-      </div>
-      <div class="benefit-card fade-up">
-        <div class="benefit-num">04</div>
-        <h4>Business Hub</h4>
-        <p>Bertemu dan terhubung dengan sesama calon pengusaha dan alumni yang bisa menjadi partner bisnis Anda.</p>
-      </div>
-      <div class="benefit-card fade-up">
-        <div class="benefit-num">05</div>
-        <h4>Action Plan Personal</h4>
-        <p>Pulang dengan roadmap bisnis yang sudah disesuaikan dengan kondisi, kemampuan, dan tujuan Anda.</p>
-      </div>
-      <div class="benefit-card fade-up">
-        <div class="benefit-num">06</div>
-        <h4>Akses Komunitas</h4>
-        <p>Bergabung ke ekosistem pengusaha yang aktif untuk support jangka panjang setelah seminar selesai.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AGENDA -->
-<section class="agenda-section" id="agenda">
-  <div class="container">
-    <div class="agenda-wrap">
-      <div>
-        <div class="section-head fade-up">
-          <span class="section-label">Agenda</span>
-          <h2 class="section-title">Apa yang Akan Terjadi di Seminar?</h2>
-          <p class="section-subtitle">Satu hari penuh transformasi yang terstruktur dan terbukti efektif.</p>
-        </div>
-        <ul class="agenda-list fade-up">
-          <li class="agenda-item">
-            <span class="agenda-time">08.00 – 08.30</span>
-            <div>
-              <h5>Registrasi &amp; Networking</h5>
-              <p>Check-in peserta dan sesi perkenalan awal antar peserta</p>
-            </div>
-          </li>
-          <li class="agenda-item">
-            <span class="agenda-time">08.30 – 10.00</span>
-            <div>
-              <h5>Sesi 1: Entrepreneurial Mindset</h5>
-              <p>Membangun fondasi mental dan cara pikir pengusaha sukses</p>
-            </div>
-          </li>
-          <li class="agenda-item">
-            <span class="agenda-time">10.00 – 12.00</span>
-            <div>
-              <h5>Sesi 2: Business Skillset Dasar</h5>
-              <p>Ide bisnis, validasi pasar, dan strategi memulai dengan modal minim</p>
-            </div>
-          </li>
-          <li class="agenda-item">
-            <span class="agenda-time">12.00 – 13.00</span>
-            <div>
-              <h5>Ishoma &amp; Networking Lunch</h5>
-              <p>Istirahat, makan siang, dan sesi networking informal</p>
-            </div>
-          </li>
-          <li class="agenda-item">
-            <span class="agenda-time">13.00 – 15.30</span>
-            <div>
-              <h5>Sesi 3: Studi Kasus &amp; Mentoring</h5>
-              <p>Belajar dari kasus bisnis nyata dan sesi tanya-jawab dengan mentor</p>
-            </div>
-          </li>
-          <li class="agenda-item">
-            <span class="agenda-time">15.30 – 16.30</span>
-            <div>
-              <h5>Sesi 4: Action Planning</h5>
-              <p>Menyusun rencana bisnis personal &amp; komitmen langkah pertama</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="fade-up">
-        <div class="highlight-box">
-          <h3>Yang Akan Anda Bawa Pulang</h3>
-          <div class="highlight-item">
-            <span class="check">✓</span>
-            <span>Mindset entrepreneur yang kuat dan siap untuk action</span>
-          </div>
-          <div class="highlight-item">
-            <span class="check">✓</span>
-            <span>Framework "Rilis Cepat Laris" untuk start bisnis dari nol</span>
-          </div>
-          <div class="highlight-item">
-            <span class="check">✓</span>
-            <span>Action plan bisnis personal yang siap dieksekusi</span>
-          </div>
-          <div class="highlight-item">
-            <span class="check">✓</span>
-            <span>Koneksi dengan peserta lain yang bisa jadi partner</span>
-          </div>
-          <div class="highlight-item">
-            <span class="check">✓</span>
-            <span>Akses ke grup komunitas alumni eksklusif</span>
-          </div>
-          <div class="highlight-item">
-            <span class="check">✓</span>
-            <span>Modul &amp; materi seminar digital untuk direview ulang</span>
-          </div>
-          <div class="highlight-item">
-            <span class="check">✓</span>
-            <span>Kesempatan konsultasi 1-on-1 dengan mentor (untuk pendaftar awal)</span>
+        <div class="hero-card-body">
+          <div class="hc-badge">ENTREPRENEURSHIP MASTERCLASS</div>
+          <div class="hc-title">Starting → Profiting → Structuring</div>
+          <p style="font-size:13px;color:var(--muted);margin-top:6px">Tiga tahapan terstruktur untuk membangun bisnis dari nol hingga autopilot.</p>
+          <div class="hc-stats">
+            <div><div class="hc-stat-n">3</div><div class="hc-stat-l">Batch</div></div>
+            <div><div class="hc-stat-n">7</div><div class="hc-stat-l">Program</div></div>
+            <div><div class="hc-stat-n"><em>100K</em></div><div class="hc-stat-l">Mulai dari</div></div>
           </div>
         </div>
       </div>
@@ -1072,220 +384,548 @@
   </div>
 </section>
 
-<!-- MENTORS -->
-<section class="mentors-section" id="mentor">
-  <div class="container">
-    <div class="section-head text-center fade-up">
-      <span class="section-label">Mentor &amp; Pemateri</span>
-      <h2 class="section-title">Belajar 65% Praktikal, 35% Teori</h2>
-      <p class="section-subtitle" style="margin: 0 auto; color: rgba(255,255,255,0.55);">Para mentor kami adalah pengusaha aktif yang sudah terbukti membangun bisnis lebih dari 10 tahun.</p>
+<!-- PROOF STRIP -->
+<div class="proof-bg">
+  <div class="wrap">
+    <div class="proof-grid">
+      <div class="proof-stat fu"><div class="proof-n">500<em>+</em></div><div class="proof-l">Peserta Terlatih</div></div>
+      <div class="proof-stat fu"><div class="proof-n">3</div><div class="proof-l">Batch Program</div></div>
+      <div class="proof-stat fu"><div class="proof-n">7</div><div class="proof-l">Format Kelas</div></div>
+      <div class="proof-stat fu"><div class="proof-n">98<em>%</em></div><div class="proof-l">Kepuasan Peserta</div></div>
     </div>
-    <div class="mentors-grid fade-up">
-      <div class="mentor-card">
-        <div class="mentor-avatar">AN</div>
-        <h4>Fadlan Satria M.Ent,</h4>
-        <p>Master in Entrepreneurship, University of Melbourne &amp; Founder JustSpeak Indonesia</p>
+  </div>
+</div>
+
+<!-- PROGRAM -->
+<section class="sec" id="program">
+  <div class="wrap">
+    <div class="journey-header fu">
+      <div class="s-label">Program</div>
+      <h2 class="s-title">Tiga Tahap Perjalanan<br>Bisnis Anda</h2>
+      <p class="s-desc">Setiap batch dirancang untuk satu fase spesifik — dari membuka bisnis, merapihkan omset, hingga sistem autopilot.</p>
+    </div>
+
+    <!-- JOURNEY GRAPHIC -->
+    <div class="journey-graphic fu">
+      <!-- Batch 1: Starting -->
+      <div class="jg-batch jg-blue">
+        <div class="jg-batch-head">
+          <div class="jg-num">01</div>
+          <div>
+            <div class="jg-batch-name">Batch Starting</div>
+            <div class="jg-batch-sub">Buka bisnis dari nol</div>
+          </div>
+        </div>
+        <div class="jg-tiers">
+          <div class="jg-tier">
+            <div class="jg-tier-dot jg-d1"></div>
+            <div class="jg-tier-body">
+              <span class="jg-tier-name">Public Seminar</span>
+              <span class="jg-tier-price">Rp 100K</span>
+            </div>
+          </div>
+          <div class="jg-connector"></div>
+          <div class="jg-tier">
+            <div class="jg-tier-dot jg-d2"></div>
+            <div class="jg-tier-body">
+              <span class="jg-tier-name">Group Class</span>
+              <span class="jg-tier-price">Rp 1 Juta</span>
+            </div>
+          </div>
+          <div class="jg-connector"></div>
+          <div class="jg-tier">
+            <div class="jg-tier-dot jg-d3"></div>
+            <div class="jg-tier-body">
+              <span class="jg-tier-name">1-on-1 Class</span>
+              <span class="jg-tier-price">Rp 4 Juta</span>
+            </div>
+          </div>
+        </div>
+        <div class="jg-goal">💡 Goal: Bisnis pertama Anda launching</div>
       </div>
-      <div class="mentor-card">
-        <div class="mentor-avatar" style="background: linear-gradient(135deg, #10b981, #0d9488);">SR</div>
-        <h4>Reinaldy Aulia Kurniawan</h4>
-        <p>Senior Manager, Management Consultant</p>
+
+      <!-- Arrow -->
+      <div class="jg-arrow">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16h20M20 10l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Naik level</span>
       </div>
-      <div class="mentor-card">
-        <div class="mentor-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">BH</div>
-        <h4>Budi Hartono</h4>
-        <p>CEO Retail Chain, 200+ Outlet</p>
+
+      <!-- Batch 2: Profiting -->
+      <div class="jg-batch jg-gold">
+        <div class="jg-batch-head">
+          <div class="jg-num" style="color:var(--gold)">02</div>
+          <div>
+            <div class="jg-batch-name">Batch Profiting</div>
+            <div class="jg-batch-sub">Tingkatkan omset</div>
+          </div>
+        </div>
+        <div class="jg-tiers">
+          <div class="jg-tier">
+            <div class="jg-tier-dot" style="background:var(--gold)"></div>
+            <div class="jg-tier-body">
+              <span class="jg-tier-name">Profiting Program</span>
+              <span class="jg-tier-price">Rp 3–7 Juta</span>
+            </div>
+          </div>
+        </div>
+        <div class="jg-goal" style="border-color:rgba(245,158,11,.2);color:var(--gold)">📈 Goal: Omset breakthrough</div>
       </div>
-      <div class="mentor-card">
-        <div class="mentor-avatar" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">DW</div>
-        <h4>Dewi Wulandari</h4>
-        <p>Entrepreneur &amp; Financial Strategist</p>
+
+      <!-- Arrow -->
+      <div class="jg-arrow">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16h20M20 10l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Naik level</span>
+      </div>
+
+      <!-- Batch 3: Structuring -->
+      <div class="jg-batch jg-green">
+        <div class="jg-batch-head">
+          <div class="jg-num" style="color:var(--green)">03</div>
+          <div>
+            <div class="jg-batch-name">Batch Structuring</div>
+            <div class="jg-batch-sub">Sistem autopilot</div>
+          </div>
+        </div>
+        <div class="jg-tiers">
+          <div class="jg-tier">
+            <div class="jg-tier-dot" style="background:rgba(16,185,129,.4)"></div>
+            <div class="jg-tier-body">
+              <span class="jg-tier-name">Asesmen Harmonic</span>
+              <span class="jg-tier-price">Gratis · 90 menit</span>
+            </div>
+          </div>
+          <div class="jg-connector"></div>
+          <div class="jg-tier">
+            <div class="jg-tier-dot" style="background:rgba(16,185,129,.7)"></div>
+            <div class="jg-tier-body">
+              <span class="jg-tier-name">Full Tuning</span>
+              <span class="jg-tier-price">Rp 102–153 Juta</span>
+            </div>
+          </div>
+          <div class="jg-connector"></div>
+          <div class="jg-tier">
+            <div class="jg-tier-dot" style="background:var(--green)"></div>
+            <div class="jg-tier-body">
+              <span class="jg-tier-name">Stay Harmonic</span>
+              <span class="jg-tier-price">Rp 30,6–42,5 Jt/sesi</span>
+            </div>
+          </div>
+        </div>
+        <div class="jg-goal" style="border-color:rgba(16,185,129,.2);color:var(--green)">🏗️ Goal: Bisnis jalan autopilot</div>
       </div>
     </div>
-    <p style="text-align: center; margin-top: 2rem; color: rgba(255,255,255,0.4); font-size: 0.85rem;">+ Mentor tamu spesial di setiap kota</p>
+
+    <!-- BATCH 1: STARTING -->
+    <div class="batch">
+      <div class="batch-label fu">
+        <div class="batch-num bn-blue">1</div>
+        <div class="batch-meta">
+          <h3>Batch Starting</h3>
+          <p>Untuk kamu yang mau mulai — dari mindset hingga langkah pertama yang nyata</p>
+        </div>
+      </div>
+      <div class="cards-row">
+        <div class="p-card fu">
+          <div class="card-tier">Tier 1</div>
+          <div class="card-name">Public Seminar</div>
+          <div class="card-goal">Bangun mindset entrepreneur yang benar sebelum membuka bisnis apapun.</div>
+          <div class="card-price">Rp 100K<span>/orang</span></div>
+          <div class="card-price-note">Tersedia hingga 30 kursi per batch</div>
+          <div class="card-details">
+            <div class="cd-row"><span>⏱</span> Durasi 2 jam</div>
+            <div class="cd-row"><span>👥</span> Maks. 30 peserta</div>
+            <div class="cd-row"><span>📍</span> Offline / Online</div>
+          </div>
+          <ul class="card-features">
+            <li>Mindset shift dari karyawan ke pemilik bisnis</li>
+            <li>Pola pikir founder yang terbukti berhasil</li>
+            <li>Framework awal memilih ide bisnis</li>
+            <li>Sesi tanya jawab langsung dengan mentor</li>
+          </ul>
+          <a href="https://wa.me/6282279793385" class="card-cta cta-out" target="_blank">Daftar Seminar</a>
+        </div>
+
+        <div class="p-card featured fu">
+          <div class="card-tier">Tier 2</div>
+          <div class="card-name">Group Class</div>
+          <div class="card-goal">Kuasai 7-Step Formula agar bisnis bisa rilis cepat dan langsung laris di pasaran.</div>
+          <div class="card-price">Rp 1 Juta<span>/orang</span></div>
+          <div class="card-price-note">Sangat terbatas — hanya 10 kursi per batch</div>
+          <div class="card-details">
+            <div class="cd-row"><span>⏱</span> Durasi 6 jam intensif</div>
+            <div class="cd-row"><span>👥</span> Maks. 10 peserta</div>
+            <div class="cd-row"><span>📍</span> Offline</div>
+          </div>
+          <ul class="card-features">
+            <li>7-Step Formula Rilis Cepat Laris</li>
+            <li>Validasi ide & riset pasar sederhana</li>
+            <li>Strategi pricing & positioning produk</li>
+            <li>Cara jualan pertama tanpa modal besar</li>
+            <li>Peer learning & feedback sesama peserta</li>
+          </ul>
+          <a href="https://wa.me/6282279793385" class="card-cta cta-prim" target="_blank">Daftar Group Class</a>
+        </div>
+
+        <div class="p-card fu">
+          <div class="card-tier">Tier 3</div>
+          <div class="card-name">1-on-1 Class</div>
+          <div class="card-goal">Breakdown step-by-step dari kondisi sekarang ke bisnis impian Anda — pakai framework KS→KD.</div>
+          <div class="card-price">Rp 4 Juta<span>/sesi</span></div>
+          <div class="card-price-note">Eksklusif — 1 klien per sesi, fully customized</div>
+          <div class="card-details">
+            <div class="cd-row"><span>⏱</span> Durasi 8 jam</div>
+            <div class="cd-row"><span>👤</span> 1 peserta saja</div>
+            <div class="cd-row"><span>🎯</span> Sesuai kondisi Anda</div>
+          </div>
+          <ul class="card-features">
+            <li>Analisis mendalam kondisi sekarang (KS)</li>
+            <li>Peta jalan ke kondisi yang diinginkan (KD)</li>
+            <li>Action plan spesifik & terukur</li>
+            <li>Pendampingan personal dari mentor</li>
+            <li>Follow-up setelah sesi selesai</li>
+          </ul>
+          <a href="https://wa.me/6282279793385" class="card-cta cta-out" target="_blank">Book 1-on-1</a>
+        </div>
+      </div>
+    </div>
+    <div class="batch-sep"></div>
+
+    <!-- BATCH 2: PROFITING -->
+    <div class="batch">
+      <div class="batch-label fu">
+        <div class="batch-num bn-gold">2</div>
+        <div class="batch-meta">
+          <h3>Batch Profiting</h3>
+          <p>Untuk UMKM & business owner yang omsetnya stuck dan ingin breakthrough ke level berikutnya</p>
+        </div>
+      </div>
+      <div class="cards-row-2">
+        <div class="p-card fu" style="background:linear-gradient(160deg,rgba(245,158,11,.07),var(--surface));border-color:rgba(245,158,11,.2)">
+          <div class="card-tier" style="color:var(--gold)">Batch Profiting</div>
+          <div class="card-name">Business Profiting Program</div>
+          <div class="card-goal">Khusus untuk bisnis yang sudah jalan tapi omset terasa mentok. Kami bantu temukan bottleneck, susun strategi, dan buka jalan ke level berikutnya.</div>
+          <div class="card-price" style="color:var(--gold)">Rp 3–7 Juta</div>
+          <div class="card-price-note">Harga menyesuaikan skala & kebutuhan bisnis Anda</div>
+          <div class="card-details">
+            <div class="cd-row"><span>🔍</span> Diagnosa bisnis mendalam</div>
+            <div class="cd-row"><span>📈</span> Strategi pertumbuhan omset</div>
+            <div class="cd-row"><span>🤝</span> Pendampingan langsung bersama mentor</div>
+          </div>
+          <ul class="card-features" style="flex:1">
+            <li>Identifikasi leakage & bottleneck omset</li>
+            <li>Audit strategi penjualan & marketing saat ini</li>
+            <li>Formula levelling sesuai skala bisnis Anda</li>
+            <li>R&D strategi baru berdasarkan data nyata</li>
+            <li>Roadmap aksi yang bisa langsung dieksekusi</li>
+          </ul>
+          <a href="https://wa.me/6282279793385" class="card-cta" style="background:var(--gold);color:#000;font-weight:700;border-radius:8px;display:block;text-align:center;text-decoration:none;padding:11px;font-size:14px" target="_blank">Konsultasi Profiting →</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="batch-sep"></div>
+
+    <!-- BATCH 3: STRUCTURING -->
+    <div class="batch">
+      <div class="batch-label fu">
+        <div class="batch-num bn-green">3</div>
+        <div class="batch-meta">
+          <h3>Batch Structuring</h3>
+          <p>Untuk bisnis yang siap jalan autopilot dengan sistem manajemen yang solid</p>
+        </div>
+      </div>
+      <!-- 6 Komponen info -->
+      <div class="hs-intro fu">
+        <p class="hs-intro-desc">Framework manajemen yang mengidentifikasi dan menyelesaikan <strong>6 komponen utama bisnis</strong> — sehingga bisnis bisa autopilot, kualitas terjaga, dan masalah tidak terus berulang.</p>
+        <div class="six-grid">
+          <div class="six-item"><div class="six-num">01</div><div><div class="six-label">Direction</div><div class="six-desc">Arah & tujuan bisnis yang jelas dan terukur</div></div></div>
+          <div class="six-item"><div class="six-num">02</div><div><div class="six-label">Team</div><div class="six-desc">SDM yang tepat di posisi yang tepat</div></div></div>
+          <div class="six-item"><div class="six-num">03</div><div><div class="six-label">Resolution</div><div class="six-desc">Sistem penyelesaian masalah yang permanen</div></div></div>
+          <div class="six-item"><div class="six-num">04</div><div><div class="six-label">Discipline</div><div class="six-desc">Konsistensi eksekusi di semua lini tim</div></div></div>
+          <div class="six-item"><div class="six-num">05</div><div><div class="six-label">Procedures</div><div class="six-desc">SOP yang jelas dan bisa direplikasi</div></div></div>
+          <div class="six-item"><div class="six-num">06</div><div><div class="six-label">Measurement</div><div class="six-desc">Pengukuran performa berbasis data & KPI</div></div></div>
+        </div>
+      </div>
+
+      <!-- 3 Tier Pricing -->
+      <div class="cards-row hs-tiers">
+        <!-- Tier 1: Asesmen -->
+        <div class="p-card fu" style="border-color:rgba(16,185,129,.15)">
+          <div class="hs-tier-badge">Tier 1</div>
+          <div class="card-name" style="font-size:1rem">Asesmen Harmonic</div>
+          <div class="card-price" style="color:var(--green);font-size:2.2rem">GRATIS</div>
+          <div class="card-price-note">Sesi 90 Menit · Tanpa komitmen apapun</div>
+          <ul class="card-features" style="flex:1">
+            <li>Diagnosa ke-6 komponen bisnis Anda</li>
+            <li>Rekomendasi spesifik untuk kondisi bisnis Anda</li>
+            <li>Peta jalan menuju Harmonic System</li>
+            <li>Nol kewajiban untuk lanjut</li>
+          </ul>
+          <div class="hs-quote">"Lihat dulu gap antara kondisi sekarang dan Harmonic"</div>
+          <a href="https://wa.me/6282279793385" class="card-cta cta-out" style="border-color:rgba(16,185,129,.3);color:var(--green);margin-top:1rem" target="_blank">Book Asesmen Gratis</a>
+        </div>
+
+        <!-- Tier 2: Full Tuning -->
+        <div class="p-card fu" style="background:linear-gradient(160deg,rgba(16,185,129,.1),var(--surface));border-color:rgba(16,185,129,.35);position:relative">
+          <div style="position:absolute;top:16px;right:16px;background:var(--green);color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.5px">Paling Diminati</div>
+          <div class="hs-tier-badge" style="color:var(--green)">Tier 2</div>
+          <div class="card-name" style="font-size:1rem">Full Tuning</div>
+          <div class="card-price" style="color:var(--green)">Rp 102–153 Juta</div>
+          <div class="card-price-note">Berdasarkan jumlah tim & skala bisnis</div>
+
+          <!-- Pricing breakdown -->
+          <div class="hs-price-table">
+            <div class="hs-pt-row">
+              <span>5–15 Orang</span><span style="color:var(--green);font-weight:700">Rp 102 Juta</span>
+            </div>
+            <div class="hs-pt-row">
+              <span>16–25 Orang</span><span style="color:var(--green);font-weight:700">Rp 127,5 Juta</span>
+            </div>
+            <div class="hs-pt-row">
+              <span>25–50 Orang</span><span style="color:var(--green);font-weight:700">Rp 153 Juta</span>
+            </div>
+          </div>
+
+          <ul class="card-features" style="flex:1">
+            <li>Rencana implementasi 90 hari</li>
+            <li>3 sesi kerja + coaching intensif</li>
+            <li>Semua 6 komponen di-tune tuntas</li>
+            <li>Garansi bisa dibatalkan kapan saja</li>
+          </ul>
+          <div class="hs-quote">*Cicilan: 40% / 30% / 30%</div>
+          <a href="https://wa.me/6282279793385" class="card-cta" style="background:var(--green);color:#000;font-weight:700;border-radius:8px;display:block;text-align:center;text-decoration:none;padding:11px;font-size:14px;margin-top:1rem" target="_blank">Mulai Full Tuning →</a>
+        </div>
+
+        <!-- Tier 3: Stay Harmonic -->
+        <div class="p-card fu" style="border-color:rgba(16,185,129,.15)">
+          <div class="hs-tier-badge">Tier 3</div>
+          <div class="card-name" style="font-size:1rem">Stay Harmonic</div>
+          <div class="card-price" style="color:var(--green);font-size:1.6rem">Custom</div>
+          <div class="card-price-note">Untuk bisnis yang ingin tetap terjaga kualitasnya</div>
+
+          <div class="hs-addon">
+            <div class="hs-addon-item">
+              <div class="hs-addon-top"><span class="hs-addon-name">Harmonic Integrator</span><span class="hs-addon-price">Rp 42,5 Jt/bln</span></div>
+              <ul class="hs-addon-list">
+                <li>Pendampingan 2x/minggu hands-on</li>
+                <li>Fasilitasi rapat rutin tim</li>
+              </ul>
+            </div>
+            <div class="hs-addon-divider"></div>
+            <div class="hs-addon-item">
+              <div class="hs-addon-top"><span class="hs-addon-name">Quarterly Tune-Ups</span><span class="hs-addon-price">Rp 30,6–42,5 Jt/sesi</span></div>
+              <ul class="hs-addon-list">
+                <li>4 pertemuan (3 kuartal + 1 tahunan)</li>
+                <li>Monthly accountability check</li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="card-features" style="flex:1;margin-top:.5rem">
+            <li>Garansi bisa dibatalkan kapan saja</li>
+          </ul>
+          <div class="hs-quote">"Tetap selaras saat bisnis Anda berkembang"</div>
+          <a href="https://wa.me/6282279793385" class="card-cta cta-out" style="border-color:rgba(16,185,129,.3);color:var(--green);margin-top:1rem" target="_blank">Konsultasi Stay Harmonic</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- FOR WHO -->
+<div class="proof-bg">
+<section class="sec" id="for-who">
+  <div class="wrap">
+    <div class="fu">
+      <div class="s-label">Untuk Siapa</div>
+      <h2 class="s-title">Program Ini Tepat<br>untuk Anda Jika...</h2>
+      <p class="s-desc">Setiap batch dirancang untuk fase perjalanan bisnis yang berbeda — temukan yang paling sesuai posisi Anda sekarang.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card fu">
+        <div class="who-icon">💡</div>
+        <div class="who-title">Early First Founder</div>
+        <div class="who-desc">Anda punya ide bisnis tapi belum tahu harus mulai dari mana. Atau sudah ada niat tapi takut gagal sebelum mencoba.</div>
+        <div class="who-tag">→ Mulai dari Batch Starting</div>
+      </div>
+      <div class="who-card fu">
+        <div class="who-icon">📊</div>
+        <div class="who-title">UMKM / Bisnis yang Stuck</div>
+        <div class="who-desc">Bisnis sudah jalan, tapi omset segitu-gitu saja. Sudah coba banyak cara tapi hasilnya belum signifikan.</div>
+        <div class="who-tag">→ Masuk Batch Profiting</div>
+      </div>
+      <div class="who-card fu">
+        <div class="who-icon">🏗️</div>
+        <div class="who-title">Business Owner Siap Scale</div>
+        <div class="who-desc">Bisnis sudah profitable, tapi masih tergantung penuh pada Anda. Ingin bisnis bisa berjalan sendiri dengan sistem kuat.</div>
+        <div class="who-tag">→ Ikut Batch Structuring</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+
 
 <!-- TESTIMONIALS -->
-<section id="testimoni">
-  <div class="container">
-    <div class="section-head text-center fade-up">
-      <span class="section-label">Testimoni</span>
-      <h2 class="section-title">Kata Mereka yang Sudah Ikut</h2>
+<div class="proof-bg">
+<section class="sec" id="testimoni">
+  <div class="wrap">
+    <div class="fu">
+      <div class="s-label">Testimoni</div>
+      <h2 class="s-title">Kata Mereka yang<br>Sudah Bergabung</h2>
     </div>
-    <div class="testi-grid fade-up">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Setelah ikut seminar ini, dalam 2 bulan saya berhasil launching bisnis kuliner pertama saya. Mindset-nya benar-benar berubah total!"</p>
-        <div class="testi-author">
-          <div class="testi-avatar">RA</div>
-          <div>
-            <div class="testi-name">Rizky Andika</div>
-            <div class="testi-role">Owner Warung Kopi Andika, Lampung</div>
-          </div>
+    <div class="testi-grid">
+      <div class="t-card fu">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Setelah ikut Public Seminar, mindset saya langsung berubah total. Dua minggu kemudian saya sudah launch bisnis pertama saya. Tidak nyangka secepat ini."</p>
+        <div class="t-author">
+          <div class="t-av" style="background:linear-gradient(135deg,#2563eb,#3b82f6)">RH</div>
+          <div><div class="t-name">Rahmat H.</div><div class="t-role">Founder · Toko Online Pertama</div></div>
         </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Saya sudah 3 tahun ingin bisnis tapi selalu nunda. Seminar ini yang akhirnya bikin saya action. Materi praktis dan mentornya sangat helpful."</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background: #fef3c7; color: #92400e;">NF</div>
-          <div>
-            <div class="testi-name">Nur Fatimah</div>
-            <div class="testi-role">Founder Butik NF, Bandarlampung</div>
-          </div>
+      <div class="t-card fu">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Group Class-nya padat banget. 7-Step Formula itu gamechanging — dalam 6 jam saya dapat blueprint yang bisa langsung dieksekusi besoknya."</p>
+        <div class="t-author">
+          <div class="t-av" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">SA</div>
+          <div><div class="t-name">Siti A.</div><div class="t-role">Business Owner · F&B</div></div>
         </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Yang paling berkesan adalah action plan-nya. Bukan sekadar teori, tapi langsung bikin rencana konkret yang bisa saya jalankan keesokan harinya."</p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background: #f0fdf4; color: #166534;">YP</div>
-          <div>
-            <div class="testi-name">Yudi Pratama</div>
-            <div class="testi-role">Co-Founder CV Maju Bersama</div>
-          </div>
+      <div class="t-card fu">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Harmonic System benar-benar mengubah cara saya kelola bisnis. Sekarang tim bisa jalan sendiri, saya tinggal review mingguan. Luar biasa."</p>
+        <div class="t-author">
+          <div class="t-av" style="background:linear-gradient(135deg,#10b981,#34d399)">BW</div>
+          <div><div class="t-name">Budi W.</div><div class="t-role">CEO · Logistik Prima</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+</div>
 
-<!-- PRICING -->
-<section id="investasi">
-  <div class="container">
-    <div class="section-head text-center fade-up">
-      <span class="section-label">Investasi</span>
-      <h2 class="section-title">Harga yang Sangat Terjangkau</h2>
-      <p class="section-subtitle" style="margin: 0 auto;">Investasi terbaik membawa perubahan dari kondisi sekarang ke kondisi yang diinginkan. Daftar sebelum kehabisan kursi!</p>
-    </div>
-    <div class="pricing-grid fade-up">
-      <div class="price-card">
-        <div class="price-label">Batch Starting</div>
-        <div class="price-amount"><sup>Rp</sup>100.000</div>
-        <p class="price-note">per orang</p>
-        <ul class="price-features">
-          <li>Akses seminar</li>
-            
-          <li>Networking session</li>
-          <li>Coffee Break &amp; snack</li>
-          <li>Akses grup alumni</li>
-        </ul>
-        <a href="https://wa.me/6285190681125" class="btn-outline">Daftar Sekarang</a>
-      </div>
-      <div class="price-card featured">
-        <div class="price-badge">⭐ Coming Soont</div>
-        <div class="price-label">Batch </div>
-        <div class="price-amount"><sup>Rp</sup>200.000</div>
-        <p class="price-note">untuk 2 orang (hemat Rp100.000)</p>
-        <ul class="price-features">
-          <li>Semua benefit tiket reguler</li>
-          <li>Hemat Rp50.000/orang</li>
-          <li>Cocok ajak partner bisnis</li>
-          <li>Konsultasi 1-on-1 (early)</li>
-          <li>Priority seat</li>
-        </ul>
-        <a href="https://wa.me/6285190681125" class="btn-blue">Daftar Berdua</a>
-      </div>
-    </div>
-    <p style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
-      🔥 Konsultasi 1-on-1 GRATIS untuk 20 pendaftar pertama di setiap kota
-    </p>
-  </div>
-</section>
-
-<!-- SCHEDULE -->
-<section class="schedule-section" id="jadwal">
-  <div class="container">
-    <div class="section-head text-center fade-up">
-      <span class="section-label">Jadwal Terdekat</span>
-      <h2 class="section-title">Pilih Kota Anda</h2>
-      <p class="section-subtitle" style="margin: 0 auto;">Seminar diadakan di berbagai kota. Kursi terbatas — segera amankan tempat Anda!</p>
-    </div>
-    <div class="schedule-grid fade-up">
-      <div class="schedule-card">
-        <div class="schedule-header">
-          <span class="schedule-city">Bandar Lampung</span>
-          <span class="schedule-date-badge">25 Apr 2026</span>
-        </div>
-        <div class="schedule-body">
-          <div class="schedule-info">
-            <span class="schedule-icon">🕐</span>
-            <span>Sesi 1: 08.30 | Sesi 2: 13.00 | Sesi 3: 18.00</span>
-          </div>
-          <div class="schedule-info">
-            <span class="schedule-icon">📍</span>
-            <span>Hotel Swiss-Belinn, Lampung</span>
-          </div>
-          <a href="https://wa.me/6285190681125?text=Halo, saya mau daftar Seminar Entrepreneurship - Lampung">Daftar Lampung &rarr;</a>
-        </div>
-      </div>
-      <div class="schedule-card">
-        <div class="schedule-header">
-          <span class="schedule-city">Jakarta</span>
-          <span class="schedule-date-badge">02 Mei 2026</span>
-        </div>
-        <div class="schedule-body">
-          <div class="schedule-info">
-            <span class="schedule-icon">🕐</span>
-            <span>Sesi 1: 08.30 | Sesi 2: 13.00 | Sesi 3: 18.00</span>
-          </div>
-          <div class="schedule-info">
-            <span class="schedule-icon">📍</span>
-            <span>Hotel Swiss-Belinn Simatupang, Jakarta Selatan</span>
-          </div>
-          <a href="https://wa.me/6285190681125?text=Halo, saya mau daftar Seminar Entrepreneurship - Jakarta">Daftar Jakarta &rarr;</a>
-        </div>
-      </div>
-      <div class="schedule-card">
-        <div class="schedule-header">
-          <span class="schedule-city">Bandung</span>
-          <span class="schedule-date-badge">12 Mei 2026</span>
-        </div>
-        <div class="schedule-body">
-          <div class="schedule-info">
-            <span class="schedule-icon">🕐</span>
-            <span>Sesi 1: 08.30 | Sesi 2: 13.00 | Sesi 3: 18.00</span>
-          </div>
-          <div class="schedule-info">
-            <span class="schedule-icon">📍</span>
-            <span>Hotel Novotel, Bandung</span>
-          </div>
-          <a href="https://wa.me/6285190681125?text=Halo, saya mau daftar Seminar Entrepreneurship - Bandung">Daftar Bandung &rarr;</a>
-        </div>
-      </div>
+<!-- CTA -->
+<div class="cta-wrap" id="kontak">
+  <div class="cta-box fu">
+    <div class="cta-gl"></div>
+    <div class="cta-gr"></div>
+    <div class="s-label" style="justify-content:center;position:relative;z-index:1">Mulai Sekarang</div>
+    <h2 class="s-title" style="text-align:center;position:relative;z-index:1">Bisnis Impian Anda<br>Dimulai dari Satu Langkah</h2>
+    <p class="s-desc" style="margin:0 auto 2rem;text-align:center;position:relative;z-index:1">Tidak perlu menunggu sempurna. Konsultasikan dulu kondisi Anda — gratis, tanpa komitmen apapun.</p>
+    <div class="cta-acts" style="position:relative;z-index:1">
+      <a href="https://wa.me/6282279793385" class="btn-p" target="_blank">💬 Chat di WhatsApp</a>
+      <a href="#program" class="btn-s">Lihat Program Lengkap</a>
     </div>
   </div>
-</section>
-
-<!-- CTA FINAL -->
-<section class="cta-section">
-  <div class="container">
-    <h2 class="fade-up">Siap Mulai Perjalanan<br>Bisnis Anda?</h2>
-    <p class="fade-up">Jangan tunggu kondisi sempurna. Mulailah sekarang dengan langkah pertama yang tepat.</p>
-    <a href="https://wa.me/6285190681125" class="btn-white fade-up">
-      Hubungi Kami via WhatsApp &rarr;
-    </a>
-  </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>Seminar Entrepreneurship</strong> &nbsp;|&nbsp; Helping Personal Gets Entrepreneur Mindset &amp; Skillset</p>
-  <p style="margin-top: 0.5rem;">© 2026 Seminar Entrepreneurship. All Rights Reserved.</p>
+  <div class="footer-wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="text-decoration:none">
+          <div class="logo-mark">B</div>
+          <span class="logo-text">BISA <em>Academy</em></span>
+        </a>
+        <p>Lembaga pelatihan & konsultasi bisnis yang membantu early founder dan UMKM Indonesia tumbuh dari nol hingga autopilot.</p>
+        <div class="f-socials">
+          <a href="#" class="f-soc">📘</a>
+          <a href="#" class="f-soc">📸</a>
+          <a href="#" class="f-soc">💼</a>
+          <a href="#" class="f-soc">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Program</h4>
+        <ul>
+          <li><a href="#program">Public Seminar</a></li>
+          <li><a href="#program">Group Class</a></li>
+          <li><a href="#program">1-on-1 Class</a></li>
+          <li><a href="#program">Batch Profiting</a></li>
+          <li><a href="#program">Harmonic System</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#">Beranda</a></li>
+          <li><a href="#for-who">Untuk Siapa</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+          <li><a href="https://freeconsultbisaacademy.vercel.app/" target="_blank">Free Konsultasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <div class="f-ci"><span>📍</span><span>Jl. Danau Maninjau No.39, Kedaton, Bandarlampung 35122</span></div>
+        <div class="f-ci"><span>💬</span><a href="https://wa.me/6282279793385" style="color:var(--muted);text-decoration:none">+62 822-7979-3385</a></div>
+        <div class="f-ci"><span>✉️</span><span>hbisaacademyindonesia@gmail.com</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 BISA Academy Indonesia. All Rights Reserved.</p>
+      <div class="fb-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Syarat & Ketentuan</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+// Fade up
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('vis'), i * 60)
+      obs.unobserve(e.target)
+    }
+  })
+}, { threshold: 0.08 })
+document.querySelectorAll('.fu').forEach(el => obs.observe(el))
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+// Slider
+const track = document.getElementById('sliderTrack')
+const wrap = document.getElementById('slider')
+const slides = track.querySelectorAll('.slide')
+const dotsWrap = document.getElementById('sliderDots')
+const SLIDE_W = 340 + 12 // width + gap
+let current = 0
+
+// Build dots
+slides.forEach((_, i) => {
+  const d = document.createElement('div')
+  d.className = 'slider-dot' + (i === 0 ? ' active' : '')
+  d.onclick = () => goTo(i)
+  dotsWrap.appendChild(d)
+})
+
+function goTo(idx) {
+  current = Math.max(0, Math.min(idx, slides.length - 1))
+  track.style.transform = `translateX(-${current * SLIDE_W}px)`
+  dotsWrap.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === current))
+}
+
+document.getElementById('slPrev').onclick = () => goTo(current - 1)
+document.getElementById('slNext').onclick = () => goTo(current + 1)
+
+// Drag / swipe
+let startX = 0, isDragging = false, startOffset = 0
+wrap.addEventListener('mousedown', e => { isDragging = true; startX = e.clientX; startOffset = current * SLIDE_W; track.classList.add('no-transition') })
+window.addEventListener('mousemove', e => { if (!isDragging) return; const dx = startX - e.clientX; track.style.transform = `translateX(-${startOffset + dx}px)` })
+window.addEventListener('mouseup', e => {
+  if (!isDragging) return; isDragging = false; track.classList.remove('no-transition')
+  const dx = startX - e.clientX
+  if (Math.abs(dx) > 60) goTo(dx > 0 ? current + 1 : current - 1); else goTo(current)
+})
+wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; startOffset = current * SLIDE_W; track.classList.add('no-transition') }, {passive:true})
+wrap.addEventListener('touchmove', e => { const dx = startX - e.touches[0].clientX; track.style.transform = `translateX(-${startOffset + dx}px)` }, {passive:true})
+wrap.addEventListener('touchend', e => {
+  track.classList.remove('no-transition')
+  const dx = startX - e.changedTouches[0].clientX
+  if (Math.abs(dx) > 50) goTo(dx > 0 ? current + 1 : current - 1); else goTo(current)
+})
 </script>
-
 </body>
 </html>
