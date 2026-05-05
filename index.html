@@ -25,4 +25,675 @@
     nav.scrolled { box-shadow:0 4px 32px rgba(0,0,0,.3); }
     .nav-logo { display:flex; align-items:center; gap:8px; text-decoration:none; }
     .logo-box { width:34px; height:34px; border-radius:9px; background:var(--black); display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-size:1rem; font-weight:900; color:white; }
-    .logo-text { font-family:'Outfit',sans-serif;
+    .logo-text { font-family:'Outfit',sans-serif; font-weight:800; font-size:1.1rem; letter-spacing:-.01em; }
+    .logo-text .logo-bisa { color:white; }
+    .logo-text .logo-academy { color:var(--teal); }
+    .nav-links { display:flex; align-items:center; gap:28px; }
+    .nav-links a { font-size:.875rem; font-weight:500; color:rgba(255,255,255,.6); text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:white; }
+    .nav-cta { background:var(--teal); color:white; font-size:.85rem; font-weight:700; padding:9px 20px; border-radius:999px; text-decoration:none; display:flex; align-items:center; gap:6px; transition:background .2s, transform .15s; }
+    .nav-cta:hover { background:var(--teal-dark); transform:translateY(-1px); }
+
+    /* HERO — dark split layout */
+    .hero { min-height:100vh; display:flex; align-items:center; background:#0b0f1a; padding:100px 60px 60px; position:relative; overflow:hidden; }
+    .hero-bg { position:absolute; inset:0; pointer-events:none; }
+    .dot-grid { position:absolute; inset:0; background-image:radial-gradient(circle, rgba(255,255,255,.04) 1px, transparent 1px); background-size:32px 32px; }
+    /* subtle radial glow */
+    .hero-bg::after { content:''; position:absolute; top:-20%; left:-10%; width:60%; height:80%; background:radial-gradient(ellipse, rgba(20,184,166,.07) 0%, transparent 70%); pointer-events:none; }
+
+    .hero-inner { position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; max-width:1200px; margin:0 auto; width:100%; }
+
+    /* LEFT */
+    .hero-left {}
+    .hero-eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:.75rem; font-weight:700; letter-spacing:.06em; color:var(--teal); margin-bottom:28px; animation:fadeUp .6s ease both; background:rgba(20,184,166,.1); border:1px solid rgba(20,184,166,.25); border-radius:999px; padding:6px 14px; }
+    .hero-eyebrow .dot { width:6px; height:6px; border-radius:50%; background:var(--teal); animation:pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.6)} }
+
+    .hero h1 { font-family:'Outfit',sans-serif; font-size:clamp(2.6rem,5vw,4.4rem); font-weight:800; line-height:1.08; letter-spacing:-.02em; color:white; margin-bottom:36px; animation:fadeUp .7s ease .1s both; white-space:normal; }
+    .hero h1 em { color:var(--teal); font-style:normal; display:block; }
+
+    .hero-ctas { display:flex; align-items:center; gap:14px; flex-wrap:wrap; animation:fadeUp .7s ease .2s both; }
+    .btn-primary { background:var(--teal); color:white; font-weight:700; font-size:.9rem; padding:14px 26px; border-radius:12px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 22px rgba(20,184,166,.4); transition:background .2s, transform .15s; }
+    .btn-primary:hover { background:var(--teal-dark); transform:translateY(-2px); }
+    .btn-wa { background:rgba(255,255,255,.08); color:white; font-weight:600; font-size:.9rem; padding:14px 26px; border-radius:12px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.15); transition:background .2s, transform .15s; }
+    .btn-wa:hover { background:rgba(255,255,255,.14); transform:translateY(-2px); }
+
+    /* RIGHT — info card */
+    .hero-right { animation:fadeUp .7s ease .15s both; }
+    .hero-card { background:#1a1d27; border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:32px; position:relative; }
+    .hero-card-badge { position:absolute; top:-14px; right:20px; background:#f59e0b; color:white; font-size:.72rem; font-weight:800; letter-spacing:.06em; border-radius:999px; padding:5px 14px; display:flex; align-items:center; gap:6px; }
+    .hero-card-tag { display:inline-block; background:rgba(20,184,166,.15); border:1px solid rgba(20,184,166,.3); color:var(--teal); font-size:.68rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; border-radius:6px; padding:4px 10px; margin-bottom:16px; }
+    .hero-card-title { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:white; margin-bottom:10px; line-height:1.3; }
+    .hero-card-sub { font-size:.85rem; color:rgba(255,255,255,.5); line-height:1.65; margin-bottom:28px; }
+    .hero-card-divider { height:1px; background:rgba(255,255,255,.07); margin-bottom:22px; }
+    .hero-card-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
+    .hcs { text-align:left; padding-right:16px; border-right:1px solid rgba(255,255,255,.07); }
+    .hcs:last-child { border-right:none; padding-right:0; padding-left:16px; }
+    .hcs:nth-child(2) { padding:0 16px; }
+    .hcs-num { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; color:white; line-height:1; }
+    .hcs-num.accent { color:var(--teal); }
+    .hcs-lbl { font-size:.72rem; color:rgba(255,255,255,.4); margin-top:4px; font-weight:500; }
+
+    /* avatars visible */
+    .hero-avatars { display:flex; align-items:center; margin-top:28px; margin-bottom:8px; animation:fadeUp .7s ease .32s both; }
+    .hero-avatar { width:32px; height:32px; border-radius:50%; border:2px solid rgba(255,255,255,.2); margin-left:-8px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.6rem; }
+    .hero-avatar:first-child { margin-left:0; }
+    .avatar-count { width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.1); color:white; font-size:.58rem; font-weight:700; display:flex; align-items:center; justify-content:center; border:2px solid rgba(255,255,255,.2); margin-left:-8px; }
+    .hero-note { display:block; font-size:.78rem; color:rgba(255,255,255,.45); animation:fadeUp .7s ease .38s both; }
+    .hero-badge { display:none; }
+    .hero-sub { display:none; }
+    .hcs-num { font-family:'Outfit',sans-serif; font-size:1.8rem; font-weight:800; color:white; line-height:1; }
+    .hcs-num.accent { color:var(--teal); }
+
+    @media(max-width:900px) {
+      .hero { padding:90px 20px 50px; }
+      .hero-inner { grid-template-columns:1fr; gap:36px; }
+      .hero h1 { white-space:normal; font-size:clamp(2rem,7vw,2.8rem); }
+    }
+
+    .stats-strip { border-top:1px solid var(--g100); border-bottom:1px solid var(--g100); display:flex; align-items:stretch; flex-wrap:wrap; }
+    .stat-item { flex:1; min-width:140px; padding:28px 20px; text-align:center; border-right:1px solid var(--g100); }
+    .stat-item:last-child { border-right:none; }
+    .stat-num { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:900; color:var(--black); letter-spacing:-.04em; line-height:1; }
+    .stat-num sup,.stat-num sub { font-size:.85rem; color:var(--teal); vertical-align:baseline; }
+    .stat-lbl { font-size:.7rem; color:var(--g400); font-weight:600; letter-spacing:.06em; text-transform:uppercase; margin-top:6px; }
+
+    section { padding:88px 40px; }
+    .section-tag { display:inline-flex; align-items:center; gap:8px; font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+    .section-tag::before { content:''; width:18px; height:2px; background:var(--teal); border-radius:1px; }
+    .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:900; letter-spacing:-.03em; color:var(--black); line-height:1.1; margin-bottom:14px; }
+    .section-sub { font-size:.95rem; color:var(--g600); line-height:1.75; }
+
+    #program { background:var(--white); }
+    .prog-header { text-align:center; margin-bottom:56px; }
+    .prog-header .section-sub { max-width:480px; margin:0 auto; }
+
+    .batch-cards { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:48px; }
+    .batch-card { display:flex; align-items:center; gap:12px; padding:16px 24px; border-radius:16px; border:1.5px solid var(--g200); background:white; cursor:pointer; text-align:left; transition:all .22s; min-width:220px; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+    .batch-card:hover { border-color:var(--teal); box-shadow:0 4px 20px rgba(20,184,166,.12); }
+    .batch-card.active { background:var(--black); border-color:var(--black); box-shadow:0 4px 20px rgba(0,0,0,.15); }
+    .bc-num { width:36px; height:36px; border-radius:10px; background:var(--g100); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:1rem; font-weight:900; color:var(--g400); flex-shrink:0; transition:all .22s; }
+    .batch-card.active .bc-num { background:var(--teal); color:white; }
+    .bc-name { font-weight:700; font-size:.9rem; color:var(--black); transition:color .22s; }
+    .batch-card.active .bc-name { color:white; }
+    .bc-desc { font-size:.75rem; color:var(--g400); margin-top:2px; transition:color .22s; }
+    .batch-card.active .bc-desc { color:rgba(255,255,255,.6); }
+    .bc-goal { display:inline-block; margin-top:6px; font-size:.7rem; font-weight:700; color:var(--teal); background:var(--teal-sub); border-radius:999px; padding:2px 10px; }
+    .batch-card.active .bc-goal { background:rgba(20,184,166,.2); }
+
+    .batch-panel { display:none; animation:fadeUp .4s ease both; }
+    .batch-panel.active { display:block; }
+    .batch-heading { text-align:center; margin-bottom:36px; }
+    .batch-heading h3 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:900; color:var(--black); margin-bottom:6px; }
+    .batch-heading p { font-size:.875rem; color:var(--g600); }
+
+    .tiers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:1100px; margin:0 auto; }
+    .tiers-grid.one-col { grid-template-columns:1fr; max-width:560px; }
+    .tier-card { background:white; border:1.5px solid var(--g100); border-radius:20px; padding:30px 26px; position:relative; overflow:hidden; transition:border-color .25s, box-shadow .25s, transform .25s; }
+    .tier-card:hover { border-color:rgba(20,184,166,.4); box-shadow:0 8px 40px rgba(20,184,166,.1); transform:translateY(-4px); }
+    .tier-card.featured { border-color:var(--teal); box-shadow:0 4px 28px rgba(20,184,166,.15); }
+    .tier-card.featured::before { content:'Paling Diminati'; position:absolute; top:14px; right:14px; background:var(--teal); color:white; font-size:.65rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; border-radius:999px; padding:4px 12px; }
+    .tier-label { font-size:.68rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); margin-bottom:6px; }
+    .tier-name { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:900; color:var(--black); margin-bottom:8px; }
+    .tier-desc { font-size:.85rem; color:var(--g600); line-height:1.65; margin-bottom:18px; }
+    .tier-note { font-size:.78rem; color:var(--g400); padding-bottom:16px; margin-bottom:16px; border-bottom:1px solid var(--g100); }
+    .tier-meta { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; }
+    .meta-pill { background:var(--g50); border:1px solid var(--g100); border-radius:999px; padding:4px 11px; font-size:.72rem; color:var(--g600); font-weight:500; }
+    .tier-features { list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:22px; }
+    .tier-features li { display:flex; align-items:flex-start; gap:9px; font-size:.85rem; color:var(--g600); line-height:1.5; }
+    .tier-features li::before { content:'✓'; color:var(--teal); font-weight:800; font-size:.85rem; flex-shrink:0; margin-top:1px; }
+    .tier-sub { font-size:.8rem; font-weight:700; color:var(--black); margin:14px 0 8px; }
+    .tier-goal { background:var(--teal-sub); border:1px solid rgba(20,184,166,.2); border-radius:10px; padding:9px 13px; font-size:.8rem; color:var(--teal); font-weight:600; margin-bottom:18px; font-style:italic; }
+    .tier-note-italic { font-size:.75rem; color:var(--g400); margin-bottom:18px; font-style:italic; }
+    .tier-cta { display:flex; align-items:center; justify-content:center; gap:6px; width:100%; padding:12px; background:var(--black); color:white; font-family:'DM Sans',sans-serif; font-size:.875rem; font-weight:700; border:none; border-radius:12px; cursor:pointer; text-decoration:none; transition:background .2s, transform .15s; }
+    .tier-cta:hover { background:#222; transform:translateY(-1px); }
+    .tier-cta.teal { background:var(--teal); }
+    .tier-cta.teal:hover { background:var(--teal-dark); }
+    .tier-cta.free { background:white; color:var(--teal); border:2px solid var(--teal); }
+    .tier-cta.free:hover { background:var(--teal-sub); }
+
+    .harmonic-intro { text-align:center; font-size:.9rem; color:var(--g600); max-width:540px; margin:0 auto 28px; line-height:1.75; }
+    .harmonic-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:1100px; margin:0 auto 36px; }
+    .h-item { background:var(--g50); border:1px solid var(--g100); border-radius:12px; padding:15px 17px; }
+    .h-num { font-size:.65rem; font-weight:800; color:var(--teal); letter-spacing:.1em; margin-bottom:5px; }
+    .h-item h4 { font-size:.875rem; font-weight:700; color:var(--black); margin-bottom:3px; }
+    .h-item p { font-size:.78rem; color:var(--g400); line-height:1.5; }
+
+    #for-who { background:var(--g50); border-top:1px solid var(--g100); border-bottom:1px solid var(--g100); }
+    .who-header { text-align:center; margin-bottom:50px; }
+    .who-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:1050px; margin:0 auto; }
+    .who-card { background:white; border-radius:20px; border:1.5px solid var(--g100); padding:34px 28px; transition:border-color .25s, box-shadow .25s, transform .25s; }
+    .who-card:hover { border-color:rgba(20,184,166,.35); box-shadow:0 8px 36px rgba(20,184,166,.09); transform:translateY(-4px); }
+    .who-emoji { font-size:2rem; margin-bottom:16px; display:block; }
+    .who-card h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:900; color:var(--black); margin-bottom:10px; }
+    .who-card p { font-size:.875rem; color:var(--g600); line-height:1.75; margin-bottom:18px; }
+    .who-arrow { display:inline-flex; align-items:center; gap:6px; font-size:.8rem; font-weight:700; color:var(--teal); text-decoration:none; }
+
+    .dark-section { background:var(--black); padding:88px 40px; }
+    .dark-header { text-align:center; margin-bottom:56px; }
+    .dark-header .section-tag { color:var(--teal); }
+    .dark-header .section-title { color:white; }
+    .dark-header .section-sub { color:rgba(255,255,255,.7); max-width:460px; margin:0 auto; }
+    .journey-row { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; max-width:1050px; margin:0 auto; }
+    .journey-card { background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); padding:34px 28px; border-radius:4px; transition:background .3s, border-color .3s; position:relative; }
+    .journey-card:first-child { border-radius:16px 4px 4px 16px; }
+    .journey-card:last-child { border-radius:4px 16px 16px 4px; }
+    .journey-card:hover { background:rgba(20,184,166,.06); border-color:rgba(20,184,166,.25); }
+    .journey-num { font-family:'Playfair Display',serif; font-size:3rem; font-weight:900; color:rgba(20,184,166,.15); line-height:1; margin-bottom:14px; }
+    .journey-tag { font-size:.65rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin-bottom:8px; display:block; }
+    .journey-card h3 { font-size:1.05rem; font-weight:700; color:white; margin-bottom:8px; }
+    .journey-card p { font-size:.85rem; color:rgba(255,255,255,.7); line-height:1.7; }
+    .journey-arrow { position:absolute; right:-13px; top:50%; transform:translateY(-50%); width:26px; height:26px; border-radius:50%; background:rgba(20,184,166,.2); border:1px solid rgba(20,184,166,.4); display:flex; align-items:center; justify-content:center; z-index:2; color:var(--teal); font-size:.7rem; }
+
+    #testimoni { background:white; }
+    .testi-header { text-align:center; margin-bottom:50px; }
+    .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1050px; margin:0 auto; }
+    .testi-card { background:white; border:1.5px solid var(--g100); border-radius:18px; padding:26px; transition:border-color .25s, box-shadow .25s, transform .25s; }
+    .testi-card:hover { border-color:rgba(20,184,166,.3); box-shadow:0 8px 32px rgba(20,184,166,.09); transform:translateY(-3px); }
+    .testi-stars { color:var(--teal); font-size:.85rem; letter-spacing:2px; margin-bottom:13px; }
+    .testi-quote { font-size:.875rem; color:var(--g600); line-height:1.8; margin-bottom:20px; font-style:italic; }
+    .testi-author { display:flex; align-items:center; gap:11px; }
+    .testi-avatar { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:800; font-size:.85rem; flex-shrink:0; border:2.5px solid var(--teal-light); }
+    .testi-name { font-weight:700; font-size:.875rem; color:var(--black); }
+    .testi-role { font-size:.73rem; color:var(--g400); margin-top:2px; }
+
+    .cta-band { background:var(--teal); padding:80px 40px; text-align:center; position:relative; overflow:hidden; }
+    .cta-band::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle, rgba(255,255,255,.08) 1px, transparent 1px); background-size:28px 28px; }
+    .cta-inner { position:relative; z-index:1; }
+    .cta-band h2 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:900; color:white; letter-spacing:-.03em; margin-bottom:12px; }
+    .cta-band p { font-size:.95rem; color:rgba(255,255,255,.85); margin-bottom:34px; max-width:400px; margin-left:auto; margin-right:auto; line-height:1.7; }
+    .cta-btns { display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
+    .btn-white { background:white; color:var(--teal-dark); font-weight:800; font-size:.9rem; padding:14px 26px; border-radius:999px; text-decoration:none; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 20px rgba(0,0,0,.12); transition:transform .15s; }
+    .btn-white:hover { transform:translateY(-2px); }
+    .btn-outline-white { background:transparent; color:white; font-weight:700; font-size:.9rem; padding:13px 22px; border-radius:999px; border:2px solid rgba(255,255,255,.5); text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:background .2s; }
+    .btn-outline-white:hover { background:rgba(255,255,255,.12); }
+
+    footer { background:var(--black); color:white; padding:60px 40px 26px; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:44px; max-width:1100px; margin:0 auto 44px; }
+    .footer-logo { display:flex; align-items:center; gap:8px; text-decoration:none; margin-bottom:12px; }
+    .footer-logo .logo-box { background:var(--teal); }
+    .footer-logo .logo-text { color:white; }
+    .footer-brand p { font-size:.85rem; color:rgba(255,255,255,.65); line-height:1.8; max-width:250px; }
+    .footer-contact { margin-top:20px; display:flex; flex-direction:column; gap:9px; }
+    .footer-contact a { display:flex; align-items:flex-start; gap:7px; font-size:.8rem; color:rgba(255,255,255,.65); text-decoration:none; transition:color .2s; line-height:1.5; }
+    .footer-contact a:hover { color:var(--teal); }
+    .footer-col h4 { font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:16px; }
+    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:9px; }
+    .footer-col ul li a { font-size:.875rem; color:rgba(255,255,255,.7); text-decoration:none; transition:color .2s; }
+    .footer-col ul li a:hover { color:white; }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,.08); padding-top:20px; max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+    .footer-bottom p { font-size:.78rem; color:rgba(255,255,255,.55); }
+    .footer-bottom a { color:rgba(255,255,255,.55); text-decoration:none; margin-left:16px; }
+    .footer-bottom a:hover { color:white; }
+
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    @media(max-width:900px) {
+      nav { padding:0 20px; } .nav-links { display:none; }
+      section,.dark-section,.cta-band { padding:60px 20px; }
+      .batch-cards { flex-direction:column; align-items:center; }
+      .batch-card { width:100%; max-width:380px; }
+      .tiers-grid,.tiers-grid.one-col { grid-template-columns:1fr; }
+      .who-grid,.testi-grid { grid-template-columns:1fr; }
+      .journey-row { grid-template-columns:1fr; }
+      .journey-card { border-radius:12px !important; }
+      .journey-arrow { display:none; }
+      .harmonic-grid { grid-template-columns:1fr 1fr; }
+      .stats-strip { flex-wrap:wrap; }
+      .stat-item { border-right:none; border-bottom:1px solid var(--g100); flex:1 1 40%; }
+      .footer-top { grid-template-columns:1fr 1fr; gap:28px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="#">
+    <div class="logo-box">B</div>
+    <span class="logo-text"><span class="logo-bisa">BISA</span> <span class="logo-academy">Academy</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#program">Program</a>
+    <a href="#for-who">Untuk Siapa</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="https://freeconsultbisaacademy.vercel.app/" target="_blank" style="color:var(--teal);font-weight:600;">Free Konsultasi</a>
+  </div>
+  <a href="https://wa.me/6282279793385" target="_blank" class="nav-cta">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2c-5.514 0-9.996 4.478-9.996 9.988 0 1.76.46 3.413 1.265 4.845L2 22l5.32-1.24A9.94 9.94 0 0 0 12 22c5.514 0 9.996-4.478 9.996-9.988C21.996 6.478 17.518 2 12.004 2z"/></svg>
+    Daftar Sekarang
+  </a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"><div class="dot-grid"></div></div>
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span class="dot"></span>Entrepreneurship Masterclass</div>
+      <h1>Dari Nol Ide<br><em>Sampai Bisnis</em><br><em>Berjalan Sendiri.</em></h1>
+      <div class="hero-ctas">
+        <a href="#program" class="btn-primary">Lihat Program →</a>
+        <a href="https://wa.me/6282279793385" target="_blank" class="btn-wa">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2c-5.514 0-9.996 4.478-9.996 9.988 0 1.76.46 3.413 1.265 4.845L2 22l5.32-1.24A9.94 9.94 0 0 0 12 22c5.514 0 9.996-4.478 9.996-9.988C21.996 6.478 17.518 2 12.004 2z"/></svg>
+          Tanya via WhatsApp
+        </a>
+      </div>
+      <div class="hero-avatars">
+        <div class="hero-avatar" style="background:#d1fae5;color:#065f46;">RH</div>
+        <div class="hero-avatar" style="background:#dbeafe;color:#1e40af;">SA</div>
+        <div class="hero-avatar" style="background:#fce7f3;color:#9d174d;">BW</div>
+        <div class="avatar-count">500+</div>
+      </div>
+      <p class="hero-note">Jaringan komunitas entrepreneurs</p>
+    </div>
+    <!-- RIGHT card -->
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-badge">✦ 3 Batch Program</div>
+        <div class="hero-card-tag">Entrepreneurship Masterclass</div>
+        <div class="hero-card-title">Starting → Profiting → Structuring</div>
+        <p class="hero-card-sub">Tiga tahapan terstruktur untuk membangun bisnis dari nol hingga autopilot.</p>
+        <div class="hero-card-divider"></div>
+        <div class="hero-card-stats">
+          <div class="hcs">
+            <div class="hcs-num">3</div>
+            <div class="hcs-lbl">Batch</div>
+          </div>
+          <div class="hcs">
+            <div class="hcs-num">7</div>
+            <div class="hcs-lbl">Program</div>
+          </div>
+          <div class="hcs">
+            <div class="hcs-num accent">100K</div>
+            <div class="hcs-lbl">Mulai dari</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip reveal">
+  <div class="stat-item"><div class="stat-num">3</div><div class="stat-lbl">Batch</div></div>
+  <div class="stat-item"><div class="stat-num">7</div><div class="stat-lbl">Program</div></div>
+  <div class="stat-item"><div class="stat-num">100<sub>K</sub></div><div class="stat-lbl">Mulai dari</div></div>
+  <div class="stat-item"><div class="stat-num">500<sup>+</sup></div><div class="stat-lbl">Peserta Terlatih</div></div>
+  <div class="stat-item"><div class="stat-num">98<sup>%</sup></div><div class="stat-lbl">Kepuasan Peserta</div></div>
+</div>
+
+<section id="program">
+  <div class="prog-header reveal">
+    <div class="section-tag">Program</div>
+    <h2 class="section-title">Tiga Tahap Perjalanan Bisnis Anda</h2>
+    <p class="section-sub">Setiap batch dirancang untuk satu fase spesifik — dari membuka bisnis, merapihkan omset, hingga sistem autopilot.</p>
+  </div>
+
+  <div class="batch-cards reveal">
+    <div class="batch-card active" onclick="showBatch(1,this)">
+      <div class="bc-num">1</div>
+      <div>
+        <div class="bc-name">Batch Starting</div>
+        <div class="bc-desc">Buka bisnis dari nol</div>
+        <span class="bc-goal">💡 Bisnis pertama launching</span>
+      </div>
+    </div>
+    <div class="batch-card" onclick="showBatch(2,this)">
+      <div class="bc-num">2</div>
+      <div>
+        <div class="bc-name">Batch Profiting</div>
+        <div class="bc-desc">Tingkatkan omset</div>
+        <span class="bc-goal">📈 Omset breakthrough</span>
+      </div>
+    </div>
+    <div class="batch-card" onclick="showBatch(3,this)">
+      <div class="bc-num">3</div>
+      <div>
+        <div class="bc-name">Batch Structuring</div>
+        <div class="bc-desc">Sistem autopilot</div>
+        <span class="bc-goal">🏗️ Bisnis jalan autopilot</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="batch-panel active" id="batch-1">
+    <div class="batch-heading">
+      <h3>Batch Starting</h3>
+      <p>Untuk kamu yang mau mulai — dari mindset hingga langkah pertama yang nyata</p>
+    </div>
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-label">Tier 1</div>
+        <div class="tier-name">Public Seminar</div>
+        <p class="tier-desc">Bangun mindset entrepreneur yang benar sebelum membuka bisnis apapun.</p>
+        <p class="tier-note">Tersedia hingga 30 kursi per batch</p>
+        <div class="tier-meta">
+          <span class="meta-pill">⏱ 2 jam</span>
+          <span class="meta-pill">👥 Maks. 30 peserta</span>
+          <span class="meta-pill">📍 Offline / Online</span>
+        </div>
+        <ul class="tier-features">
+          <li>Mindset shift dari karyawan ke pemilik bisnis</li>
+          <li>Pola pikir founder yang terbukti berhasil</li>
+          <li>Framework awal memilih ide bisnis</li>
+          <li>Sesi tanya jawab langsung dengan mentor</li>
+        </ul>
+        <a href="https://wa.me/6282279793385" target="_blank" class="tier-cta">Daftar Seminar</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-label">Tier 2</div>
+        <div class="tier-name">Group Class</div>
+        <p class="tier-desc">Kuasai 7-Step Formula agar bisnis bisa rilis cepat dan langsung laris di pasaran.</p>
+        <p class="tier-note">Sangat terbatas — hanya 10 kursi per batch</p>
+        <div class="tier-meta">
+          <span class="meta-pill">⏱ 6 jam intensif</span>
+          <span class="meta-pill">👥 Maks. 10 peserta</span>
+          <span class="meta-pill">📍 Offline</span>
+        </div>
+        <ul class="tier-features">
+          <li>7-Step Formula Rilis Cepat Laris</li>
+          <li>Validasi ide & riset pasar sederhana</li>
+          <li>Strategi pricing & positioning produk</li>
+          <li>Cara jualan pertama tanpa modal besar</li>
+          <li>Peer learning & feedback sesama peserta</li>
+        </ul>
+        <a href="https://wa.me/6282279793385" target="_blank" class="tier-cta teal">Daftar Group Class</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-label">Tier 3</div>
+        <div class="tier-name">1-on-1 Class</div>
+        <p class="tier-desc">Breakdown step-by-step dari kondisi sekarang ke bisnis impian Anda — pakai framework KS→KD.</p>
+        <p class="tier-note">Eksklusif — 1 klien per sesi, fully customized</p>
+        <div class="tier-meta">
+          <span class="meta-pill">⏱ 8 jam</span>
+          <span class="meta-pill">👤 1 peserta saja</span>
+          <span class="meta-pill">🎯 Sesuai kondisi Anda</span>
+        </div>
+        <ul class="tier-features">
+          <li>Analisis mendalam kondisi sekarang (KS)</li>
+          <li>Peta jalan ke kondisi yang diinginkan (KD)</li>
+          <li>Action plan spesifik & terukur</li>
+          <li>Pendampingan personal dari mentor</li>
+          <li>Follow-up setelah sesi selesai</li>
+        </ul>
+        <a href="https://wa.me/6282279793385" target="_blank" class="tier-cta">Book 1-on-1</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="batch-panel" id="batch-2">
+    <div class="batch-heading">
+      <h3>Batch Profiting</h3>
+      <p>Untuk UMKM & business owner yang omsetnya stuck dan ingin breakthrough ke level berikutnya</p>
+    </div>
+    <div class="tiers-grid one-col">
+      <div class="tier-card featured">
+        <div class="tier-label">Batch Profiting</div>
+        <div class="tier-name">Business Profiting Program</div>
+        <p class="tier-desc">Khusus untuk bisnis yang sudah jalan tapi omset terasa berantakan. Kami bantu temukan bottleneck, susun strategi, dan buka jalan ke level berikutnya.</p>
+        <p class="tier-note">Menyesuaikan skala & kebutuhan bisnis Anda</p>
+        <div class="tier-meta">
+          <span class="meta-pill">🔍 Diagnosa bisnis mendalam</span>
+          <span class="meta-pill">📈 Strategi pertumbuhan omset</span>
+          <span class="meta-pill">🤝 Pendampingan bersama mentor</span>
+        </div>
+        <ul class="tier-features">
+          <li>Identifikasi leakage & bottleneck omset</li>
+          <li>Audit strategi penjualan & keuangan saat ini</li>
+          <li>Formula levelling sesuai skala bisnis Anda</li>
+          <li>R&D strategi baru berdasarkan data</li>
+          <li>Roadmap eksekusi</li>
+        </ul>
+        <div class="tier-goal">📈 Goal: Omset breakthrough</div>
+        <a href="https://wa.me/6282279793385" target="_blank" class="tier-cta teal">Konsultasi Profiting →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="batch-panel" id="batch-3">
+    <div class="batch-heading">
+      <h3>Batch Structuring</h3>
+      <p>Untuk bisnis yang siap jalan autopilot dengan sistem manajemen yang solid</p>
+    </div>
+    <p class="harmonic-intro">Framework manajemen yang mengidentifikasi dan menyelesaikan <strong>6 komponen utama bisnis</strong> — sehingga bisnis bisa autopilot, kualitas terjaga, dan masalah tidak terus berulang.</p>
+    <div class="harmonic-grid">
+      <div class="h-item"><div class="h-num">01</div><h4>Direction</h4><p>Arah & tujuan bisnis yang jelas dan terukur</p></div>
+      <div class="h-item"><div class="h-num">02</div><h4>Team</h4><p>SDM yang tepat di posisi yang tepat</p></div>
+      <div class="h-item"><div class="h-num">03</div><h4>Resolution</h4><p>Sistem penyelesaian masalah yang permanen</p></div>
+      <div class="h-item"><div class="h-num">04</div><h4>Discipline</h4><p>Konsistensi eksekusi di semua lini tim</p></div>
+      <div class="h-item"><div class="h-num">05</div><h4>Procedures</h4><p>SOP yang jelas dan bisa direplikasi</p></div>
+      <div class="h-item"><div class="h-num">06</div><h4>Measurement</h4><p>Pengukuran performa berbasis data & KPI</p></div>
+    </div>
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-label">Tier 1</div>
+        <div class="tier-name">Asesmen Harmonic</div>
+        <p class="tier-desc">Diagnosa kondisi ke-6 komponen bisnis Anda sebelum memulai perjalanan Harmonic System.</p>
+        <p class="tier-note" style="color:var(--teal);font-weight:700;border-color:rgba(20,184,166,.2);">GRATIS · Sesi 90 Menit · Tanpa komitmen apapun</p>
+        <ul class="tier-features">
+          <li>Diagnosa ke-6 komponen bisnis Anda</li>
+          <li>Rekomendasi spesifik untuk kondisi bisnis Anda</li>
+          <li>Peta jalan menuju Harmonic System</li>
+          <li>Nol kewajiban untuk lanjut</li>
+        </ul>
+        <div class="tier-goal">"Identifikasi gap antara kondisi sekarang dan Harmonic"</div>
+        <a href="https://freeconsultbisaacademy.vercel.app/" target="_blank" class="tier-cta free">Book Asesmen Gratis →</a>
+      </div>
+      <div class="tier-card featured">
+        <div class="tier-label">Tier 2</div>
+        <div class="tier-name">Full Tuning</div>
+        <p class="tier-desc">Implementasi lengkap Harmonic System untuk seluruh organisasi dalam 90 hari.</p>
+        <p class="tier-note">Berdasarkan jumlah tim & skala bisnis</p>
+        <div class="tier-meta">
+          <span class="meta-pill">5–15 Orang</span>
+          <span class="meta-pill">16–25 Orang</span>
+          <span class="meta-pill">25–50 Orang</span>
+        </div>
+        <ul class="tier-features">
+          <li>Rencana implementasi 90 hari</li>
+          <li>3 sesi kerja + coaching intensif</li>
+          <li>Semua 6 komponen di-install tuntas</li>
+          <li>Garansi bisa dibatalkan kapan saja</li>
+        </ul>
+        <p class="tier-note-italic">*Cicilan: 40% / 30% / 30%</p>
+        <div class="tier-goal">🏗️ Goal: Bisnis jalan autopilot</div>
+        <a href="https://wa.me/6282279793385" target="_blank" class="tier-cta teal">Mulai Full Tuning →</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-label">Tier 3</div>
+        <div class="tier-name">Stay Harmonic</div>
+        <p class="tier-desc">Untuk bisnis yang ingin tetap terjaga kualitasnya setelah Harmonic System berjalan.</p>
+        <p class="tier-note">Custom — sesuai kebutuhan bisnis Anda</p>
+        <div class="tier-sub">Harmonic Integrator</div>
+        <ul class="tier-features">
+          <li>Pendampingan 2x/minggu hands-on</li>
+          <li>Fasilitasi rapat rutin tim</li>
+        </ul>
+        <div class="tier-sub">Quarterly Tune-Ups</div>
+        <ul class="tier-features">
+          <li>4 pertemuan (3 kuartal + 1 tahunan)</li>
+          <li>Monthly accountability check</li>
+          <li>Garansi bisa dibatalkan kapan saja</li>
+        </ul>
+        <div class="tier-goal">"Tetap selaras saat bisnis Anda berkembang"</div>
+        <a href="https://wa.me/6282279793385" target="_blank" class="tier-cta">Konsultasi Stay Harmonic</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="dark-section">
+  <div class="dark-header reveal">
+    <div class="section-tag">Perjalanan Bisnis</div>
+    <h2 class="section-title">Tiga Fase, Satu Tujuan</h2>
+    <p class="section-sub">Dari langkah pertama hingga bisnis yang berjalan tanpa Anda — setiap fase dirancang untuk satu misi spesifik.</p>
+  </div>
+  <div class="journey-row">
+    <div class="journey-card reveal">
+      <div class="journey-num">01</div>
+      <span class="journey-tag">Batch Starting</span>
+      <h3>Buka Bisnis dari Nol</h3>
+      <p>Mindset shift, validasi ide, 7-Step Formula, hingga bisnis pertama Anda launching ke pasar nyata.</p>
+      <div class="journey-arrow">→</div>
+    </div>
+    <div class="journey-card reveal">
+      <div class="journey-num">02</div>
+      <span class="journey-tag">Batch Profiting</span>
+      <h3>Tingkatkan Omset</h3>
+      <p>Diagnosa bottleneck, audit strategi, dan roadmap aksi yang membawa bisnis ke level berikutnya.</p>
+      <div class="journey-arrow">→</div>
+    </div>
+    <div class="journey-card reveal">
+      <div class="journey-num">03</div>
+      <span class="journey-tag">Batch Structuring</span>
+      <h3>Sistem Autopilot</h3>
+      <p>Harmonic System membangun 6 komponen inti bisnis — tim jalan sendiri, Anda tinggal review.</p>
+    </div>
+  </div>
+</div>
+
+<section id="for-who">
+  <div class="who-header reveal">
+    <div class="section-tag">Untuk Siapa</div>
+    <h2 class="section-title">Program Ini Tepat untuk Anda Jika...</h2>
+  </div>
+  <div class="who-grid">
+    <div class="who-card reveal">
+      <span class="who-emoji">💡</span>
+      <h3>Early First Founder</h3>
+      <p>Anda punya ide bisnis tapi belum tahu harus mulai dari mana. Atau sudah ada niat tapi takut gagal sebelum mencoba.</p>
+      <a href="#program" class="who-arrow">→ Mulai dari Batch Starting</a>
+    </div>
+    <div class="who-card reveal">
+      <span class="who-emoji">📊</span>
+      <h3>UMKM / Bisnis yang Stuck</h3>
+      <p>Bisnis sudah jalan, tapi omset segitu-gitu saja. Sudah coba banyak cara tapi hasilnya belum signifikan.</p>
+      <a href="#program" class="who-arrow">→ Masuk Batch Profiting</a>
+    </div>
+    <div class="who-card reveal">
+      <span class="who-emoji">🏗️</span>
+      <h3>Business Owner Siap Scale</h3>
+      <p>Profit sudah stabil, tapi masih tergantung penuh pada individu tertentu. Ingin bisnis bisa berjalan sendiri dengan sistem kuat.</p>
+      <a href="#program" class="who-arrow">→ Ikut Batch Structuring</a>
+    </div>
+  </div>
+</section>
+
+<section id="testimoni" style="background:var(--g50);border-top:1px solid var(--g100);">
+  <div class="testi-header reveal">
+    <div class="section-tag">Testimoni</div>
+    <h2 class="section-title">Kata Mereka yang Sudah Bergabung</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Setelah ikut Public Seminar, mindset saya langsung berubah total. Dua minggu kemudian saya sudah launch bisnis pertama saya. Tidak nyangka secepat ini."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#d1fae5;color:#065f46;">RH</div>
+        <div><div class="testi-name">Rahmat H.</div><div class="testi-role">Founder · Toko Online Pertama</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Group Class-nya padat banget. 7-Step Formula itu gamechanging — dalam 6 jam saya dapat blueprint yang bisa langsung dieksekusi besoknya."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#dbeafe;color:#1e40af;">SA</div>
+        <div><div class="testi-name">Siti A.</div><div class="testi-role">Business Owner · F&B</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Harmonic System benar-benar mengubah cara saya kelola bisnis. Sekarang tim bisa jalan sendiri, saya tinggal review mingguan. Luar biasa."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#fce7f3;color:#9d174d;">BW</div>
+        <div><div class="testi-name">Budi W.</div><div class="testi-role">CEO · Logistik Prima</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band" id="kontak">
+  <div class="cta-inner">
+    <h2>Bisnis Impian Anda Dimulai dari Satu Langkah</h2>
+    <p>We help you to get you from where you are now to where you want to be.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/6282279793385" target="_blank" class="btn-white">💬 Chat di WhatsApp</a>
+      <a href="#program" class="btn-outline-white">Lihat Program Lengkap</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="footer-logo" href="#">
+        <div class="logo-box">B</div>
+        <span class="logo-text"><span class="logo-bisa">BISA</span> <span class="logo-academy">Academy</span></span>
+      </a>
+      <p>Lembaga pelatihan & konsultasi bisnis yang membantu early founders dan UMKM Indonesia tumbuh dari nol hingga autopilot.</p>
+      <div class="footer-contact">
+        <a href="https://maps.google.com" target="_blank">📍 Jl. Danau Maninjau No.39, Kedaton, Bandarlampung 35122</a>
+        <a href="https://wa.me/6282279793385" target="_blank">💬 +62 822-7979-3385</a>
+        <a href="mailto:bisaacademyindonesia@gmail.com">✉️ bisaacademyindonesia@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Program</h4>
+      <ul>
+        <li><a href="#program">Public Seminar</a></li>
+        <li><a href="#program">Group Class</a></li>
+        <li><a href="#program">1-on-1 Class</a></li>
+        <li><a href="#program">Batch Profiting</a></li>
+        <li><a href="#program">Harmonic System</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#for-who">Untuk Siapa</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="https://freeconsultbisaacademy.vercel.app/" target="_blank">Free Konsultasi</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/bisaacademy.id" target="_blank">📸 Instagram</a></li>
+        <li><a href="https://www.linkedin.com/company/bisa-academy-indonesia" target="_blank">💼 LinkedIn</a></li>
+        <li><a href="https://freeconsultbisaacademy.vercel.app/" target="_blank">📅 Free Konsultasi</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 BISA Academy Indonesia. All Rights Reserved.</p>
+    <div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Syarat & Ketentuan</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10));
+
+  function showBatch(n, el) {
+    document.querySelectorAll('.batch-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.batch-card').forEach(c => c.classList.remove('active'));
+    document.getElementById('batch-' + n).classList.add('active');
+    el.classList.add('active');
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 55);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
