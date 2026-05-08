@@ -1,917 +1,883 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Entrepreneurship Masterclass</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #04070f;
-  --bg2: #080d1a;
-  --surface: #0d1526;
-  --surface2: #111d33;
-  --border: rgba(255,255,255,0.06);
-  --border-h: rgba(255,255,255,0.12);
-  --accent: #2563eb;
-  --accent-b: #3b82f6;
-  --accent-soft: rgba(37,99,235,0.1);
-  --accent-glow: rgba(37,99,235,0.3);
-  --gold: #f59e0b;
-  --gold-soft: rgba(245,158,11,0.1);
-  --green: #10b981;
-  --green-soft: rgba(16,185,129,0.1);
-  --text: #eef2ff;
-  --muted: #6b7fa3;
-  --dim: #3a4a66;
-  --r: 14px;
-  --r-sm: 8px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrepreneurship Masterclass — BISA Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:0}
+    :root {
+      --navy-dark:  #141b2d;
+      --navy-mid:   #1e2d4a;
+      --navy-light: #243352;
+      --gold:       #e8a020;
+      --gold-light: #f0b84a;
+      --white:      #ffffff;
+      --gray:       #8a9ab5;
+      --gray-light: #c5d0e0;
+    }
 
-.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(37,99,235,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.03) 1px,transparent 1px);background-size:60px 60px}
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy-dark); color: var(--white); line-height: 1.6; }
 
-.orb{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0}
-.o1{width:700px;height:700px;background:rgba(37,99,235,0.07);top:-200px;right:-150px}
-.o2{width:500px;height:500px;background:rgba(16,185,129,0.04);bottom:0;left:-100px}
-.o3{width:350px;height:350px;background:rgba(245,158,11,0.04);top:50%;right:15%}
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(20,27,45,0.96); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(232,160,32,0.15);
+      padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-size: 1.15rem; font-weight: 800; color: var(--white); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--gold); font-style: italic; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--gray-light); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--navy-dark) !important; padding: .45rem 1.1rem; border-radius: 6px; font-weight: 700 !important; }
+    .nav-cta:hover { background: var(--gold-light); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(4,7,15,0.75);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
-.logo-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:14px;color:#fff}
-.logo-text{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;letter-spacing:-.3px}
-.logo-text em{font-style:normal;color:var(--accent-b)}
-.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-btn{background:var(--accent);color:#fff !important;padding:8px 18px;border-radius:8px;font-weight:600 !important;transition:opacity .2s !important}
-.nav-btn:hover{opacity:.85}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
-.hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px}
-.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(8,13,26,.98);border-bottom:1px solid var(--border);padding:1.5rem 2rem;flex-direction:column;gap:1rem;z-index:999}
-.mob-menu.open{display:flex}
-.mob-menu a{text-decoration:none;color:var(--muted);font-size:15px;padding:.4rem 0}
-.mob-menu .nav-btn{color:#fff !important;text-align:center}
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy-dark) 0%, #1a2540 55%, #1a2d4a 100%);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+      padding: 100px 2rem 60px;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(232,160,32,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1160px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 400px; gap: 4rem; align-items: center;
+    }
 
-/* HERO */
-.hero{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;padding:120px 2.5rem 80px}
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 400px;gap:5rem;align-items:center}
+    /* Hero Left */
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(232,160,32,.12); border: 1px solid rgba(232,160,32,.3);
+      color: var(--gold); font-size: .75rem; font-weight: 700;
+      padding: .4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 900;
+      line-height: 1.08; letter-spacing: -2px; margin-bottom: 1.4rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { color: var(--gray-light); font-size: 1.05rem; max-width: 480px; margin-bottom: 2.2rem; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-primary {
+      background: var(--gold); color: var(--navy-dark);
+      padding: .85rem 2rem; border-radius: 8px; font-weight: 700; font-size: .95rem;
+      text-decoration: none; transition: background .2s, transform .15s;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      padding: .85rem 2rem; border-radius: 8px; font-weight: 600; font-size: .95rem;
+      text-decoration: none; border: 1px solid rgba(255,255,255,.22);
+      transition: border-color .2s, background .2s;
+      display: inline-flex; align-items: center; gap: .5rem;
+    }
+    .btn-secondary:hover { border-color: var(--gold); background: rgba(232,160,32,.08); }
 
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--accent-b);letter-spacing:.5px;margin-bottom:1.5rem}
-.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    .hero-stats { display: flex; gap: 2.5rem; }
+    .hero-stat-num { font-size: 1.7rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .hero-stat-lbl { font-size: .72rem; color: var(--gray); margin-top: .2rem; text-transform: uppercase; letter-spacing: .05em; }
 
-.hero-title{font-family:'Sora',sans-serif;font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:800;line-height:1.13;letter-spacing:-1.2px;margin-bottom:1.4rem}
-.hero-title .grad{display:block;background:linear-gradient(135deg,var(--accent-b),#60a5fa,var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    /* ─── HERO RIGHT — LEVEL CARD ─── */
+    .level-card {
+      background: rgba(30,45,74,.7);
+      border: 1px solid rgba(232,160,32,.2);
+      border-radius: 20px;
+      padding: 1.8rem;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+    .level-card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.6rem;
+    }
+    .level-card-title { font-size: .7rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .15em; }
+    .level-card-badge {
+      background: rgba(232,160,32,.12); border: 1px solid rgba(232,160,32,.25);
+      color: var(--gold); font-size: .68rem; font-weight: 700;
+      padding: .25rem .7rem; border-radius: 100px; letter-spacing: .05em;
+    }
 
-.hero-desc{font-size:1.05rem;color:var(--muted);max-width:500px;line-height:1.75;margin-bottom:2rem}
+    /* Level rows */
+    .level-row {
+      display: flex; gap: 1rem; align-items: flex-start;
+      position: relative; padding-bottom: 1.4rem; margin-bottom: 0;
+    }
+    .level-row:not(:last-child)::after {
+      content: ''; position: absolute;
+      left: 19px; top: 42px; width: 2px;
+      height: calc(100% - 28px);
+      background: linear-gradient(to bottom, rgba(232,160,32,.4), rgba(232,160,32,.1));
+    }
+    .level-dot {
+      width: 40px; height: 40px; min-width: 40px;
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; position: relative; z-index: 1;
+    }
+    .level-dot.s1 { background: rgba(232,160,32,.15); border: 1.5px solid rgba(232,160,32,.4); }
+    .level-dot.s2 { background: rgba(66,135,245,.15); border: 1.5px solid rgba(66,135,245,.4); }
+    .level-dot.s3 { background: rgba(74,222,128,.15); border: 1.5px solid rgba(74,222,128,.4); }
 
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2.5rem}
-.btn-p{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;padding:13px 26px;border-radius:10px;font-weight:600;font-size:14px;transition:.2s;box-shadow:0 0 40px var(--accent-glow)}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 0 60px var(--accent-glow)}
-.btn-s{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);text-decoration:none;padding:13px 26px;border-radius:10px;font-weight:500;font-size:14px;border:1px solid var(--border-h);transition:.2s}
-.btn-s:hover{background:rgba(255,255,255,0.04)}
+    .level-info { flex: 1; }
+    .level-name {
+      font-size: .95rem; font-weight: 800; margin-bottom: .15rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .level-name .lbadge {
+      font-size: .6rem; font-weight: 700; padding: .15rem .5rem; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: .05em;
+    }
+    .lbadge.gold { background: rgba(232,160,32,.15); color: var(--gold); }
+    .lbadge.blue { background: rgba(66,135,245,.15); color: #4287f5; }
+    .lbadge.green { background: rgba(74,222,128,.15); color: #4ade80; }
 
-.hero-trust{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
-.avatars{display:flex}
-.avatars span{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg);background:linear-gradient(135deg,var(--accent),var(--green));display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-left:-8px}
-.avatars span:first-child{margin-left:0}
+    .level-tagline { font-size: .78rem; color: var(--gray); line-height: 1.45; margin-bottom: .5rem; }
+    .level-items { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .level-chip {
+      font-size: .67rem; font-weight: 600; color: var(--gray-light);
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      padding: .18rem .55rem; border-radius: 5px;
+    }
 
-/* Hero Card */
-.hero-visual{position:relative}
-.float-pill{position:absolute;top:-16px;right:-16px;background:var(--surface2);border:1px solid var(--border-h);border-radius:100px;padding:8px 16px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px;z-index:2}
-.float-pill .spark{color:var(--gold)}
-.hero-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden}
-.hero-card-img{width:100%;height:210px;object-fit:cover;display:block;filter:brightness(.72)}
-.hero-card-body{padding:1.4rem}
-.hc-badge{display:inline-block;background:var(--gold-soft);border:1px solid rgba(245,158,11,.2);color:var(--gold);font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.5px;margin-bottom:10px}
-.hc-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;margin-bottom:6px}
-.hc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--border)}
-.hc-stat-n{font-family:'Sora',sans-serif;font-weight:800;font-size:1.3rem;color:var(--text)}
-.hc-stat-n em{font-style:normal;color:var(--accent-b)}
-.hc-stat-l{font-size:11px;color:var(--muted);margin-top:2px}
+    .level-card-cta {
+      margin-top: 1rem;
+      display: block; text-align: center;
+      background: var(--gold); color: var(--navy-dark);
+      padding: .75rem 1.5rem; border-radius: 10px;
+      font-weight: 700; font-size: .88rem; text-decoration: none;
+      transition: background .2s;
+    }
+    .level-card-cta:hover { background: var(--gold-light); }
 
-/* SECTION */
-section{position:relative;z-index:1}
-.wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem}
-.sec{padding:96px 0}
+    /* ─── SECTION SHARED ─── */
+    section { padding: 80px 2rem; }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-label { font-size: .72rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: .15em; margin-bottom: .8rem; }
+    .section-title { font-size: clamp(1.8rem, 3.5vw, 2.7rem); font-weight: 900; letter-spacing: -1px; line-height: 1.2; margin-bottom: .9rem; }
+    .section-sub { color: var(--gray); font-size: .97rem; max-width: 550px; line-height: 1.7; margin-bottom: 3rem; }
 
-.s-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-b);margin-bottom:12px}
-.s-label::before{content:'';width:16px;height:2px;background:var(--accent-b);border-radius:2px}
-.s-title{font-family:'Sora',sans-serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;letter-spacing:-.7px;line-height:1.2;margin-bottom:.9rem}
-.s-desc{color:var(--muted);font-size:1rem;max-width:520px;line-height:1.75}
+    /* ─── PROGRAM / TAB SELECTOR ─── */
+    #program { background: var(--navy-dark); }
 
-/* PROOF */
-.proof-bg{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;padding:2.5rem 0}
-.proof-stat{text-align:center;padding:1.5rem}
-.proof-n{font-family:'Sora',sans-serif;font-size:2.2rem;font-weight:800;letter-spacing:-1px}
-.proof-n em{font-style:normal;color:var(--accent-b)}
-.proof-l{font-size:13px;color:var(--muted);margin-top:4px}
+    /* ── Tab Cards Row ── */
+    .batch-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
 
-/* JOURNEY */
-.journey-header{text-align:center;margin-bottom:4rem}
-.journey-header .s-label{justify-content:center}
-.journey-header .s-desc{margin:0 auto}
+    .batch-tab {
+      background: rgba(255,255,255,.04);
+      border: 1.5px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 1.4rem 1.6rem;
+      cursor: pointer;
+      transition: all .22s ease;
+      display: flex; align-items: flex-start; gap: 1rem;
+      user-select: none;
+    }
+    .batch-tab:hover:not(.active) {
+      border-color: rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      transform: translateY(-2px);
+    }
+    .batch-tab.active {
+      background: var(--navy-mid);
+      border-color: rgba(232,160,32,.35);
+      box-shadow: 0 8px 32px rgba(0,0,0,.35);
+      transform: translateY(-3px);
+    }
 
-.batch{margin-bottom:5rem}
-.batch-label{display:flex;align-items:center;gap:16px;margin-bottom:2rem}
-.batch-num{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:18px;color:#fff;flex-shrink:0}
-.bn-blue{background:var(--accent)}
-.bn-gold{background:var(--gold)}
-.bn-green{background:var(--green)}
-.batch-meta h3{font-family:'Sora',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:-.3px}
-.batch-meta p{font-size:13px;color:var(--muted);margin-top:3px}
+    .tab-num {
+      width: 38px; height: 38px; min-width: 38px;
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 900;
+      transition: all .22s;
+    }
+    /* inactive */
+    .batch-tab:not(.active) .tab-num {
+      background: rgba(255,255,255,.08);
+      color: var(--gray);
+    }
+    /* active colours per batch */
+    .batch-tab.active[data-batch="1"] .tab-num { background: var(--gold);   color: var(--navy-dark); }
+    .batch-tab.active[data-batch="2"] .tab-num { background: #4287f5;       color: #fff; }
+    .batch-tab.active[data-batch="3"] .tab-num { background: #4ade80;       color: var(--navy-dark); }
 
-.cards-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.p-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.3s}
-.p-card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,0,0,.5)}
-.p-card.featured{border-color:rgba(37,99,235,.3);background:linear-gradient(160deg,rgba(37,99,235,.08),var(--surface))}
-.p-card.featured::after{content:'Paling Diminati';position:absolute;top:16px;right:16px;background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.5px}
+    .tab-info { flex: 1; }
+    .tab-name {
+      font-size: 1rem; font-weight: 800; letter-spacing: -.3px;
+      color: var(--gray); transition: color .22s;
+      margin-bottom: .15rem;
+    }
+    .batch-tab.active .tab-name { color: var(--white); }
 
-.card-tier{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
-.card-name{font-family:'Sora',sans-serif;font-weight:800;font-size:1.15rem;margin-bottom:.5rem;letter-spacing:-.2px}
-.card-goal{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:1.2rem}
-.card-price{font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;color:var(--text);letter-spacing:-.5px;margin-bottom:.3rem}
-.card-price span{font-size:14px;font-weight:500;color:var(--muted)}
-.card-price-note{font-size:12px;color:var(--muted);margin-bottom:1.4rem}
-.card-details{display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem;padding:1rem;background:rgba(255,255,255,0.03);border-radius:var(--r-sm)}
-.cd-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
-.card-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:1.8rem;flex:1}
-.card-features li{font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.5}
-.card-features li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;font-size:12px}
-.card-cta{display:block;text-align:center;text-decoration:none;padding:11px;border-radius:8px;font-weight:600;font-size:14px;transition:.2s}
-.cta-prim{background:var(--accent);color:#fff;box-shadow:0 0 30px rgba(37,99,235,.3)}
-.cta-prim:hover{opacity:.88}
-.cta-out{background:transparent;color:var(--text);border:1px solid var(--border-h)}
-.cta-out:hover{background:rgba(255,255,255,.04)}
+    .tab-sub {
+      font-size: .78rem; color: var(--gray);
+      margin-bottom: .7rem; line-height: 1.4;
+    }
 
-/* Wide card rows */
-.cards-row-2{display:grid;grid-template-columns:1.1fr 1fr;gap:1.2rem;align-items:stretch}
-.card-img-side{border-radius:var(--r);overflow:hidden}
-.card-img-side img{width:100%;height:100%;object-fit:cover;filter:brightness(.68);display:block}
+    .tab-goal {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: .7rem; font-weight: 700; padding: .22rem .65rem;
+      border-radius: 100px; opacity: 0; transition: opacity .22s;
+    }
+    .batch-tab.active .tab-goal { opacity: 1; }
+    .batch-tab[data-batch="1"] .tab-goal { background: rgba(232,160,32,.15); color: var(--gold);   border: 1px solid rgba(232,160,32,.3); }
+    .batch-tab[data-batch="2"] .tab-goal { background: rgba(66,135,245,.15); color: #4287f5;       border: 1px solid rgba(66,135,245,.3); }
+    .batch-tab[data-batch="3"] .tab-goal { background: rgba(74,222,128,.15); color: #4ade80;       border: 1px solid rgba(74,222,128,.3); }
 
-/* 6 components */
-.six-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1.4rem 0}
-.six-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.9rem 1rem;display:flex;align-items:flex-start;gap:10px}
-.six-num{font-family:'Sora',sans-serif;font-weight:800;font-size:1.2rem;color:rgba(16,185,129,.2);line-height:1;flex-shrink:0;min-width:26px}
-.six-label{font-size:13px;font-weight:600;color:var(--text)}
-.six-desc{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.5}
+    /* ── Content Panel ── */
+    .batch-panel {
+      display: none;
+      background: var(--navy-mid);
+      border: 1px solid rgba(232,160,32,.12);
+      border-radius: 18px;
+      overflow: hidden;
+      animation: fadeSlide .3s ease;
+    }
+    .batch-panel.active { display: block; }
 
-.batch-sep{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin-bottom:5rem}
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-/* FOR WHO */
-.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
-.who-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:.3s}
-.who-card:hover{border-color:var(--border-h)}
-.who-icon{font-size:2rem;margin-bottom:1rem}
-.who-title{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.5rem}
-.who-desc{font-size:13px;color:var(--muted);line-height:1.65}
-.who-tag{display:inline-block;margin-top:1rem;background:var(--accent-soft);border:1px solid rgba(37,99,235,.2);color:var(--accent-b);font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;letter-spacing:.5px}
+    .panel-header {
+      padding: 1.8rem 2.2rem 1.4rem;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
+    }
+    .panel-num {
+      width: 48px; height: 48px; min-width: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 900;
+    }
+    .panel-num.gold  { background: var(--gold); color: var(--navy-dark); }
+    .panel-num.blue  { background: #4287f5; color: #fff; }
+    .panel-num.green { background: #4ade80; color: var(--navy-dark); }
 
-/* PHOTO SLIDER */
-.slider-wrap{position:relative;overflow:hidden;border-radius:var(--r);cursor:grab;user-select:none}
-.slider-wrap:active{cursor:grabbing}
-.slider-track{display:flex;gap:12px;transition:transform .4s cubic-bezier(.25,.46,.45,.94);will-change:transform}
-.slider-track.no-transition{transition:none}
-.slide{flex:0 0 340px;height:240px;border-radius:var(--r);overflow:hidden;pointer-events:none}
-.slide img{width:100%;height:100%;object-fit:cover;filter:brightness(.72) saturate(.88);display:block;transition:filter .3s}
-.slider-wrap:hover .slide img{filter:brightness(.85) saturate(1)}
-.slider-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.2rem}
-.slider-dots{display:flex;gap:6px}
-.slider-dot{width:6px;height:6px;border-radius:50%;background:var(--dim);transition:.3s;cursor:pointer}
-.slider-dot.active{background:var(--accent-b);width:20px;border-radius:3px}
-.slider-arrows{display:flex;gap:8px}
-.sl-arr{width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:.2s;color:var(--muted)}
-.sl-arr:hover{border-color:var(--border-h);color:var(--text)}
+    .panel-title-wrap { flex: 1; }
+    .panel-title-wrap h3 { font-size: 1.4rem; font-weight: 900; letter-spacing: -.5px; margin-bottom: .2rem; }
+    .panel-title-wrap p  { font-size: .85rem; color: var(--gray); }
 
-/* TESTI */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
-.t-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;transition:.3s}
-.t-card:hover{border-color:var(--border-h)}
-.t-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:1rem}
-.t-quote{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:1.2rem;font-style:italic}
-.t-author{display:flex;align-items:center;gap:12px}
-.t-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
-.t-name{font-weight:600;font-size:14px}
-.t-role{font-size:12px;color:var(--dim)}
+    .panel-goal {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .75rem; font-weight: 700; padding: .35rem .9rem;
+      border-radius: 100px; white-space: nowrap;
+    }
+    .panel-goal.gold  { background: rgba(232,160,32,.1); color: var(--gold); border: 1px solid rgba(232,160,32,.25); }
+    .panel-goal.blue  { background: rgba(66,135,245,.1);  color: #4287f5;    border: 1px solid rgba(66,135,245,.25); }
+    .panel-goal.green { background: rgba(74,222,128,.1);  color: #4ade80;    border: 1px solid rgba(74,222,128,.25); }
 
-/* CTA BOX */
-.cta-wrap{padding:96px 2.5rem;text-align:center;position:relative;z-index:1}
-.cta-box{max-width:700px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:4rem 3rem;position:relative;overflow:hidden}
-.cta-gl{position:absolute;top:-80px;right:-80px;width:280px;height:280px;background:radial-gradient(circle,rgba(37,99,235,.12),transparent 70%);pointer-events:none}
-.cta-gr{position:absolute;bottom:-60px;left:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(16,185,129,.07),transparent 70%);pointer-events:none}
-.cta-acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .panel-body { padding: 1.8rem 2.2rem; }
 
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:4rem 2.5rem 2rem;position:relative;z-index:1}
-.footer-wrap{max-width:1100px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
-.footer-brand p{font-size:13px;color:var(--muted);line-height:1.7;margin-top:1rem;max-width:260px}
-.f-socials{display:flex;gap:8px;margin-top:1.2rem}
-.f-soc{width:32px;height:32px;border-radius:7px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:13px;text-decoration:none;transition:.2s}
-.f-soc:hover{border-color:var(--border-h)}
-.footer-col h4{font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:var(--text);letter-spacing:.5px;margin-bottom:1rem}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
-.footer-col li a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
-.footer-col li a:hover{color:var(--text)}
-.f-ci{display:flex;gap:8px;font-size:13px;color:var(--muted);margin-bottom:9px;line-height:1.5}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.8rem;flex-wrap:wrap;gap:.8rem}
-.footer-bottom p{font-size:12px;color:var(--dim)}
-.fb-links{display:flex;gap:1.5rem}
-.fb-links a{font-size:12px;color:var(--dim);text-decoration:none;transition:color .2s}
-.fb-links a:hover{color:var(--muted)}
+    /* items inside panel */
+    .panel-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+    .panel-item {
+      background: rgba(20,27,45,.6);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+    }
+    .item-label {
+      font-size: .68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; margin-bottom: .35rem;
+    }
+    .item-label.gold  { color: var(--gold); }
+    .item-label.blue  { color: #4287f5; }
+    .item-label.green { color: #4ade80; }
+    .item-title { font-size: .92rem; font-weight: 700; color: var(--white); margin-bottom: .3rem; line-height: 1.4; }
+    .item-desc  { font-size: .78rem; color: var(--gray); line-height: 1.5; margin-bottom: .6rem; }
+    .item-price { font-size: 1.05rem; font-weight: 900; color: var(--gold); }
+    .item-price span { font-size: .72rem; font-weight: 500; color: var(--gray); }
 
-/* JOURNEY GRAPHIC */
-.journey-graphic{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:center;margin:3rem 0 5rem;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2rem;overflow:hidden;position:relative}
-.journey-graphic::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,99,235,.04),transparent 50%,rgba(16,185,129,.04));pointer-events:none}
+    /* panel footer */
+    .panel-footer {
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+      display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+    }
+    .panel-note { font-size: .8rem; color: var(--gray); flex: 1; min-width: 200px; }
+    .panel-note strong { color: var(--white); }
 
-.jg-batch{padding:1.5rem;border-radius:14px;position:relative;z-index:1}
-.jg-blue{background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12)}
-.jg-gold{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.12)}
-.jg-green{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.12)}
+    .cta-wa {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      background: var(--gold); color: var(--navy-dark);
+      padding: .8rem 1.6rem; border-radius: 10px;
+      font-weight: 700; font-size: .9rem; text-decoration: none;
+      transition: background .2s, transform .15s; white-space: nowrap;
+    }
+    .cta-wa:hover { background: var(--gold-light); transform: translateY(-1px); }
 
-.jg-batch-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:1.2rem}
-.jg-num{font-family:'Sora',sans-serif;font-weight:800;font-size:2rem;line-height:1;color:var(--accent-b);letter-spacing:-1px}
-.jg-batch-name{font-family:'Sora',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:3px}
-.jg-batch-sub{font-size:12px;color:var(--muted)}
+    .cta-konsul {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      background: transparent; color: var(--gray-light);
+      padding: .78rem 1.4rem; border-radius: 10px;
+      font-weight: 600; font-size: .88rem; text-decoration: none;
+      border: 1px solid rgba(255,255,255,.15);
+      transition: border-color .2s, color .2s; white-space: nowrap;
+    }
+    .cta-konsul:hover { border-color: rgba(232,160,32,.5); color: var(--gold); }
 
-.jg-tiers{display:flex;flex-direction:column;gap:0}
-.jg-tier{display:flex;align-items:center;gap:10px;padding:8px 0}
-.jg-tier-dot{width:10px;height:10px;border-radius:50%;background:var(--accent-b);flex-shrink:0}
-.jg-d1{background:rgba(37,99,235,.5)}
-.jg-d2{background:rgba(37,99,235,.75)}
-.jg-d3{background:var(--accent-b)}
-.jg-tier-body{display:flex;flex-direction:column;gap:1px}
-.jg-tier-name{font-size:13px;font-weight:600;color:var(--text)}
-.jg-tier-price{font-size:11px;color:var(--muted)}
-.jg-connector{width:1px;height:14px;background:var(--border);margin-left:4px}
+    /* ─── UNTUK SIAPA ─── */
+    #for-who { background: var(--navy-mid); }
+    .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .audience-card {
+      background: var(--navy-dark); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 14px; padding: 2rem; transition: border-color .2s;
+    }
+    .audience-card:hover { border-color: rgba(232,160,32,.3); }
+    .audience-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .audience-card h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: .6rem; }
+    .audience-card p { font-size: .87rem; color: var(--gray); line-height: 1.6; margin-bottom: 1rem; }
+    .audience-arrow { font-size: .8rem; color: var(--gold); font-weight: 700; }
 
-.jg-goal{margin-top:1.2rem;font-size:12px;font-weight:600;color:var(--accent-b);padding:6px 12px;border:1px solid rgba(37,99,235,.2);border-radius:100px;display:inline-block}
+    /* ─── TESTIMONI ─── */
+    #testimoni { background: var(--navy-dark); }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .testi-card {
+      background: var(--navy-mid); border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px; padding: 2rem;
+    }
+    .stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 1rem; }
+    .testi-quote { font-size: .9rem; color: var(--gray-light); line-height: 1.7; font-style: italic; margin-bottom: 1.5rem; }
+    .testi-author { display: flex; align-items: center; gap: .8rem; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--navy-light); border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .85rem; color: var(--gold);
+    }
+    .testi-name { font-size: .9rem; font-weight: 700; }
+    .testi-role { font-size: .78rem; color: var(--gray); }
 
-.jg-arrow{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--dim);font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:0 .5rem}
-.jg-arrow svg{color:var(--dim)}
+    /* ─── CTA ─── */
+    #kontak {
+      background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+      text-align: center; padding: 100px 2rem;
+    }
+    #kontak .section-title { max-width: 680px; margin: 0 auto 1rem; }
+    #kontak p { color: var(--gray); margin-bottom: 2.5rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-@media(max-width:900px){
-  .journey-graphic{grid-template-columns:1fr;gap:1rem}
-  .jg-arrow{flex-direction:row;transform:rotate(90deg);margin:-.5rem auto}
-}
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(232,160,32,.12);
+      padding: 3rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 2rem;
+    }
+    .footer-brand .nav-logo { display: inline-block; margin-bottom: .8rem; font-size: 1.3rem; }
+    .footer-brand p { font-size: .85rem; color: var(--gray); line-height: 1.7; margin-bottom: 1rem; max-width: 280px; }
+    .footer-socials { display: flex; gap: .7rem; }
+    .footer-socials a {
+      width: 34px; height: 34px; background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,.1); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray-light); font-size: .85rem; text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .footer-socials a:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col h5 { font-size: .85rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: .08em; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: .5rem; }
+    .footer-col ul li a { font-size: .85rem; color: var(--gray); text-decoration: none; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-contact p { font-size: .85rem; color: var(--gray); margin-bottom: .6rem; display: flex; gap: .5rem; align-items: flex-start; }
+    .footer-bottom {
+      max-width: 1160px; margin: 2rem auto 0; padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.07);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: .8rem; color: var(--gray); flex-wrap: wrap; gap: .5rem;
+    }
+    .footer-bottom a { color: var(--gray); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--gold); }
 
-/* HARMONIC SYSTEM TIERS */
-.hs-intro{margin-bottom:2.5rem}
-.hs-intro-desc{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:1.5rem;max-width:700px}
-.hs-tier-badge{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
-.hs-price-table{background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);border-radius:10px;padding:.8rem 1rem;margin:.8rem 0 1.2rem;display:flex;flex-direction:column;gap:8px}
-.hs-pt-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
-.hs-quote{font-size:11px;color:var(--dim);font-style:italic;margin-top:.8rem}
-.hs-addon{display:flex;flex-direction:column;gap:0;margin:.8rem 0}
-.hs-addon-item{padding:.8rem 0}
-.hs-addon-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
-.hs-addon-name{font-size:13px;font-weight:700;color:var(--text)}
-.hs-addon-price{font-size:12px;font-weight:700;color:var(--green);white-space:nowrap}
-.hs-addon-list{list-style:none;display:flex;flex-direction:column;gap:4px}
-.hs-addon-list li{font-size:12px;color:var(--muted);padding-left:14px;position:relative}
-.hs-addon-list li::before{content:'·';position:absolute;left:0;color:var(--green)}
-.hs-addon-divider{height:1px;background:var(--border)}
-
-.fu{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
-.fu.vis{opacity:1;transform:translateY(0)}
-
-/* RESPONSIVE */
-@media(max-width:1000px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-visual{display:none}
-  .cards-row{grid-template-columns:1fr}
-  .cards-row-2{grid-template-columns:1fr}
-  .card-img-side{display:none}
-  .six-grid{grid-template-columns:1fr 1fr}
-  .who-grid{grid-template-columns:1fr 1fr}
-  .testi-grid{grid-template-columns:1fr}
-  .photo-strip{grid-template-columns:repeat(2,1fr)}
-  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
-  .proof-grid{grid-template-columns:repeat(2,1fr)}
-  .nav-links{display:none}
-  .hamburger{display:flex}
-}
-@media(max-width:600px){
-  .six-grid{grid-template-columns:1fr}
-  .who-grid{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr}
-  .cta-box{padding:2.5rem 1.5rem}
-}
-</style>
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .level-card { display: none; }
+      .batch-tabs { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .panel-items { grid-template-columns: 1fr; }
+      .panel-footer { flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .panel-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="grid-bg"></div>
-<div class="orb o1"></div>
-<div class="orb o2"></div>
-<div class="orb o3"></div>
-
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo">
-    <span class="logo-text">BISA <em>Academy</em></span>
-  </a>
+  <a href="#" class="nav-logo">B BISA <span>Academy</span></a>
   <ul class="nav-links">
     <li><a href="#program">Program</a></li>
     <li><a href="#for-who">Untuk Siapa</a></li>
     <li><a href="#testimoni">Testimoni</a></li>
-    <li><a href="#kontak" class="nav-btn">Daftar Sekarang</a></li>
+    <li><a href="https://wa.me/6282279793385" class="nav-cta" target="_blank">Daftar Sekarang</a></li>
   </ul>
-  <div class="hamburger" onclick="document.getElementById('mn').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </div>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
-<div class="mob-menu" id="mn">
-  <a href="#program" onclick="document.getElementById('mn').classList.remove('open')">Program</a>
-  <a href="#for-who" onclick="document.getElementById('mn').classList.remove('open')">Untuk Siapa</a>
-  <a href="#testimoni" onclick="document.getElementById('mn').classList.remove('open')">Testimoni</a>
-  <a href="#kontak" class="nav-btn" onclick="document.getElementById('mn').classList.remove('open')">Daftar Sekarang</a>
-</div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-inner wrap" style="padding-top:0;padding-bottom:0">
-    <div>
-      <div class="hero-eyebrow fu">
-        <span class="dot"></span>
-        Entrepreneurship Masterclass
+<section class="hero" id="home">
+  <div class="hero-inner">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="hero-badge">✦ 3 Batch Program · Starting → Profiting → Structuring</div>
+      <h1>Dari Nol Ide<br>Sampai Bisnis<br><em>Berjalan Sendiri.</em></h1>
+      <p class="hero-sub">Tiga tahapan terstruktur untuk membangun bisnis dari nol hingga autopilot. Dipersembahkan oleh BISA Academy.</p>
+      <div class="hero-actions">
+        <a href="#program" class="btn-primary">Lihat Program →</a>
+        <a href="https://wa.me/6282279793385" class="btn-secondary" target="_blank">💬 Tanya via WhatsApp</a>
       </div>
-      <h1 class="hero-title fu">
-        Dari Nol Ide<br>
-        <span class="grad">Sampai Bisnis<br>Berjalan Sendiri.</span>
-      </h1>
-      </p>
-      <div class="hero-ctas fu">
-        <a href="#program" class="btn-p">Lihat Program →</a>
-        <a href="https://wa.me/6282279793385" class="btn-s" target="_blank">💬 Tanya via WhatsApp</a>
-      </div>
-      <div class="hero-trust fu">
-        <div class="avatars">
-          <span>RH</span><span>SA</span><span>BW</span><span>+</span>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-lbl">Batch Program</div>
         </div>
-        <span>Jaringan komunitas entrepreneurs</span>
+        <div>
+          <div class="hero-stat-num">7</div>
+          <div class="hero-stat-lbl">Format Kelas</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-lbl">Peserta Terlatih</div>
+        </div>
       </div>
     </div>
 
-    <div class="hero-visual fu">
-      <div class="float-pill"><span class="spark">✦</span> 3 Batch Program</div>
-      <div class="hero-card">
+    <!-- RIGHT — LEVEL LAYANAN CARD -->
+    <div class="hero-right">
+      <div class="level-card">
+        <div class="level-card-header">
+          <span class="level-card-title">Level Layanan</span>
+          <span class="level-card-badge">✦ 3 Batch</span>
+        </div>
 
-        <div class="hero-card-body">
-          <div class="hc-badge">ENTREPRENEURSHIP MASTERCLASS</div>
-          <div class="hc-title">Starting → Profiting → Structuring</div>
-          <p style="font-size:13px;color:var(--muted);margin-top:6px">Tiga tahapan terstruktur untuk membangun bisnis dari nol hingga autopilot.</p>
-          <div class="hc-stats">
-            <div><div class="hc-stat-n">3</div><div class="hc-stat-l">Batch</div></div>
-            <div><div class="hc-stat-n">7</div><div class="hc-stat-l">Program</div></div>
-            <div><div class="hc-stat-n"><em>100K</em></div><div class="hc-stat-l">Mulai dari</div></div>
+        <!-- Level 1: Starting -->
+        <div class="level-row">
+          <div class="level-dot s1">💡</div>
+          <div class="level-info">
+            <div class="level-name">
+              Batch Starting
+              <span class="lbadge gold">Batch 01</span>
+            </div>
+            <div class="level-tagline">Mulai bisnis pertama dari nol — mindset, ide, hingga launch</div>
+            <div class="level-items">
+              <span class="level-chip">Public Seminar</span>
+              <span class="level-chip">Group Class</span>
+              <span class="level-chip">1-on-1 Class</span>
+            </div>
           </div>
         </div>
+
+        <!-- Level 2: Profiting -->
+        <div class="level-row">
+          <div class="level-dot s2">📈</div>
+          <div class="level-info">
+            <div class="level-name">
+              Batch Profiting
+              <span class="lbadge blue">Batch 02</span>
+            </div>
+            <div class="level-tagline">Breakthrough omset dengan 4 workshop fundamental manajemen</div>
+            <div class="level-items">
+              <span class="level-chip">Ep 01 – Marketing</span>
+              <span class="level-chip">Ep 02 – Selling</span>
+              <span class="level-chip">Ep 03 – Harmonic</span>
+              <span class="level-chip">Ep 04 – Leadership</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Level 3: Structuring -->
+        <div class="level-row" style="padding-bottom:0;margin-bottom:0;">
+          <div class="level-dot s3">🏗️</div>
+          <div class="level-info">
+            <div class="level-name">
+              Batch Structuring
+              <span class="lbadge green">Batch 03</span>
+            </div>
+            <div class="level-tagline">Bisnis autopilot dengan Harmonic System 6 pilar</div>
+            <div class="level-items">
+              <span class="level-chip">Harmonic Intensive</span>
+              <span class="level-chip">Konsultasi Private</span>
+              <span class="level-chip">In-House Training</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#program" class="level-card-cta">Tentukan Level Anda →</a>
       </div>
     </div>
+
   </div>
 </section>
-
-<!-- PROOF STRIP -->
-<div class="proof-bg">
-  <div class="wrap">
-    <div class="proof-grid">
-      <div class="proof-stat fu"><div class="proof-n">500<em>+</em></div><div class="proof-l">Peserta Terlatih</div></div>
-      <div class="proof-stat fu"><div class="proof-n">3</div><div class="proof-l">Batch Program</div></div>
-      <div class="proof-stat fu"><div class="proof-n">7</div><div class="proof-l">Format Kelas</div></div>
-      <div class="proof-stat fu"><div class="proof-n">98<em>%</em></div><div class="proof-l">Kepuasan Peserta</div></div>
-    </div>
-  </div>
-</div>
 
 <!-- PROGRAM -->
-<section class="sec" id="program">
-  <div class="wrap">
-    <div class="journey-header fu">
-      <div class="s-label">Program</div>
-      <h2 class="s-title">Tiga Tahap Perjalanan<br>Bisnis Anda</h2>
-      <p class="s-desc">Setiap batch dirancang untuk satu fase spesifik — dari membuka bisnis, merapihkan omset, hingga sistem autopilot.</p>
-    </div>
+<section id="program">
+  <div class="section-inner">
+    <div class="section-label">Program</div>
+    <h2 class="section-title">Tiga Tahap Perjalanan<br>Bisnis Anda</h2>
+    <p class="section-sub">Setiap batch dirancang untuk satu fase spesifik — dari membuka bisnis, merapihkan omset, hingga sistem autopilot.</p>
 
-    <!-- JOURNEY GRAPHIC -->
-    <div class="journey-graphic fu">
-      <!-- Batch 1: Starting -->
-      <div class="jg-batch jg-blue">
-        <div class="jg-batch-head">
-          <div class="jg-num">01</div>
-          <div>
-            <div class="jg-batch-name">Batch Starting</div>
-            <div class="jg-batch-sub">Buka bisnis dari nol</div>
-          </div>
+    <div class="batch-tabs">
+
+      <!-- Tab 1: Starting -->
+      <div class="batch-tab active" data-batch="1" onclick="switchBatch(1)">
+        <div class="tab-num">1</div>
+        <div class="tab-info">
+          <div class="tab-name">Batch Starting</div>
+          <div class="tab-sub">Buka bisnis dari nol</div>
+          <span class="tab-goal">💡 Bisnis pertama launching</span>
         </div>
-        <div class="jg-tiers">
-          <div class="jg-tier">
-            <div class="jg-tier-dot jg-d1"></div>
-            <div class="jg-tier-body">
-              <span class="jg-tier-name">Public Seminar</span>
-            </div>
-          </div>
-          <div class="jg-connector"></div>
-          <div class="jg-tier">
-            <div class="jg-tier-dot jg-d2"></div>
-            <div class="jg-tier-body">
-              <span class="jg-tier-name">Group Class</span>
-            </div>
-          </div>
-          <div class="jg-connector"></div>
-          <div class="jg-tier">
-            <div class="jg-tier-dot jg-d3"></div>
-            <div class="jg-tier-body">
-              <span class="jg-tier-name">1-on-1 Class</span>
-            </div>
-          </div>
-        </div>
-        <div class="jg-goal">💡 Goal: Bisnis pertama Anda launching</div>
       </div>
 
-      <!-- Arrow -->
-      <div class="jg-arrow">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16h20M20 10l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Naik level</span>
+      <!-- Tab 2: Profiting -->
+      <div class="batch-tab" data-batch="2" onclick="switchBatch(2)">
+        <div class="tab-num">2</div>
+        <div class="tab-info">
+          <div class="tab-name">Batch Profiting</div>
+          <div class="tab-sub">Tingkatkan omset</div>
+          <span class="tab-goal">📈 Omset breakthrough</span>
+        </div>
       </div>
 
-      <!-- Batch 2: Profiting -->
-      <div class="jg-batch jg-gold">
-        <div class="jg-batch-head">
-          <div class="jg-num" style="color:var(--gold)">02</div>
-          <div>
-            <div class="jg-batch-name">Batch Profiting</div>
-            <div class="jg-batch-sub">Tingkatkan omset</div>
-          </div>
+      <!-- Tab 3: Structuring -->
+      <div class="batch-tab" data-batch="3" onclick="switchBatch(3)">
+        <div class="tab-num">3</div>
+        <div class="tab-info">
+          <div class="tab-name">Batch Structuring</div>
+          <div class="tab-sub">Sistem autopilot</div>
+          <span class="tab-goal">🏗️ Bisnis jalan autopilot</span>
         </div>
-        <div class="jg-tiers">
-          <div class="jg-tier">
-            <div class="jg-tier-dot" style="background:var(--gold)"></div>
-            <div class="jg-tier-body">
-              <span class="jg-tier-name">Profiting Program</span>
-            </div>
-          </div>
-        </div>
-        <div class="jg-goal" style="border-color:rgba(245,158,11,.2);color:var(--gold)">📈 Goal: Omset breakthrough</div>
       </div>
 
-      <!-- Arrow -->
-      <div class="jg-arrow">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16h20M20 10l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span>Naik level</span>
-      </div>
+    </div><!-- end batch-tabs -->
 
-      <!-- Batch 3: Structuring -->
-      <div class="jg-batch jg-green">
-        <div class="jg-batch-head">
-          <div class="jg-num" style="color:var(--green)">03</div>
-          <div>
-            <div class="jg-batch-name">Batch Structuring</div>
-            <div class="jg-batch-sub">Sistem autopilot</div>
-          </div>
-        </div>
-        <div class="jg-tiers">
-          <div class="jg-tier">
-            <div class="jg-tier-dot" style="background:rgba(16,185,129,.4)"></div>
-            <div class="jg-tier-body">
-              <span class="jg-tier-name">Asesmen Harmonic</span>
-              <span class="jg-tier-price">Gratis · 90 menit</span>
-            </div>
-          </div>
-          <div class="jg-connector"></div>
-          <div class="jg-tier">
-            <div class="jg-tier-dot" style="background:rgba(16,185,129,.7)"></div>
-            <div class="jg-tier-body">
-              <span class="jg-tier-name">Full Tuning</span>
-            </div>
-          </div>
-          <div class="jg-connector"></div>
-          <div class="jg-tier">
-            <div class="jg-tier-dot" style="background:var(--green)"></div>
-            <div class="jg-tier-body">
-              <span class="jg-tier-name">Stay Harmonic</span>
-            </div>
-          </div>
-        </div>
-        <div class="jg-goal" style="border-color:rgba(16,185,129,.2);color:var(--green)">🏗️ Goal: Bisnis jalan autopilot</div>
-      </div>
-    </div>
-
-    <!-- BATCH 1: STARTING -->
-    <div class="batch">
-      <div class="batch-label fu">
-        <div class="batch-num bn-blue">1</div>
-        <div class="batch-meta">
+    <!-- ══════════ PANEL 1: STARTING ══════════ -->
+    <div class="batch-panel active" id="panel-1">
+      <div class="panel-header">
+        <div class="panel-num gold">01</div>
+        <div class="panel-title-wrap">
           <h3>Batch Starting</h3>
-          <p>Untuk kamu yang mau mulai — dari mindset hingga langkah pertama yang nyata</p>
+          <p>Buka bisnis dari nol — mindset, validasi ide, sampai launch</p>
         </div>
+        <span class="panel-goal gold">💡 Goal: Bisnis pertama Anda launching</span>
       </div>
-      <div class="cards-row">
-        <div class="p-card fu">
-          <div class="card-tier">Tier 1</div>
-          <div class="card-name">Public Seminar</div>
-          <div class="card-goal">Bangun mindset entrepreneur yang benar sebelum membuka bisnis apapun.</div>
-          <div class="card-price-note">Tersedia hingga 30 kursi per batch</div>
-          <div class="card-details">
-            <div class="cd-row"><span>⏱</span> Durasi 2 jam</div>
-            <div class="cd-row"><span>👥</span> Maks. 30 peserta</div>
-            <div class="cd-row"><span>📍</span> Offline / Online</div>
+      <div class="panel-body">
+        <div class="panel-items">
+          <div class="panel-item">
+            <div class="item-label gold">Format 01</div>
+            <div class="item-title">Public Seminar</div>
+            <div class="item-desc">Bangun mindset entrepreneur yang benar. Mindset shift dari karyawan ke pemilik bisnis, framework awal memilih ide, tanya jawab langsung dengan mentor.</div>
+            <div class="item-price">Terbuka <span>· 2 jam · maks. 30 peserta</span></div>
           </div>
-          <ul class="card-features">
-            <li>Mindset shift dari karyawan ke pemilik bisnis</li>
-            <li>Pola pikir founder yang terbukti berhasil</li>
-            <li>Framework awal memilih ide bisnis</li>
-            <li>Sesi tanya jawab langsung dengan mentor</li>
-          </ul>
-          <a href="https://wa.me/6282279793385" class="card-cta cta-out" target="_blank">Daftar Seminar</a>
+          <div class="panel-item">
+            <div class="item-label gold">Format 02</div>
+            <div class="item-title">Group Class</div>
+            <div class="item-desc">Kuasai 7-Step Formula rilis cepat laris. Validasi ide, strategi pricing, cara jualan pertama tanpa modal besar. Peer learning & feedback sesama peserta.</div>
+            <div class="item-price">Terbatas <span>· 6 jam intensif · maks. 10 peserta</span></div>
+          </div>
+          <div class="panel-item">
+            <div class="item-label gold">Format 03 · Eksklusif</div>
+            <div class="item-title">1-on-1 Class</div>
+            <div class="item-desc">Breakdown step-by-step pakai framework KS→KD. Analisis kondisi sekarang, peta jalan ke impian, action plan terukur + follow-up setelah sesi.</div>
+            <div class="item-price">Eksklusif <span>· 8 jam · 1 peserta saja</span></div>
+          </div>
         </div>
-
-        <div class="p-card featured fu">
-          <div class="card-tier">Tier 2</div>
-          <div class="card-name">Group Class</div>
-          <div class="card-goal">Kuasai 7-Step Formula agar bisnis bisa rilis cepat dan langsung laris di pasaran.</div>
-          <div class="card-price-note">Sangat terbatas — hanya 10 kursi per batch</div>
-          <div class="card-details">
-            <div class="cd-row"><span>⏱</span> Durasi 6 jam intensif</div>
-            <div class="cd-row"><span>👥</span> Maks. 10 peserta</div>
-            <div class="cd-row"><span>📍</span> Offline</div>
-          </div>
-          <ul class="card-features">
-            <li>7-Step Formula Rilis Cepat Laris</li>
-            <li>Validasi ide & riset pasar sederhana</li>
-            <li>Strategi pricing & positioning produk</li>
-            <li>Cara jualan pertama tanpa modal besar</li>
-            <li>Peer learning & feedback sesama peserta</li>
-          </ul>
-          <a href="https://wa.me/6282279793385" class="card-cta cta-prim" target="_blank">Daftar Group Class</a>
-        </div>
-
-        <div class="p-card fu">
-          <div class="card-tier">Tier 3</div>
-          <div class="card-name">1-on-1 Class</div>
-          <div class="card-goal">Breakdown step-by-step dari kondisi sekarang ke bisnis impian Anda — pakai framework KS→KD.</div>
-          <div class="card-price-note">Eksklusif — 1 klien per sesi, fully customized</div>
-          <div class="card-details">
-            <div class="cd-row"><span>⏱</span> Durasi 8 jam</div>
-            <div class="cd-row"><span>👤</span> 1 peserta saja</div>
-            <div class="cd-row"><span>🎯</span> Sesuai kondisi Anda</div>
-          </div>
-          <ul class="card-features">
-            <li>Analisis mendalam kondisi sekarang (KS)</li>
-            <li>Peta jalan ke kondisi yang diinginkan (KD)</li>
-            <li>Action plan spesifik & terukur</li>
-            <li>Pendampingan personal dari mentor</li>
-            <li>Follow-up setelah sesi selesai</li>
-          </ul>
-          <a href="https://wa.me/6282279793385" class="card-cta cta-out" target="_blank">Book 1-on-1</a>
+        <div class="panel-footer">
+          <p class="panel-note">Mulai dari seminar gratis untuk kenal dulu, lanjut ke <strong>Group Class</strong> atau langsung booking <strong>1-on-1 Class</strong> eksklusif.</p>
+          <a href="https://wa.me/6282279793385?text=Halo,%20saya%20tertarik%20dengan%20Batch%20Starting%20BISA%20Academy" class="cta-wa" target="_blank">💬 Daftar via WhatsApp</a>
+          <a href="https://freeconsultbisaacademy.vercel.app/" class="cta-konsul" target="_blank">🎯 Konsultasi Gratis dulu</a>
         </div>
       </div>
     </div>
-    <div class="batch-sep"></div>
 
-    <!-- BATCH 2: PROFITING -->
-    <div class="batch">
-      <div class="batch-label fu">
-        <div class="batch-num bn-gold">2</div>
-        <div class="batch-meta">
+    <!-- ══════════ PANEL 2: PROFITING ══════════ -->
+    <div class="batch-panel" id="panel-2">
+      <div class="panel-header">
+        <div class="panel-num blue">02</div>
+        <div class="panel-title-wrap">
           <h3>Batch Profiting</h3>
-          <p>Untuk UMKM & business owner yang omsetnya stuck dan ingin breakthrough ke level berikutnya</p>
+          <p>4 episode workshop praktis · 2–3 jam per sesi · langsung applicable</p>
         </div>
+        <span class="panel-goal blue">📈 Goal: Omset breakthrough</span>
       </div>
-      <div class="cards-row-2">
-        <div class="p-card fu" style="background:linear-gradient(160deg,rgba(245,158,11,.07),var(--surface));border-color:rgba(245,158,11,.2)">
-          <div class="card-tier" style="color:var(--gold)">Batch Profiting</div>
-          <div class="card-name">Business Profiting Program</div>
-          <div class="card-goal">Khusus untuk bisnis yang sudah jalan tapi omset terasa berantakan. Kami bantu temukan bottleneck, susun strategi, dan buka jalan ke level berikutnya.</div>
-          <div class="card-price-note">menyesuaikan skala & kebutuhan bisnis Anda</div>
-          <div class="card-details">
-            <div class="cd-row"><span>🔍</span> Diagnosa bisnis mendalam</div>
-            <div class="cd-row"><span>📈</span> Strategi pertumbuhan omset</div>
-            <div class="cd-row"><span>🤝</span> Pendampingan langsung bersama mentor</div>
+      <div class="panel-body">
+        <div class="panel-items">
+          <div class="panel-item">
+            <div class="item-label blue">Ep 01</div>
+            <div class="item-title">Berpikir Sebagai Manajer Marketing Tanpa Kuliah Marketing</div>
+            <div class="item-desc">Cara berpikir dan mengambil keputusan marketing secara sistematis, langsung bisa diterapkan di bisnis Anda hari itu juga.</div>
+            <div class="item-price">Rp 350.000 <span>/ orang</span></div>
           </div>
-          <ul class="card-features" style="flex:1">
-            <li>Identifikasi leakage & bottleneck omset</li>
-            <li>Audit strategi penjualan & keuangan saat ini</li>
-            <li>Formula levelling sesuai skala bisnis Anda</li>
-            <li>R&D strategi baru berdasarkan data</li>
-            <li>Roadmap eksekusi</li>
-          </ul>
-          <a href="https://wa.me/6282279793385" class="card-cta" style="background:var(--gold);color:#000;font-weight:700;border-radius:8px;display:block;text-align:center;text-decoration:none;padding:11px;font-size:14px" target="_blank">Konsultasi Profiting →</a>
+          <div class="panel-item">
+            <div class="item-label blue">Ep 02</div>
+            <div class="item-title">7 Hal Esensial yang Bikin Dagangan Terjual Ludes</div>
+            <div class="item-desc">Framework 7 elemen penjualan yang kalau kamu terapkan semua, produk apapun jadi lebih mudah terjual.</div>
+            <div class="item-price">Rp 200.000 <span>/ orang</span></div>
+          </div>
+          <div class="panel-item">
+            <div class="item-label blue">Ep 03</div>
+            <div class="item-title">Mengenal 6 Pilar Harmonic System dari Nol</div>
+            <div class="item-desc">Pengenalan komprehensif ke Harmonic System — framework manajemen 6 pilar untuk bisnis yang kuat dan terstruktur.</div>
+            <div class="item-price">Rp 500.000 <span>/ orang</span></div>
+          </div>
+          <div class="panel-item">
+            <div class="item-label blue">Ep 04</div>
+            <div class="item-title">Mengukur Kepemimpinan dalam Organisasi Bisnis dengan Angka</div>
+            <div class="item-desc">Cara mengukur performa kepemimpinan secara kuantitatif — bukan feeling, tapi data yang bisa diambil keputusannya.</div>
+            <div class="item-price">Rp 500.000 <span>/ orang</span></div>
+          </div>
         </div>
-
+        <div class="panel-footer">
+          <p class="panel-note">Pilih episode yang kamu butuhkan, atau ambil semua. <strong>Mulai dari Rp 200.000/orang.</strong></p>
+          <a href="https://wa.me/6282279793385?text=Halo,%20saya%20tertarik%20dengan%20Batch%20Profiting%20BISA%20Academy" class="cta-wa" target="_blank">💬 Daftar via WhatsApp</a>
+          <a href="https://freeconsultbisaacademy.vercel.app/" class="cta-konsul" target="_blank">🎯 Konsultasi Gratis dulu</a>
+        </div>
       </div>
     </div>
-    <div class="batch-sep"></div>
 
-    <!-- BATCH 3: STRUCTURING -->
-    <div class="batch">
-      <div class="batch-label fu">
-        <div class="batch-num bn-green">3</div>
-        <div class="batch-meta">
+    <!-- ══════════ PANEL 3: STRUCTURING ══════════ -->
+    <div class="batch-panel" id="panel-3">
+      <div class="panel-header">
+        <div class="panel-num green">03</div>
+        <div class="panel-title-wrap">
           <h3>Batch Structuring</h3>
-          <p>Untuk bisnis yang siap jalan autopilot dengan sistem manajemen yang solid</p>
+          <p>Harmonic System 6 pilar — bangun bisnis yang bisa berjalan tanpa kamu kawal terus</p>
         </div>
+        <span class="panel-goal green">🏗️ Goal: Bisnis jalan autopilot</span>
       </div>
-      <!-- 6 Komponen info -->
-      <div class="hs-intro fu">
-        <p class="hs-intro-desc">Framework manajemen yang mengidentifikasi dan menyelesaikan <strong>6 komponen utama bisnis</strong> — sehingga bisnis bisa autopilot, kualitas terjaga, dan masalah tidak terus berulang.</p>
-        <div class="six-grid">
-          <div class="six-item"><div class="six-num">01</div><div><div class="six-label">Direction</div><div class="six-desc">Arah & tujuan bisnis yang jelas dan terukur</div></div></div>
-          <div class="six-item"><div class="six-num">02</div><div><div class="six-label">Team</div><div class="six-desc">SDM yang tepat di posisi yang tepat</div></div></div>
-          <div class="six-item"><div class="six-num">03</div><div><div class="six-label">Resolution</div><div class="six-desc">Sistem penyelesaian masalah yang permanen</div></div></div>
-          <div class="six-item"><div class="six-num">04</div><div><div class="six-label">Discipline</div><div class="six-desc">Konsistensi eksekusi di semua lini tim</div></div></div>
-          <div class="six-item"><div class="six-num">05</div><div><div class="six-label">Procedures</div><div class="six-desc">SOP yang jelas dan bisa direplikasi</div></div></div>
-          <div class="six-item"><div class="six-num">06</div><div><div class="six-label">Measurement</div><div class="six-desc">Pengukuran performa berbasis data & KPI</div></div></div>
-        </div>
-      </div>
-
-      <!-- 3 Tier Pricing -->
-      <div class="cards-row hs-tiers">
-        <!-- Tier 1: Asesmen -->
-        <div class="p-card fu" style="border-color:rgba(16,185,129,.15)">
-          <div class="hs-tier-badge">Tier 1</div>
-          <div class="card-name" style="font-size:1rem">Asesmen Harmonic</div>
-          <div class="card-price" style="color:var(--green);font-size:2.2rem">GRATIS</div>
-          <div class="card-price-note">Sesi 90 Menit · Tanpa komitmen apapun</div>
-          <ul class="card-features" style="flex:1">
-            <li>Diagnosa ke-6 komponen bisnis Anda</li>
-            <li>Rekomendasi spesifik untuk kondisi bisnis Anda</li>
-            <li>Peta jalan menuju Harmonic System</li>
-            <li>Nol kewajiban untuk lanjut</li>
-          </ul>
-          <div class="hs-quote">"Identifikasi gap antara kondisi sekarang dan Harmonic"</div>
-          <a href="https://wa.me/6282279793385" class="card-cta cta-out" style="border-color:rgba(16,185,129,.3);color:var(--green);margin-top:1rem" target="_blank">Book Asesmen Gratis</a>
-        </div>
-
-        <!-- Tier 2: Full Tuning -->
-        <div class="p-card fu" style="background:linear-gradient(160deg,rgba(16,185,129,.1),var(--surface));border-color:rgba(16,185,129,.35);position:relative">
-          <div style="position:absolute;top:16px;right:16px;background:var(--green);color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.5px">Paling Diminati</div>
-          <div class="hs-tier-badge" style="color:var(--green)">Tier 2</div>
-          <div class="card-name" style="font-size:1rem">Full Tuning</div>
-          <div class="card-price-note">Berdasarkan jumlah tim & skala bisnis</div>
-
-          <!-- Pricing breakdown -->
-          <div class="hs-price-table">
-            <div class="hs-pt-row">
-              <span>5–15 Orang</span><span style="color:var(--green);font-weight:700"></span>
-            </div>
-            <div class="hs-pt-row">
-              <span>16–25 Orang</span><span style="color:var(--green);font-weight:700"></span>
-            </div>
-            <div class="hs-pt-row">
-              <span>25–50 Orang</span><span style="color:var(--green);font-weight:700"></span>
-            </div>
+      <div class="panel-body">
+        <div class="panel-items">
+          <div class="panel-item">
+            <div class="item-label green">Layanan 01</div>
+            <div class="item-title">Harmonic Intensive</div>
+            <div class="item-desc">Pendalaman 6 pilar Harmonic System, 90 menit per sesi. Pilih ala carte per pilar, atau ambil Paket Full Circle (6 sesi) hemat Rp 400.000.</div>
+            <div class="item-price">ab Rp 400.000 <span>/ sesi / orang &nbsp;·&nbsp; Full Circle Rp 2.000.000</span></div>
           </div>
-
-          <ul class="card-features" style="flex:1">
-            <li>Rencana implementasi 90 hari</li>
-            <li>3 sesi kerja + coaching intensif</li>
-            <li>Semua 6 komponen di-install tuntas</li>
-            <li>Garansi bisa dibatalkan kapan saja</li>
-          </ul>
-          <div class="hs-quote">*Cicilan: 40% / 30% / 30%</div>
-          <a href="https://wa.me/6282279793385" class="card-cta" style="background:var(--green);color:#000;font-weight:700;border-radius:8px;display:block;text-align:center;text-decoration:none;padding:11px;font-size:14px;margin-top:1rem" target="_blank">Mulai Full Tuning →</a>
-        </div>
-
-        <!-- Tier 3: Stay Harmonic -->
-        <div class="p-card fu" style="border-color:rgba(16,185,129,.15)">
-          <div class="hs-tier-badge">Tier 3</div>
-          <div class="card-name" style="font-size:1rem">Stay Harmonic</div>
-          <div class="card-price" style="color:var(--green);font-size:1.6rem">Custom</div>
-          <div class="card-price-note">Untuk bisnis yang ingin tetap terjaga kualitasnya</div>
-
-          <div class="hs-addon">
-            <div class="hs-addon-item">
-              <div class="hs-addon-top"><span class="hs-addon-name">Harmonic Integrator</span><span class="hs-addon-price"></span></div>
-              <ul class="hs-addon-list">
-                <li>Pendampingan 2x/minggu hands-on</li>
-                <li>Fasilitas rapat rutin tim</li>
-              </ul>
-            </div>
-            <div class="hs-addon-divider"></div>
-            <div class="hs-addon-item">
-              <div class="hs-addon-top"><span class="hs-addon-name">Quarterly Tune-Ups</span><span class="hs-addon-price"></span></div>
-              <ul class="hs-addon-list">
-                <li>4 pertemuan (3 kuartal + 1 tahunan)</li>
-                <li>Monthly accountability check</li>
-              </ul>
-            </div>
+          <div class="panel-item">
+            <div class="item-label green">Layanan 02</div>
+            <div class="item-title">Konsultasi Private</div>
+            <div class="item-desc">1-on-1 langsung dengan mentor untuk masalah bisnis yang spesifik. Privat, fleksibel waktu, dan solusi tepat sasaran.</div>
+            <div class="item-price">ab Rp 750.000 <span>/ sesi &nbsp;·&nbsp; Paket 4 & 8 sesi tersedia</span></div>
           </div>
-
-          <ul class="card-features" style="flex:1;margin-top:.5rem">
-            <li>Garansi bisa dibatalkan kapan saja</li>
-          </ul>
-          <div class="hs-quote">"Tetap selaras saat bisnis Anda berkembang"</div>
-          <a href="https://wa.me/6282279793385" class="card-cta cta-out" style="border-color:rgba(16,185,129,.3);color:var(--green);margin-top:1rem" target="_blank">Konsultasi Stay Harmonic</a>
+          <div class="panel-item">
+            <div class="item-label green">Layanan 03</div>
+            <div class="item-title">Harmonic Implementation</div>
+            <div class="item-desc">In-house training untuk seluruh tim. Implementasi sistem & SOP berdasarkan 6 pilar, 7 jam deep dive per sesi. Money Back Guarantee berlaku.</div>
+            <div class="item-price">ab Rp 4.000.000 <span>/ sesi &nbsp;·&nbsp; Paket 3 Sesi Rp 10.000.000</span></div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <p class="panel-note">Semua paket dilengkapi <strong>Money Back Guarantee</strong>. Tidak yakin mulai dari mana? Konsultasi gratis dulu.</p>
+          <a href="https://wa.me/6282279793385?text=Halo,%20saya%20tertarik%20dengan%20Batch%20Structuring%20BISA%20Academy" class="cta-wa" target="_blank">💬 Daftar via WhatsApp</a>
+          <a href="https://freeconsultbisaacademy.vercel.app/" class="cta-konsul" target="_blank">🎯 Konsultasi Gratis dulu</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOR WHO -->
-<div class="proof-bg">
-<section class="sec" id="for-who">
-  <div class="wrap">
-    <div class="fu">
-      <div class="s-label">Untuk Siapa</div>
-      <h2 class="s-title">Program Ini Tepat<br>untuk Anda Jika...</h2>
-    </div>
-    <div class="who-grid">
-      <div class="who-card fu">
-        <div class="who-icon">💡</div>
-        <div class="who-title">Early First Founder</div>
-        <div class="who-desc">Anda punya ide bisnis tapi belum tahu harus mulai dari mana. Atau sudah ada niat tapi takut gagal sebelum mencoba.</div>
-        <div class="who-tag">→ Mulai dari Batch Starting</div>
+<!-- UNTUK SIAPA -->
+<section id="for-who">
+  <div class="section-inner">
+    <div class="section-label">Untuk Siapa</div>
+    <h2 class="section-title">Program Ini Tepat<br>untuk Anda Jika...</h2>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <span class="audience-icon">💡</span>
+        <h4>Early First Founder</h4>
+        <p>Anda punya ide bisnis tapi belum tahu harus mulai dari mana. Atau sudah ada niat tapi takut gagal sebelum mencoba.</p>
+        <div class="audience-arrow">→ Mulai dari Batch Starting</div>
       </div>
-      <div class="who-card fu">
-        <div class="who-icon">📊</div>
-        <div class="who-title">UMKM / Bisnis yang Stuck</div>
-        <div class="who-desc">Bisnis sudah jalan, tapi omset segitu-gitu saja. Sudah coba banyak cara tapi hasilnya belum signifikan.</div>
-        <div class="who-tag">→ Masuk Batch Profiting</div>
+      <div class="audience-card">
+        <span class="audience-icon">📊</span>
+        <h4>UMKM / Bisnis yang Stuck</h4>
+        <p>Bisnis sudah jalan, tapi omset segitu-gitu saja. Sudah coba banyak cara tapi hasilnya belum signifikan.</p>
+        <div class="audience-arrow">→ Masuk Batch Profiting</div>
       </div>
-      <div class="who-card fu">
-        <div class="who-icon">🏗️</div>
-        <div class="who-title">Business Owner Siap Scale</div>
-        <div class="who-desc">Profit sudah stabil, tapi masih tergantung penuh pada individu tertentu. Ingin bisnis bisa berjalan sendiri dengan sistem kuat.</div>
-        <div class="who-tag">→ Ikut Batch Structuring</div>
+      <div class="audience-card">
+        <span class="audience-icon">🏗️</span>
+        <h4>Business Owner Siap Scale</h4>
+        <p>Profit sudah stabil, tapi masih tergantung penuh pada individu tertentu. Ingin bisnis bisa berjalan sendiri dengan sistem kuat.</p>
+        <div class="audience-arrow">→ Ikut Batch Structuring</div>
       </div>
     </div>
   </div>
 </section>
-</div>
 
-
-
-<!-- TESTIMONIALS -->
-<div class="proof-bg">
-<section class="sec" id="testimoni">
-  <div class="wrap">
-    <div class="fu">
-      <div class="s-label">Testimoni</div>
-      <h2 class="s-title">Kata Mereka yang<br>Sudah Bergabung</h2>
-    </div>
+<!-- TESTIMONI -->
+<section id="testimoni">
+  <div class="section-inner">
+    <div class="section-label">Testimoni</div>
+    <h2 class="section-title">Kata Mereka yang<br>Sudah Bergabung</h2>
     <div class="testi-grid">
-      <div class="t-card fu">
-        <div class="t-stars">★★★★★</div>
-        <p class="t-quote">"Setelah ikut Public Seminar, mindset saya langsung berubah total. Dua minggu kemudian saya sudah launch bisnis pertama saya. Tidak nyangka secepat ini."</p>
-        <div class="t-author">
-          <div class="t-av" style="background:linear-gradient(135deg,#2563eb,#3b82f6)">RH</div>
-          <div><div class="t-name">Rahmat H.</div><div class="t-role">Founder · Toko Online Pertama</div></div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"Setelah ikut Public Seminar, mindset saya langsung berubah total. Dua minggu kemudian saya sudah launch bisnis pertama saya. Tidak nyangka secepat ini."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RH</div>
+          <div>
+            <div class="testi-name">Rahmat H.</div>
+            <div class="testi-role">Founder · Toko Online Pertama</div>
+          </div>
         </div>
       </div>
-      <div class="t-card fu">
-        <div class="t-stars">★★★★★</div>
-        <p class="t-quote">"Group Class-nya padat banget. 7-Step Formula itu gamechanging — dalam 6 jam saya dapat blueprint yang bisa langsung dieksekusi besoknya."</p>
-        <div class="t-author">
-          <div class="t-av" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">SA</div>
-          <div><div class="t-name">Siti A.</div><div class="t-role">Business Owner · F&B</div></div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"Group Class-nya padat banget. 7-Step Formula itu gamechanging — dalam 6 jam saya dapat blueprint yang bisa langsung dieksekusi besoknya."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SA</div>
+          <div>
+            <div class="testi-name">Siti A.</div>
+            <div class="testi-role">Business Owner · F&B</div>
+          </div>
         </div>
       </div>
-      <div class="t-card fu">
-        <div class="t-stars">★★★★★</div>
-        <p class="t-quote">"Harmonic System benar-benar mengubah cara saya kelola bisnis. Sekarang tim bisa jalan sendiri, saya tinggal review mingguan. Luar biasa."</p>
-        <div class="t-author">
-          <div class="t-av" style="background:linear-gradient(135deg,#10b981,#34d399)">BW</div>
-          <div><div class="t-name">Budi W.</div><div class="t-role">CEO · Logistik Prima</div></div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">"Harmonic System benar-benar mengubah cara saya kelola bisnis. Sekarang tim bisa jalan sendiri, saya tinggal review mingguan. Luar biasa."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">BW</div>
+          <div>
+            <div class="testi-name">Budi W.</div>
+            <div class="testi-role">CEO · Logistik Prima</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-</div>
 
 <!-- CTA -->
-<div class="cta-wrap" id="kontak">
-  <div class="cta-box fu">
-    <div class="cta-gl"></div>
-    <div class="cta-gr"></div>
-    <div class="s-label" style="justify-content:center;position:relative;z-index:1">Mulai Sekarang</div>
-    <h2 class="s-title" style="text-align:center;position:relative;z-index:1">Bisnis Impian Anda<br>Dimulai dari Satu Langkah</h2>
-    <p class="s-desc" style="margin:0 auto 2rem;text-align:center;position:relative;z-index:1">We help you to get you from where you are now to where you want to be.</p>
-    <div class="cta-acts" style="position:relative;z-index:1">
-      <a href="https://wa.me/6282279793385" class="btn-p" target="_blank">💬 Chat di WhatsApp</a>
-      <a href="#program" class="btn-s">Lihat Program Lengkap</a>
+<section id="kontak">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label" style="text-align:center;">Mulai Sekarang</div>
+    <h2 class="section-title" style="max-width:680px;margin:0 auto 1rem;">Bisnis Impian Anda<br>Dimulai dari Satu Langkah</h2>
+    <p style="color:var(--gray);margin-bottom:2.5rem;">We help you to get you from where you are now to where you want to be.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6282279793385" class="btn-primary" target="_blank">💬 Chat di WhatsApp</a>
+      <a href="https://freeconsultbisaacademy.vercel.app/" class="btn-secondary" target="_blank">🎯 Konsultasi Gratis</a>
     </div>
   </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="logo" style="text-decoration:none">
-          <div class="logo-mark">B</div>
-          <span class="logo-text">BISA <em>Academy</em></span>
-        </a>
-        <p>Lembaga pelatihan & konsultasi bisnis yang membantu early founders dan UMKM Indonesia tumbuh dari nol hingga autopilot.</p>
-        <div class="f-socials">
-          <a href="#" class="f-soc">📘</a>
-          <a href="#" class="f-soc">📸</a>
-          <a href="#" class="f-soc">💼</a>
-          <a href="#" class="f-soc">▶️</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Program</h4>
-        <ul>
-          <li><a href="#program">Public Seminar</a></li>
-          <li><a href="#program">Group Class</a></li>
-          <li><a href="#program">1-on-1 Class</a></li>
-          <li><a href="#program">Batch Profiting</a></li>
-          <li><a href="#program">Harmonic System</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Navigasi</h4>
-        <ul>
-          <li><a href="#">Beranda</a></li>
-          <li><a href="#for-who">Untuk Siapa</a></li>
-          <li><a href="#testimoni">Testimoni</a></li>
-          <li><a href="https://freeconsultbisaacademy.vercel.app/" target="_blank">Free Konsultasi</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Kontak</h4>
-        <div class="f-ci"><span>📍</span><span>Jl. Danau Maninjau No.39, Kedaton, Bandarlampung 35122</span></div>
-        <div class="f-ci"><span>💬</span><a href="https://wa.me/6282279793385" style="color:var(--muted);text-decoration:none">+62 822-7979-3385</a></div>
-        <div class="f-ci"><span>✉️</span><span>bisaacademyindonesia@gmail.com</span></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">B BISA <span>Academy</span></a>
+      <p>Lembaga pelatihan & konsultasi bisnis yang membantu early founders dan UMKM Indonesia tumbuh dari nol hingga autopilot.</p>
+      <div class="footer-socials">
+        <a href="#">📘</a><a href="#">📸</a><a href="#">💼</a><a href="#">▶️</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 BISA Academy Indonesia. All Rights Reserved.</p>
-      <div class="fb-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Syarat & Ketentuan</a>
-      </div>
+    <div class="footer-col">
+      <h5>Program</h5>
+      <ul>
+        <li><a href="#program">Batch Starting</a></li>
+        <li><a href="#program">Batch Profiting</a></li>
+        <li><a href="#program">Batch Structuring</a></li>
+        <li><a href="https://freeconsultbisaacademy.vercel.app/" target="_blank">Free Konsultasi</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Navigasi</h5>
+      <ul>
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#for-who">Untuk Siapa</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <h5>Kontak</h5>
+      <p>📍 Jl. Danau Maninjau No.39, Kedaton, Bandarlampung 35122</p>
+      <p>💬 <a href="https://wa.me/6282279793385" target="_blank" style="color:var(--gold);">+62 822-7979-3385</a></p>
+      <p>✉️ bisaacademyindonesia@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 BISA Academy Indonesia. All Rights Reserved.</span>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Syarat & Ketentuan</a>
     </div>
   </div>
 </footer>
 
 <script>
-// Fade up
-const obs = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('vis'), i * 60)
-      obs.unobserve(e.target)
+  function switchBatch(n) {
+    document.querySelectorAll('.batch-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.batch-panel').forEach(p => p.classList.remove('active'));
+    document.querySelector(`.batch-tab[data-batch="${n}"]`).classList.add('active');
+    document.getElementById(`panel-${n}`).classList.add('active');
+  }
+
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    const isOpen = links.style.display === 'flex';
+    links.style.display = isOpen ? 'none' : 'flex';
+    if (!isOpen) {
+      Object.assign(links.style, {
+        flexDirection: 'column', position: 'absolute',
+        top: '64px', left: '0', right: '0',
+        background: 'rgba(20,27,45,0.98)',
+        padding: '1.5rem 2rem', gap: '1rem',
+        borderBottom: '1px solid rgba(232,160,32,0.15)'
+      });
     }
-  })
-}, { threshold: 0.08 })
-document.querySelectorAll('.fu').forEach(el => obs.observe(el))
-
-// Slider
-const track = document.getElementById('sliderTrack')
-const wrap = document.getElementById('slider')
-const slides = track.querySelectorAll('.slide')
-const dotsWrap = document.getElementById('sliderDots')
-const SLIDE_W = 340 + 12 // width + gap
-let current = 0
-
-// Build dots
-slides.forEach((_, i) => {
-  const d = document.createElement('div')
-  d.className = 'slider-dot' + (i === 0 ? ' active' : '')
-  d.onclick = () => goTo(i)
-  dotsWrap.appendChild(d)
-})
-
-function goTo(idx) {
-  current = Math.max(0, Math.min(idx, slides.length - 1))
-  track.style.transform = `translateX(-${current * SLIDE_W}px)`
-  dotsWrap.querySelectorAll('.slider-dot').forEach((d, i) => d.classList.toggle('active', i === current))
-}
-
-document.getElementById('slPrev').onclick = () => goTo(current - 1)
-document.getElementById('slNext').onclick = () => goTo(current + 1)
-
-// Drag / swipe
-let startX = 0, isDragging = false, startOffset = 0
-wrap.addEventListener('mousedown', e => { isDragging = true; startX = e.clientX; startOffset = current * SLIDE_W; track.classList.add('no-transition') })
-window.addEventListener('mousemove', e => { if (!isDragging) return; const dx = startX - e.clientX; track.style.transform = `translateX(-${startOffset + dx}px)` })
-window.addEventListener('mouseup', e => {
-  if (!isDragging) return; isDragging = false; track.classList.remove('no-transition')
-  const dx = startX - e.clientX
-  if (Math.abs(dx) > 60) goTo(dx > 0 ? current + 1 : current - 1); else goTo(current)
-})
-wrap.addEventListener('touchstart', e => { startX = e.touches[0].clientX; startOffset = current * SLIDE_W; track.classList.add('no-transition') }, {passive:true})
-wrap.addEventListener('touchmove', e => { const dx = startX - e.touches[0].clientX; track.style.transform = `translateX(-${startOffset + dx}px)` }, {passive:true})
-wrap.addEventListener('touchend', e => {
-  track.classList.remove('no-transition')
-  const dx = startX - e.changedTouches[0].clientX
-  if (Math.abs(dx) > 50) goTo(dx > 0 ? current + 1 : current - 1); else goTo(current)
-})
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.innerWidth < 640) document.querySelector('.nav-links').style.display = 'none';
+    });
+  });
+  const secs = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : '';
+    });
+  });
 </script>
 </body>
 </html>
-
